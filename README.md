@@ -15,7 +15,7 @@ EcoProject consists of four main parts;
 *This repository is for code regarding the webserver*
 
 ## Protocol Diagram
-![enter image description here](https://i.ibb.co/KrGwqCw/Untitled-drawing-36.png)
+![enter image description here](https://raw.githubusercontent.com/DylanK46/TeamEngima-EcoProject-Webserver/aa8f5027a346ea41de8a1355274aef3feedab786/docs/diagram.svg)
 ## Webserver Technologies
 The webserver should aim to be a MEAN stack; Containing:
 
