@@ -8,10 +8,11 @@
 }
 
 header {
-    height:150px;
-    min-height:400px;
+    height:750px;
+    min-height:500px;
     background-size:cover;
-    background-image:url('/static/assets/universal/pawel-czerwinski-lWBZ01XRRoI-unsplash.jpg');
+    background-image:url('/static/assets/universal/pawel-czerwinski-lWBZ01XRRoI-unsplash.webp');
+    background-position: 50% 75%;
 }
 
 .nav-item {
