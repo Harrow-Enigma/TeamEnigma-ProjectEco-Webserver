@@ -1,10 +1,10 @@
-# Team Enigma Ecoproject
+# Team Enigma ProjectEco
 ![GitHub language count](https://img.shields.io/github/languages/count/DylanK46/TeamEngima-EcoProject-Webserver) 			 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/DylanK46/TeamEngima-EcoProject-Webserver) ![GitHub repo size](https://img.shields.io/github/repo-size/DylanK46/TeamEngima-EcoProject-Webserver) ![GitHub repo size](https://img.shields.io/github/issues/DylanK46/TeamEngima-EcoProject-Webserver) ![GitHub repo size](https://img.shields.io/github/last-commit/DylanK46/TeamEngima-EcoProject-Webserver)
 
 ## Introduction
-EcoProject is the first project of Team Enigma, the AI team of [Harrow School](https://www.harrowschool.org.uk). 
+Project Eco is the first project of Team Enigma, the AI team of [Harrow School](https://www.harrowschool.org.uk). 
 
-EcoProject consists of four main parts;
+Project Eco consists of four main parts;
 
  - **A webserver (and by extension, a website)**
  - Sensors on ESP-32 boards
