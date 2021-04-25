@@ -10,11 +10,17 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+app.set('view engine', 'ejs');
+
 app.get("/", (req,res) => {
-  res.sendFile(path.join(__dirname + '/pages/index.html'));
+  res.render(path.join(__dirname + '/views/pages/index.ejs'));
 });
 
-app.use('/static', express.static(path.join(__dirname, 'static')))
+app.get("/about", (req,res) => {
+  res.render(path.join(__dirname + '/views/pages/about.ejs'));
+});
+
+app.use('/static', express.static(path.join(__dirname, 'views/static')))
 
 io.on('connection', (socket) => {
   console.log('a user connected');

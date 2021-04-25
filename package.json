@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^5.0.0-beta3",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "socket.io": "^4.0.1"
   },
