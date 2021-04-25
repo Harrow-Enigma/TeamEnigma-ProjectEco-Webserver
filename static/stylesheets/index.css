@@ -1,0 +1,19 @@
+.navbar-nav.navbar-center {
+    font-family:poppins,sans-serif;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    color:black;
+    font-size:20px;
+}
+
+header {
+    height:150px;
+    min-height:400px;
+    background-size:cover;
+    background-image:url('/static/assets/universal/pawel-czerwinski-lWBZ01XRRoI-unsplash.jpg');
+}
+
+.nav-item {
+  padding: 50px 50px 75px;
+}
