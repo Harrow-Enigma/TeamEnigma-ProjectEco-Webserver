@@ -11,14 +11,17 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav navbar-center">
+
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link <% if (page_name === '/') { %> active <% } %>" href="#">
+                Home
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link <% if (page_name === '/') { %> active <% } %>" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
+                <a class="nav-link <% if (page_name === '/') { %> active <% } %>" href="#">Resources</a>
               </li>
             </ul>
           </div>

@@ -1,0 +1,23 @@
+.social:link {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.social:visited {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.social:hover {
+  color: rgb(129, 129, 129);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.social:active {
+  color: rgb(83, 83, 83);
+  background-color: transparent;
+  text-decoration: underline;
+}
