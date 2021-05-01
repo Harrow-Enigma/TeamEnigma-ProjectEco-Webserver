@@ -14,9 +14,9 @@ app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/index.js'));
 app.use('/about', require('./routes/about.js'))
+app.use('/api/v1', require('./routes/api.js'));
 
 app.use('/static', express.static(path.join(__dirname, 'views/static')))
-
 
 io.on('connection', (socket) => {
   console.log('a user connected');
@@ -44,6 +44,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log("Server started on port 3000")
 });

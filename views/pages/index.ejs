@@ -1,74 +1,156 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Eco</title>
 
-  <head>
-    <!-- Include Header -->
-    <%- include('../partials/head.ejs'); %>
+  <!-- Boostrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/static/stylesheets/index.css">
-    
-  </head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-  <body>
-    <!-- UNIQUE Header -->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light" style="height:85px">
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        <div class="container-fluid">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  <!-- LE FONT -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav navbar-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div>
+  <!-- TEMP STYLES HAVEN -->
+  <style>
+    h1 {
+      font-family: 'Poppins', sans-serif;
+    }
 
-    <!-- TypingText Card-->
-    <div style="padding-left:50px; padding-top:100px" class="container-fluid">
-      <div class="card border-0 bg-transparent" style="width: 40rem;">
-        <div class="card-body">
+    h2 {
+      font-family: 'Poppins', sans-serif;
+    }
 
-          <script src="/static/js/typingtext.js"></script>
-          <h1 style="font-size:96px" class="typewrite" data-period="2000" data-type='[ "Project Eco.", "By Team Enigma", "A Harrow School Team", "AI driven pollution data analysis" ]'>
-            <span class="wrap"></span>
-          </h1>
+    p {
+      font-family: 'Poppins', sans-serif;
+    }
 
+    div {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    a {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Device Optimisation - Header */
+    header {
+      height: 400px;
+    }
+
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
+      header {
+        height: 600px;
+      }
+    }
+
+    /* CHANGE INTRO FOR SCREEN WIDTH */
+    @media all and (max-width: 4000px) {
+            .desktop {
+                display: block;
+            }
+            .mobile {
+                display: none;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            .desktop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+            }
+    }
+
+    /* Header Image */
+    header {
+      background-image: url(static/assets/universal/justsomeleaves.webp);
+      background-position: center top;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+
+
+  /* CENTER NAVBAR */
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <header>
+  <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="height:85px">
+      <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="left: 50%;">
+          <ul class="navbar-nav navbar-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Resources</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  
-    </header>
+    </nav>
 
-    <div style="padding: 25px 50px 25px">
-
-        let's imagine there's some data here
-    
-        <h1 data-aos="fade-right"> The project </h1>
-        <p data-aos="fade-right">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis sem lectus, eu euismod nisi varius ullamcorper. Suspendisse potenti. Quisque vel blandit lacus. In sed tempus quam, non ultricies risus. Nam dignissim, est sit amet aliquam bibendum, lorem erat accumsan elit, ut porttitor tortor mi nec ante. Quisque sed ante sit amet ex dictum facilisis. Donec sem nunc, iaculis vel justo at, pharetra ultrices ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vel finibus massa. Etiam erat dolor, tincidunt ut lacinia et, consequat eu enim. Sed in pretium massa. Vestibulum euismod aliquet fermentum. Mauris egestas eget nisl ornare feugiat. Donec quis condimentum ligula, a tristique magna.
-        </p>
-
-        let's also imagine there's a button to about page
+    <div class="mobile" style="margin-left: 20px; margin-right: 25%;">
+      <script src="static/js/typingtext.js"></script>
+      <h1 style="font-size:30px;" class="typewrite" data-period="2000" data-type='[ "Project Eco.", "by Team Enigma", "a Harrow School Team", "AI-Driven Pollution Data Analysis" ]'>
+        <span class="wrap"></span>
+      </h1>
     </div>
 
-    <footer id="Harrow football" style="margin-bottom: -50px;">
+    <div class="desktop" style="margin-left: 20px; margin-right: 20%;">
+      <script src="static/js/typingtext.js"></script>
+      <h1 style="font-size:80px;" class="typewrite" data-period="2000" data-type='[ "Project Eco.", "by Team Enigma", "a Harrow School Team", "AI-Driven Pollution Data Analysis" ]'>
+        <span class="wrap"></span>
+      </h1>
+    </div>
+
+  </header>
+
+  <div style="padding: 25px 50px 25px">
+
+    let's imagine there's some data here
+
+    <h1> The project </h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis sem lectus, eu euismod nisi varius ullamcorper. Suspendisse potenti. Quisque vel blandit lacus. In sed tempus quam, non ultricies risus. Nam dignissim, est sit amet aliquam bibendum, lorem erat accumsan elit, ut porttitor tortor mi nec ante. Quisque sed ante sit amet ex dictum facilisis. Donec sem nunc, iaculis vel justo at, pharetra ultrices ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vel finibus massa. Etiam erat dolor, tincidunt ut lacinia et, consequat eu enim. Sed in pretium massa. Vestibulum euismod aliquet fermentum. Mauris egestas eget nisl ornare feugiat. Donec quis condimentum ligula, a tristique magna.
+    </p>
+
+    let's also imagine there's a button to about page
+  </div>
+
+  <footer id="Harrow football" style="margin-bottom: -50px;">
       <!-- Include Header -->
       <%- include('../partials/footer.ejs'); %>
-    </footer>
-    
-    </body>
+  </footer>
+
+</body>
 </html>
