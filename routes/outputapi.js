@@ -1,6 +1,9 @@
 // this is sample data for now
 var express = require('express');
 var router = express.Router();
+router.use(express.json());
+
+const dbInputModel = require("../models/inputdb.js");
 
 router.get("/", (req,res, next) => {
   res.send({

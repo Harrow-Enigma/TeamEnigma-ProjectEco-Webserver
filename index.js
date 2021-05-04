@@ -14,16 +14,10 @@ app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/index.js'));
 app.use('/about', require('./routes/about.js'))
-app.use('/api/v1', require('./routes/api.js'));
+app.use('/api/rest/ai/v1', require('./routes/outputapi.js'));
+app.use('/api/rest/sensors/v1', require('./routes/inputapi.js'));
 
 app.use('/static', express.static(path.join(__dirname, 'views/static')))
-
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  setInterval(() => {
-    socket.broadcast.emit('hi');
-  }, 2000)
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,6 +38,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(3002, () => {
-  console.log("Server started on port 3000")
+app.listen(3001, () => {
+  console.log("Server started on port 3001")
 });
