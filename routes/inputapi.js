@@ -3,11 +3,12 @@ var router = express.Router();
 
 router.use(express.json());
 
-const dbInputModel = require("../models/inputdb.js");
+const mongodbModel = require("../models/sensormongodb.js");
 
 router.post("/", (req,res, next) => {
-  dbInputModel.initDBdata();
-  dbInputModel.postDBdata(req.body);
+  //auth plugin needed.
+      
+  mongodbModel.postDBdata(req.body);
   res.sendStatus(200);
 });
 
