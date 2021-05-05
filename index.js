@@ -7,9 +7,6 @@ const fs = require('fs');
 const http = require('http');
 const server = http.createServer(app);
 
-const { Server } = require("socket.io");
-const io = new Server(server);
-
 app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/index.js'));
@@ -23,6 +20,7 @@ app.use('/static', express.static(path.join(__dirname, 'views/static')))
 app.use(function(req, res, next) {
   res.send("error")
 });
+
 
 module.exports = app;
 

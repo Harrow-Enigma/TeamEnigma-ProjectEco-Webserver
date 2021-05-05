@@ -17,11 +17,11 @@ Project Eco consists of four main parts;
 ## Protocol Diagram
 ![enter image description here](https://raw.githubusercontent.com/DylanK46/TeamEngima-EcoProject-Webserver/aa8f5027a346ea41de8a1355274aef3feedab786/docs/diagram.svg)
 ## Webserver Technologies
-The webserver should aim to be a MEAN stack; Containing:
+The webserver should aim to be a MEVN stack; Containing:
 
  - **M**ongoDB
  - **E**xpress.js
- - **A**ngular
+ - **V**ue.js
  - **N**ode.js
 
 It should have a REST endpoint to recieve data from an on-site AI server

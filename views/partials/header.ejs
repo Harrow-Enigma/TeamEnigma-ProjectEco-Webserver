@@ -1,17 +1,59 @@
 <!-- Include header css -->
 <link rel="stylesheet" href="/static/stylesheets/header.css">
 
+<div data-aos="fade-up" data-aos-duration="1500">
+
     <!-- TypingText Card-->
    
-    <div style="padding-left:50px; padding-top:100px" class="container-fluid">
-      <div class="card border-0 bg-transparent" style="width: auto;">
-        <div class="card-body">
+   <!-- NAVBAR -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light" style="height:85px">
+      <div class="container-fluid">
 
-          <script src="/static/js/typingtext.js"></script>
-          <h1 style="font-size:96px" class="typewrite" data-period="2000" data-type='[ "Project Eco", "By Team Enigma", "A Harrow School Team", "Using AI driven pollution data" ]'>
-            <span class="wrap"></span>
-          </h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="left: 50%; z-index: 1;">
+          <ul class="navbar-nav navbar-center">
+           <a class="navbar-brand" href="#">
+              <img src="/static/assets/universal/favicon.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">
+              Project Eco
+            </a>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Resources</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
+
+    <div>
+      <div class="mobile" style="margin-left: 20px; margin-right: 25%;">
+
+        <script src="static/js/typingtext.js"></script>
+        <h1 style="font-size:30px;z-index: -1;" class="typewrite" data-period="2000" data-type='[ "Project Eco.", "By Team Enigma"]'><b>
+
+          <span class="wrap"></span>
+
+          </b>
+        </h1>
+      </div> 
+      
+      <div class="desktop" style="margin-left: 20px; margin-right: 20%;">
+        <script src="static/js/typingtext.js"></script>
+        <h1 style="font-size:80px; align-middle;" class="typewrite" data-period="2000" data-type='[ "Project Eco.", "By Team Enigma"]'>
+        <b>
+          <span class="wrap"></span>
+        </b>
+        </h1>
+      </div>
     </div>
+
+</div>

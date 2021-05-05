@@ -1,21 +1,43 @@
-/* Center the navbar */
-.navbar-nav.navbar-center {
-    font-family:poppins,sans-serif;
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-    color:black;
-    font-size:20px;
-}
+/* Device Optimisation - Header */
+    header {
+      height: 400px;
+      background-image: url("/static/assets/universal/justsomeleaves.webp");
+      background-position: center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
 
-header {
-    height:750px;
-    min-height:500px;
-    background-size:cover;
-    background-image:url('/static/assets/universal/pawel-czerwinski-lWBZ01XRRoI-unsplash.webp');
-    background-position: 50% 75%;
-}
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
+      header {
+        height: 600px;
+      }
+    }
 
-.nav-item {
-  padding: 50px 50px 75px;
-}
+    /* CHANGE INTRO FOR SCREEN WIDTH */
+    @media all and (max-width: 4000px) {
+            .desktop {
+                display: block;
+                position: absolute;
+                padding-top: 120px;
+            }
+            .mobile {
+                display: none;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            .desktop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+                position: absolute;
+                padding-top: 50px;
+            }
+    }
+
+    .show {
+      background-color: white;
+      border-radius:5px
+    }
