@@ -6,7 +6,7 @@
     <!-- TypingText Card-->
    
    <!-- NAVBAR -->
-    
+
     <nav class="navbar navbar-expand-lg navbar-light" style="height:85px">
       <div class="container-fluid">
 
@@ -21,13 +21,13 @@
               Project Eco
             </a>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link <%if (pagename === "Home") { %> active<% } %>" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link <%if (pagename === "About") { %> active<% } %>" href="/about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Resources</a>
+              <a class="nav-link <%if (pagename === "Resources") { %> active<% } %>" href="/resources">Resources</a>
             </li>
           </ul>
         </div>
