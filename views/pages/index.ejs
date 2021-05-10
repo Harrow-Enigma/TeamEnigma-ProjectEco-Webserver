@@ -9,6 +9,100 @@
     <%- include('../partials/header.ejs'); %>
   </header>
 
+  <main>
+
+    <!--
+    <div id="app">
+
+      {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
+
+    </div> -->
+
+
+    <div class="app">
+      <h1>Bar Chart</h1>
+      <line-chart></line-chart>
+    </div>
+
+    <script>
+
+        data =  [{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"60925272faa0840025a6b043","DATE":"2021-05-05T07:51:18.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"_id":"6092572bfaa0840025a6b044","DATE":"2021-05-05T07:51:19.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"_id":"6092584afaa0840025a6b045","DATE":"2022-05-05T07:51:20.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"6096a9c453b6cec9c46312fb","DATE":"2021-05-05T07:51:21.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"6096ab059d6ca08dceb2b5c0","DATE":"2021-05-05T07:51:22.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"6096ab0e9d6ca08dceb2b5c1","DATE":"2021-05-05T07:51:23.000Z","__v":0}]
+
+        Vue.component('line-chart', {
+        extends: VueChartJs.Line,
+        data: function () {
+          console.log(app.data)
+          return {
+            datacollection: {
+              datasets: [{
+                  data: data
+              }]
+            },
+            options: {
+              parsing: {
+                xAxisKey: 'DATE',
+                yAxisKey: 'LOCATION1.Temperature'
+              },
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  },
+                  gridLines: {
+                    display: true
+                  }
+                }],
+                xAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  },
+                  gridLines: {
+                    display: false
+                  }
+                }]
+              },
+              legend: {
+                display: false
+              },
+              tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                  label: function(tooltipItems, data) {
+                    return '$' + tooltipItems.yLabel;
+                  }
+                }
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              height: 200
+      }
+          }
+        },
+        mounted () {
+          // this.chartData is created in the mixin
+          this.renderChart(this.datacollection, this.options)
+        }
+      })
+
+        const socket = io('/');
+          var app = new Vue({
+            el: '.app',
+            data: {
+              data: "test",
+              loaded: false
+            },
+          });
+
+          socket.on('message', data => {
+                      app.data = data
+                      app.loaded = true
+                  })
+    </script>
+
+    
+
+  </main>
 
   <footer id="Harrow football" style="margin-bottom: -50px;">
       <!-- Include Header -->

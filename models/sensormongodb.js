@@ -60,6 +60,7 @@ exports.postDBdata = (json) => {
 
   // and this one reads it
 exports.getDBdata = () => {
+
   return sensordatamodel.find({}, function(err, result) {
     if (err) {
       return(err);
