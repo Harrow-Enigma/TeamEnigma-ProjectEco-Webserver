@@ -9,8 +9,9 @@ const fs = require('fs');
 app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/index.js'));
-app.use('/about', require('./routes/about.js'))
-app.use('/resources', require('./routes/resources.js'))
+app.use('/about', require('./routes/about.js'));
+app.use('/resources', require('./routes/resources.js'));
+app.use('/export', require('./routes/download.js'));
 
 app.use('/api/rest/ai/v1', require('./routes/outputapi.js'));
 app.use('/api/rest/sensors/v1', require('./routes/inputapi.js'));

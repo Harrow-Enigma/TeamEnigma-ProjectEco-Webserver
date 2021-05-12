@@ -11,96 +11,114 @@
 
   <main>
 
-    <!--
     <div id="app">
-
       {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
-
-    </div> -->
-
-
-    <div class="app">
-      <h1>Bar Chart</h1>
-      <line-chart></line-chart>
     </div>
 
+    <canvas id="chart" width="400" height="150"></canvas>
+
     <script>
-
-        data =  [{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"60925272faa0840025a6b043","DATE":"2021-05-05T07:51:18.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"_id":"6092572bfaa0840025a6b044","DATE":"2021-05-05T07:51:19.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"_id":"6092584afaa0840025a6b045","DATE":"2022-05-05T07:51:20.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"6096a9c453b6cec9c46312fb","DATE":"2021-05-05T07:51:21.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"6096ab059d6ca08dceb2b5c0","DATE":"2021-05-05T07:51:22.000Z","__v":0},{"LOCATION1":{"Temperature":10,"Humidity":23,"CO2":493},"LOCATION2":{"Temperature":13,"Humidity":34,"CO2":492},"_id":"6096ab0e9d6ca08dceb2b5c1","DATE":"2021-05-05T07:51:23.000Z","__v":0}]
-
-        Vue.component('line-chart', {
-        extends: VueChartJs.Line,
-        data: function () {
-          console.log(app.data)
-          return {
-            datacollection: {
-              datasets: [{
-                  data: data
-              }]
-            },
-            options: {
-              parsing: {
-                xAxisKey: 'DATE',
-                yAxisKey: 'LOCATION1.Temperature'
-              },
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: true
-                  },
-                  gridLines: {
-                    display: true
-                  }
-                }],
-                xAxes: [{
-                  ticks: {
-                    beginAtZero: true
-                  },
-                  gridLines: {
-                    display: false
-                  }
-                }]
-              },
-              legend: {
-                display: false
-              },
-              tooltips: {
-                enabled: true,
-                mode: 'single',
-                callbacks: {
-                  label: function(tooltipItems, data) {
-                    return '$' + tooltipItems.yLabel;
-                  }
-                }
-              },
-              responsive: true,
-              maintainAspectRatio: false,
-              height: 200
-      }
-          }
-        },
-        mounted () {
-          // this.chartData is created in the mixin
-          this.renderChart(this.datacollection, this.options)
-        }
-      })
-
-        const socket = io('/');
-          var app = new Vue({
-            el: '.app',
+      var app = new Vue({
+            el: '#app',
             data: {
-              data: "test",
+              data: "<i>Loading</i>",
               loaded: false
             },
           });
 
-          socket.on('message', data => {
-                      app.data = data
-                      app.loaded = true
-                  })
-    </script>
+      var socket = io.connect()
+      var ctx = document.getElementById('chart').getContext('2d')
+      var data = {
+        labels: [0],
+        datasets: [{
+          data: [],
+          label: 'CO2',
+          backgroundColor: '#32a852'
+        }]
+      }
+      var chart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+          animation: false,
+          scales: {
+            xAxes: [{
+              type: 'time'
+            }]
+        }
+              
+        }
+      })
 
-    
+      socket.on('message', function (value) {
+        inputlabels = []
+        inputvalues = []
+        inputboth = []
+
+        app.data = value
+        app.loaded = true
+
+        for (dataset in value.data) {
+          inputboth.push({
+            "x":value.data[dataset].DATE,
+            "y":value.data[dataset].LOCATION1.CO2
+          })
+        }
+       
+        // Sort array by date in ASCENDING order
+        inputboth.sort(function (a, b) {
+          if (Date.parse(a.x) < Date.parse(b.x)) {
+           return -1;
+           }
+          if (Date.parse(a.x) > Date.parse(b.x)) {
+          return 1;
+           }
+          return 0;
+        });
+
+        data.datasets[0].data = inputboth
+
+        
+
+        /*
+
+        const sortByDate = arr => {
+          const sorter = (a, b) => {
+              return new Date(a.date).getTime() - new Date(b.date).getTime();
+              console.log(Date(a.date).getTime()
+          }
+          arr.sort(sorter);
+        };
+        sortByDate(arr);
+        console.log(arr); */
+
+        //data.datasets[0].data = inputvalues
+        //data.labels = inputlabels
+
+        //console.log(inputboth)
+        
+        /*
+        console.log(value.data[value.data.length-1])
+
+        
+        var length = data.labels.length
+        if (length >= 20) {
+          data.datasets[0].data.shift()
+          data.labels.shift()
+        }
+
+        data.labels.push(moment().format('HH:mm:ss'))
+        data.datasets[0].data.push(value)
+        
+
+        data.datasets[0].data = value.data[value.data.length-1].LOCATION1.Temperature
+        data.labels = value.data.DATE
+
+        */
+        chart.update()
+        
+      })
+  </script>
 
   </main>
 
