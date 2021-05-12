@@ -25,8 +25,10 @@ app.use(function(req, res, next) {
 
 const mongodbModel = require("./models/sensormongodb");
 
+connectCounter = 0;
 //Whenever someone connects this gets executed
 io.on('connection', function(socket) {
+   connectCounter++;
    console.log('A user connected');
    
    setInterval(function(){
@@ -35,7 +37,7 @@ io.on('connection', function(socket) {
 
      modelobject.exec(function (err, data) {
       if (err) return handleError(err);
-      socket.emit('message',  { data : data })
+      socket.emit('message',  { data : data , connectCounter: connectCounter })
     })
      
     }, 1000);
@@ -43,6 +45,7 @@ io.on('connection', function(socket) {
   //Whenever someone disconnects this piece of code executed
    socket.on('disconnect', function () {
       console.log('A user disconnected');
+      connectCounter--; 
    });
 }); 
 

@@ -11,22 +11,30 @@
 
   <main>
 
-    <div id="app">
-      {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <canvas v-if="data.loaded" id="chart"></canvas>
+        </div>
+        <div class="col-sm">
+          test
+        </div>
+        <div class="col-sm">
+          test
+        </div>
+      </div>
     </div>
 
-    <canvas id="chart" width="400" height="150"></canvas>
 
-    <script>
-      var app = new Vue({
-            el: '#app',
-            data: {
-              data: "<i>Loading</i>",
-              loaded: false
-            },
-          });
+    <div id="app">
+      <div v-if="data.loaded">
+        {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
+      </div>
+    </div>
 
-      var socket = io.connect()
+    <script src="/static/js/universal/vue.js"></script>
+
+    <script> 
       var ctx = document.getElementById('chart').getContext('2d')
       var data = {
         labels: [0],
@@ -43,7 +51,14 @@
           animation: false,
           scales: {
             xAxes: [{
-              type: 'time'
+              type: 'time',
+              display: false
+            }],
+            yAxes: [{
+            		display: false,
+                ticks: {
+                	beginAtZero: false,
+              	},
             }]
         }
               
@@ -54,9 +69,7 @@
         inputlabels = []
         inputvalues = []
         inputboth = []
-
-        app.data = value
-        app.loaded = true
+        outputboth = []
 
         for (dataset in value.data) {
           inputboth.push({
@@ -76,49 +89,23 @@
           return 0;
         });
 
-        data.datasets[0].data = inputboth
-
-        
-
-        /*
-
-        const sortByDate = arr => {
-          const sorter = (a, b) => {
-              return new Date(a.date).getTime() - new Date(b.date).getTime();
-              console.log(Date(a.date).getTime()
-          }
-          arr.sort(sorter);
-        };
-        sortByDate(arr);
-        console.log(arr); */
-
-        //data.datasets[0].data = inputvalues
-        //data.labels = inputlabels
-
-        //console.log(inputboth)
-        
-        /*
-        console.log(value.data[value.data.length-1])
-
-        
-        var length = data.labels.length
-        if (length >= 20) {
-          data.datasets[0].data.shift()
-          data.labels.shift()
+        for (dataset in inputboth) {
+          outputboth.push({
+            "x": moment(inputboth[dataset].x).format('MMMM Do YYYY, h:mm:ss a'),
+            "y": inputboth[dataset].y
+          })
         }
 
-        data.labels.push(moment().format('HH:mm:ss'))
-        data.datasets[0].data.push(value)
+        (data.datasets[0].data) = outputboth
+
         
 
-        data.datasets[0].data = value.data[value.data.length-1].LOCATION1.Temperature
-        data.labels = value.data.DATE
 
-        */
+
         chart.update()
         
       })
-  </script>
+      </script>
 
   </main>
 
