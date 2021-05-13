@@ -14,4 +14,4 @@ jobs:
           node-version : 12.22.1
       - run: npm ci
       - run: npm test
-      - run: npm run build
+      - run: node .
