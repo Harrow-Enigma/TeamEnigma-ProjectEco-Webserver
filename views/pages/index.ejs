@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,101 +12,327 @@
 
   <main>
 
-    <div class="container">
+    <div class="container" style="padding-top:50px; padding-bottom:50px">
       <div class="row">
         <div class="col-sm">
-          <canvas v-if="data.loaded" id="chart"></canvas>
-        </div>
-        <div class="col-sm">
-          test
-        </div>
-        <div class="col-sm">
-          test
-        </div>
-      </div>
-    </div>
 
-
-    <div id="app">
-      <div v-if="data.loaded">
-        {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
-      </div>
-    </div>
-
-    <script src="/static/js/universal/vue.js"></script>
-
-    <script> 
-      var ctx = document.getElementById('chart').getContext('2d')
-      var data = {
-        labels: [0],
-        datasets: [{
-          data: [],
-          label: 'CO2',
-          backgroundColor: '#32a852'
-        }]
-      }
-      var chart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-          animation: false,
-          scales: {
-            xAxes: [{
-              type: 'time',
-              display: false
-            }],
-            yAxes: [{
-            		display: false,
-                ticks: {
-                	beginAtZero: false,
-              	},
-            }]
-        }
+          <style>
               
-        }
-      })
+            .card {
+              background-color: #fff;
+              box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              max-width: 300px;
+              height: 375px;
+              border-radius: 10px;
+              overflow: hidden;
+            }
 
-      socket.on('message', function (value) {
-        inputlabels = []
-        inputvalues = []
-        inputboth = []
-        outputboth = []
+            .card .about {
+              height: 225px;
+              padding: 20px;
+              box-sizing: border-box;
+            }
 
-        for (dataset in value.data) {
-          inputboth.push({
-            "x":value.data[dataset].DATE,
-            "y":value.data[dataset].LOCATION1.CO2
-          })
-        }
-       
-        // Sort array by date in ASCENDING order
-        inputboth.sort(function (a, b) {
-          if (Date.parse(a.x) < Date.parse(b.x)) {
-           return -1;
-           }
-          if (Date.parse(a.x) > Date.parse(b.x)) {
-          return 1;
-           }
-          return 0;
-        });
+            .card .about h3,
+            .card .about .lead {
+              font-weight: 300;
+              margin: 0;
+            }
 
-        for (dataset in inputboth) {
-          outputboth.push({
-            "x": moment(inputboth[dataset].x).format('MMMM Do YYYY, h:mm:ss a'),
-            "y": inputboth[dataset].y
-          })
-        }
+            .card .about h3 {
+              font-size: 24px;
+            }
 
-        (data.datasets[0].data) = outputboth
+            .card .about .lead {
+              color: #aaa;
+            }
 
-        
+            .card .info {
+              float: left;
+              padding: 10px 30px 10px 0;
+            }
+
+            .card .info p {
+              font-size: 11px;
+              color: #aaa;
+              font-weight: 300;
+            }
+
+            .legends {
+              padding-top: 20px;
+              overflow: hidden;
+            }
+
+            .legend {
+              display: block;
+              width: 8px;
+              height: 8px;
+              margin-top: 15px;
+              margin-bottom: 15px;
+              border-radius: 50%;
+            }
+
+            .legend--this {
+              background-color: #5555FF;
+            }
+
+            .legend--prev {
+              background-color: #FF55B8;
+            }
+
+            .axis {
+              position: absolute;
+              color: #fff;
+              z-index: 1;
+              text-transform: uppercase;
+              display: flex;
+              width: 100%;
+              bottom: 0;
+            }
+
+            .axis .tick {
+              flex: 1;
+              position: relative;
+              overflow: hidden;
+              opacity: 0.2;
+              font-size: 11px;
+              text-align: center;
+              line-height: 40px;
+              padding-top: 150px;
+            }
+
+            .axis .tick:hover {
+              opacity: 1;
+              background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .axis .tick .value {
+              transform: translateY(-40px);
+              transition: 0.3s transform;
+              position: absolute;
+              top: 20px;
+              color: #444;
+              border-radius: 2px;
+              width: 100%;
+              line-height: 20px;
+            }
+
+            .axis .tick:hover .value.value--this {
+              transform: translateY(0);
+              display: block;
+            }
+
+            .value.value--this {
+              color: #5555FF;
+              font-weight: bold;
+            }
+          
+          </style>
+
+          <div class="card">
+                  <!-- Custom information -->
+                  <div class="about">
+                    <h3>PAST HOUR</h3>
+                    <p class="lead">Temperature</p>
+                    <div class="legends">
+                      <div class="info">
+                        <span class="legend legend--this"></span>
+                        <p>LOCATION1</p>
+                      </div>
+                      <div class="info">
+                        <span class="legend legend--prev"></span>
+                        <p>LOCATION2</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Canvas for Chart.js -->
+                  <canvas id="canvas"></canvas>
+                  
+                  <!-- Custom Axis -->
+                  <div class="axis">
+                    <div class="tick">
+                      MON
+                      <span class="value value--this">24</span>
+                      <span class="value value--prev">20</span>
+                    </div>
+                    <div class="tick">
+                      TUE
+                      <span class="value value--this">18</span>
+                      <span class="value value--prev">22</span>
+                    </div>
+                    <div class="tick">
+                      WED
+                      <span class="value value--this">16</span>
+                      <span class="value value--prev">30</span>
+                    </div>
+                    <div class="tick">
+                      THU
+                      <span class="value value--this">18</span>
+                      <span class="value value--prev">22</span>
+                    </div>
+                    <div class="tick">
+                      FRI
+                      <span class="value value--this">24</span>
+                      <span class="value value--prev">18</span>
+                    </div>
+                    <div class="tick">
+                      SAT
+                      <span class="value value--this">36</span>
+                      <span class="value value--prev">22</span>
+                    </div>
+                    <div class="tick">
+                      SUN
+                      <span class="value value--this">28</span>
+                      <span class="value value--prev">30</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <script>
+              var canvas = document.getElementById("canvas");
+
+              // Apply multiply blend when drawing datasets
+              var multiply = {
+                beforeDatasetsDraw: function(chart, options, el) {
+                  chart.ctx.globalCompositeOperation = 'multiply';
+                },
+                afterDatasetsDraw: function(chart, options) {
+                  chart.ctx.globalCompositeOperation = 'source-over';
+                },
+              };
+
+              // Gradient color - this week
+              var gradientThisWeek = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+              gradientThisWeek.addColorStop(0, '#5555FF');
+              gradientThisWeek.addColorStop(1, '#9787FF');
+
+              // Gradient color - previous week
+              var gradientPrevWeek = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+              gradientPrevWeek.addColorStop(0, '#FF55B8');
+              gradientPrevWeek.addColorStop(1, '#FF8787');
+
+
+              var config = {
+                  type: 'line',
+                  data: {
+                      datasets: [
+                        {
+                            labels: [],
+                            data: [],
+                            backgroundColor: gradientThisWeek,
+                            borderColor: 'transparent',
+                            pointBackgroundColor: '#FFFFFF',
+                            pointBorderColor: '#FFFFFF',
+                            lineTension: 0.40,
+                        },
+                        {
+                            label: 'Previous week',
+                            data: [20, 22, 30, 22, 18, 22, 30],
+                            backgroundColor: gradientPrevWeek,
+                            borderColor: 'transparent',
+                            pointBackgroundColor: '#FFFFFF',
+                            pointBorderColor: '#FFFFFF',
+                            lineTension: 0.40,
+                        }
+                      ]
+                  },
+                  options: {
+                      elements: { 
+                        point: {
+                          radius: 0,
+                          hitRadius: 5, 
+                          hoverRadius: 5 
+                        } 
+                      },
+                      legend: {
+                          display: false,
+                      },
+                      scales: {
+                          xAxes: [{
+                              display: false,
+                          }],
+                          yAxes: [{
+                              display: false,
+                              ticks: {
+                                beginAtZero: true,
+                              },
+                          }]
+                      }
+                  },
+                  plugins: [multiply],
+              };
+
+              window.chart = new Chart(canvas, config);
+
+              function dataanalyser(metric,location, datasource) {
+                  
+                inputlabels = []
+                inputvalues = []
+                inputboth = []
+                outputboth = []
+
+                for (dataset in datasource.data) {
+                  inputboth.push({
+                    "x":datasource.data[dataset].DATE,
+                    "y":datasource.data[dataset].LOCATION1.metric
+                  })
+                }
+              
+                // Sort array by date in ASCENDING order
+                inputboth.sort(function (a, b) {
+                  if (Date.parse(a.x) < Date.parse(b.x)) {
+                  return -1;
+                  }
+                  if (Date.parse(a.x) > Date.parse(b.x)) {
+                  return 1;
+                  }
+                  return 0;
+                });
+
+                for (dataset in inputboth) {
+                  outputboth.push({
+                    "x": moment(inputboth[dataset].x).format('MMMM Do YYYY, h:mm:ss a'),
+                    "y": inputboth[dataset].y
+                  }) }
+                return outputboth;
+
+              }
+
+              /*
+              var socket = io.connect()
+              socket.on('message', function (value) {
+
+                (config.data.datasets[0].data) = dataanalyser("CO2", "LOCATION1", value)
+                */
+                
+                chart.update()
+                
+              })
+              </script>
 
 
 
-        chart.update()
-        
-      })
-      </script>
+        <div class="col-sm">
+            <script src="/static/js/universal/vue.js"></script>
+
+          <div id="app">
+            <div v-if="data.loaded">
+              {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-sm">
+          test
+        </div>
+      </div>
+    </div>
 
   </main>
 
