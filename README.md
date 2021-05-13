@@ -30,6 +30,7 @@ It should an external MongoDB for JSON data storage
 It should have a Bootstrap frontend with Angular, possibly with utilities such as Chart.js
 
 It could eventually be placed into a Docker Container for easy deployment.
+UPDATE : Using CD with github actions might provide the best solution
 
 ## Explaination
 A more detailed explaination can be found [here](https://github.com/Harrow-Enigma/minutes/blob/main/20210327%20-%20Team%20Enigma%20Planning%20Meeting%20Summary.md#the-ecoproject).
