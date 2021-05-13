@@ -1,16 +1,26 @@
-name: Node Continuous Integration
+name: Node.js CI
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    branches: [master]
+    branches: [ main ]
 
 jobs:
-  test_pull_request:
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version : 12.22.1
+          node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: node .
+      - run: npm run build --if-present
+      - run: npm test
