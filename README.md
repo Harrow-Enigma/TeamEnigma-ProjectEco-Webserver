@@ -15,7 +15,7 @@ Project Eco consists of four main parts;
 *This repository is for code regarding the webserver*
 
 ## Protocol Diagram
-![enter image description here](https://raw.githubusercontent.com/DylanK46/TeamEngima-EcoProject-Webserver/aa8f5027a346ea41de8a1355274aef3feedab786/docs/diagram.svg)
+![enter image description here](https://raw.githubusercontent.com/DylanK46/TeamEngima-ProjectEco-Webserver/54e5729d56fce9383a1753efde4e51c23b027654/docs/diagram.svg)
 ## Webserver Technologies
 The webserver should aim to be a MEVN stack; Containing:
 
