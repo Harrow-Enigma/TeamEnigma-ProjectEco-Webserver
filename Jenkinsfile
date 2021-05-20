@@ -1,27 +1,12 @@
 pipeline {
   agent any
-    
-  tools {NodejS "node"}
-    
+ 
+  tools {nodejs "node"}
+ 
   stages {
-        
-    stage('Git') {
+    stage('Example') {
       steps {
-        git 'https://github.com/DylanK46/TeamEngima-ProjectEco-Webserver.git'
-      }
-    }
-     
-    stage('Build') {
-      steps {
-        sh 'npm install'
-         sh '<<Build Command>>'
-      }
-    }  
-    
-            
-    stage('Deploy') {
-      steps {
-        sh 'node .'
+        sh 'npm config ls'
       }
     }
   }
