@@ -55,6 +55,6 @@ io.on('connection', function(socket) {
 
 module.exports = app;
 
-http.listen(3093, () => {
+http.listen(process.env['port'], () => {
   console.log("Server started on port 3001")
 });
