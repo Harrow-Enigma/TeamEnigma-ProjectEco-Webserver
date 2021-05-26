@@ -1,13 +1,11 @@
 name: trigger jenkins job
-on: [push]
+on: [push]   
 jobs:
-
-  build:
-    name: Build
+  deployment:
     runs-on: ubuntu-latest
     steps:
-    - name: Trigger Jenkins
-      uses: DylanK46/TeamEngima-ProjectEco-Webserver@master
+    - name: Deploy Stage
+      uses: fjogeleit/http-request-action@master
       with:
         url: 'http://kainth.tk:49171/job/ProjectEco/build'
         method: 'POST'
