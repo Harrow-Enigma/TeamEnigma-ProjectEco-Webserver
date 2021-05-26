@@ -1,0 +1,13 @@
+name: trigger jenkins job
+on: [push]   
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Stage
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: 'http://kainth.tk:49171/job/ProjectEco/build'
+        method: 'POST'
+        username: ${{ secrets.jenkins_user }}
+        password: ${{ secrets.jenkins_token }}
