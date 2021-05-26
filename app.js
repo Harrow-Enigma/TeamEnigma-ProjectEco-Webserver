@@ -57,6 +57,6 @@ console.log(parseInt(process.env['dbserver']));
 module.exports = app;
 
 
-http.listen(1003, () => {
-  console.log("Server started on port "+toString(process.env['port']))
+http.listen(3093, () => {
+  console.log("Server started on port 3093")
 }); 
