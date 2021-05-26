@@ -9,6 +9,7 @@ const fs = require('fs');
 app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/index.js'));
+
 app.use('/about', require('./routes/about.js'));
 app.use('/resources', require('./routes/resources.js'));
 app.use('/export', require('./routes/download.js'));
@@ -49,12 +50,13 @@ io.on('connection', function(socket) {
    });
 }); 
 
-
 //io.emit('message', {data : "data"})
 
+console.log(parseInt(process.env['dbserver']));
 
 module.exports = app;
 
-http.listen(process.env['port'], () => {
+
+http.listen(1003, () => {
   console.log("Server started on port "+toString(process.env['port']))
-});
+}); 
