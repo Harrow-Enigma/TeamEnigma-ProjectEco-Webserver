@@ -1,4 +1,3 @@
-/*
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -60,16 +59,3 @@ http.listen(3093, () => {
 }); 
 
 module.exports = app;
-*/
-
-const express = require('express')
-const app = express()
-const port = 3093
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
