@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -54,8 +55,21 @@ io.on('connection', function(socket) {
 
 //console.log(parseInt(process.env['dbserver']));
 
-module.exports = app;
-
 http.listen(3093, () => {
   console.log("Server started on port 3093")
 }); 
+
+module.exports = app;
+*/
+
+const express = require('express')
+const app = express()
+const port = 3093
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
