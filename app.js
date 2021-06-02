@@ -52,10 +52,9 @@ io.on('connection', function(socket) {
 
 //io.emit('message', {data : "data"})
 
-console.log(parseInt(process.env['dbserver']));
+//console.log(parseInt(process.env['dbserver']));
 
 module.exports = app;
-
 
 http.listen(3093, () => {
   console.log("Server started on port 3093")
