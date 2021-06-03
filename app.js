@@ -3,6 +3,8 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+console.log('\x1b[36m%s\x1b[0m',"SERVER > PACKAGES INSTALLED");
+
 module.exports.getIO = function(){
      return io;
 }
@@ -27,10 +29,12 @@ app.use(function(req, res, next) {
   res.send("error")
 });
 
+console.log('\x1b[36m%s\x1b[0m',"SERVER > ROUTERS INITIALISED");
+
 connectCounter = 0;
 
 http.listen(3093, () => {
-  console.log("Server started on port 3093")
+  console.log('\x1b[36m%s\x1b[0m',"SERVER > SERVER STARTED [port 3093]");
 }); 
 
 module.exports = app;

@@ -12,11 +12,11 @@ router.get("/", (req,res, next) => {
 
 io.on('connection', function(socket) {
    connectCounter++;
-   console.log('A user connected');
+   console.log('\x1b[31m','SITE > A USER CONNECTED [COUNT='+connectCounter+']');
    
    setInterval(function(){
 
-     var modelobject = mongodbModel.getDBdata()
+     var modelobject = mongodbModel.getsensordata()
 
      modelobject.exec(function (err, data) {
       if (err) return handleError(err);
@@ -27,7 +27,7 @@ io.on('connection', function(socket) {
 
   //Whenever someone disconnects this piece of code executed
    socket.on('disconnect', function () {
-      console.log('A user disconnected');
+      console.log('\x1b[31m','SITE > A USER DISCONNECTED [COUNT='+connectCounter+']');
       connectCounter--; 
    });
 }); 

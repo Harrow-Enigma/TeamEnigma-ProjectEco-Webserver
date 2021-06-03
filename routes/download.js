@@ -7,7 +7,7 @@ const mongodbModel = require("../models/sensormongodb.js");
 
 router.get("/", async (req,res, next) => {
 
-  const data = await mongodbModel.getDBdata()
+  const data = await mongodbModel.getsensordata()
 
   // convert JSON array to CSV string
   await converter.json2csv(data, (err, csv) => {

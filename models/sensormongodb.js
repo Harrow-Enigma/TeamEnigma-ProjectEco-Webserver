@@ -13,7 +13,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Report Active Connection
 db.once("open", function() {
-  console.log("Connection Successful!");
+  console.log("\x1b[33m%s\x1b[0m","DATABASE > DATABASE CONNECTED");
 });
 
 // Declare Data Structure
@@ -43,7 +43,7 @@ var authtokenmodel = mongoose.model("model", "authtokens");
 // FUNCTIONS
 
   // This one posts data to the DB
-exports.postDBdata = (json) => {
+exports.postsensordata = (json) => {
   var doc1 = new sensordatamodel({
   "DATE": json["DATE"], 
   "LOCATION1":  json["LOCATION1"],
@@ -52,19 +52,32 @@ exports.postDBdata = (json) => {
   
   doc1.save(function(err, doc) {
     if (err) return console.error(err);
-    console.log("Document inserted succussfully!");
+    console.log("\x1b[33m%s\x1b[0m","DATABASE > DOCUMENT INSERTED [postsensordata]");
   });
 
   return("Success")
 };
 
   // and this one reads it
-exports.getDBdata = () => {
+exports.getsensordata = () => {
 
   return sensordatamodel.find({}, function(err, result) {
     if (err) {
       return(err);
     } else {
+      return(result);
+    }
+  });
+}
+
+exports.getauthtokens = () => {
+
+  return authtokenmodel.find({}, function(err, result) {
+    if (err) {
+      return(err);
+    } else {
+      console.log("\x1b[33m%s\x1b[0m","DATABASE > DOCUMENT READ [getauthtokens]");
+
       return(result);
     }
   });
