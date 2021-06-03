@@ -10,7 +10,7 @@ Project Eco consists of four main parts;
 
  - **A webserver (and by extension, a website)**
  - Sensors on ESP-32 boards
- - An AI server, with Pytorch
+ - An AI server, with Tensorflow
  - A set of forms
  
 
@@ -36,3 +36,6 @@ UPDATE : Using CD with github actions / Jenkins might provide the best solution
 
 ## Explaination
 A more detailed explaination can be found [here](https://github.com/Harrow-Enigma/minutes/blob/main/20210327%20-%20Team%20Enigma%20Planning%20Meeting%20Summary.md#the-ecoproject).
+
+## Other repositories
+[AI Repo](https://github.com/Harrow-Enigma/ProjectECO-AI)
