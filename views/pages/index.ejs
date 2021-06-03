@@ -131,7 +131,7 @@
             }
           
           </style>
-
+        
           <div class="card">
                   <!-- Custom information -->
                   <div class="about">
@@ -303,13 +303,11 @@
 
               }
 
-              /*
               var socket = io.connect()
               socket.on('message', function (value) {
 
                 (config.data.datasets[0].data) = dataanalyser("CO2", "LOCATION1", value)
-                */
-                
+                console.log(value)
                 chart.update()
                 
               })
@@ -318,8 +316,6 @@
 
 
         <div class="col-sm">
-            <script src="/static/js/universal/vue.js"></script>
-
           <div id="app">
             <div v-if="data.loaded">
               {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
@@ -342,4 +338,7 @@
   </footer>
   
 </body>
+
+  <script src="/static/js/universal/vue.js"></script>
+
 </html>
