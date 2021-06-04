@@ -21,7 +21,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "forever app.js",
+    "start": "forever start app.js",
     "stop": "forever stopall"
   },
   "repository": {
