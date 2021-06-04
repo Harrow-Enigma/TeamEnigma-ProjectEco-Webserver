@@ -307,7 +307,7 @@
               socket.on('message', function (value) {
 
                 (config.data.datasets[0].data) = dataanalyser("CO2", "LOCATION1", value)
-                console.log(value)
+                console.log(config.data.datasets[0].data)
                 chart.update()
                 
               })
@@ -325,7 +325,7 @@
         </div>
 
         <div class="col-sm">
-          test dylanpushtojenkins
+          <!-- another col-->
         </div>
       </div>
     </div>

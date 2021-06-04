@@ -16,19 +16,29 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="left: 50%; z-index: 1;">
           <ul class="navbar-nav navbar-center">
-           <a class="navbar-brand" href="#">
+           <a class="navbar-brand" href="/">
               <img src="/static/assets/universal/favicon.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">
               Project Eco
             </a>
+
             <li class="nav-item">
               <a class="nav-link <%if (pagename === "Home") { %> active<% } %>" aria-current="page" href="/">Home</a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link <%if (pagename === "About") { %> active<% } %>" href="/about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link <%if (pagename === "Resources") { %> active<% } %>" href="/resources">Resources</a>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle <%if ((pagename === "Articles") || (pagename === "Export" )) { %> active<% } %>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Resources
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item <%if (pagename === "Articles") { %> active<% } %>" href="/articles">Articles</a></li>
+                <li><a class="dropdown-item <%if (pagename === "Export") { %> active<% } %>" href="/export">Export</a></li>
+              </ul>
             </li>
+
           </ul>
         </div>
       </div>
