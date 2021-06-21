@@ -44,9 +44,8 @@ var authtokenmodel = mongoose.model("model", "authtokens");
 
   // This one posts data to the DB
 
-var date = new Date();
-
 exports.postsensordata = (json) => {
+  var date = new Date();
   var datestamp = date.toISOString();
   var doc1 = new sensordatamodel({
   "DATE": datestamp , 
