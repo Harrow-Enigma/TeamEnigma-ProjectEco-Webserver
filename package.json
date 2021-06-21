@@ -8,6 +8,7 @@
     "bootstrap": "^5.0.0-beta3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
     "json-2-csv": "^3.11.0",
     "loader": "^2.1.1",
     "mongodb": "^3.6.6",

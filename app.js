@@ -26,9 +26,11 @@ app.use('/api/v1', require('./routes/apiv1.js'));
 app.use('/static', express.static(path.join(__dirname, 'views/static')))
 
 // catch 404
-app.use(function(req, res, next) {
-  res.send("error")
-});
+app.use(function (req, res, next) {
+  res.status(404)
+  var HttpStatus = require('http-status-codes');
+  res.render('pages/error.ejs' ,{"pagename":"Error","errorcode":res.statusCode, "errorname":   HttpStatus.getStatusText(res.statusCode)});
+})
 
 console.log('\x1b[36m%s\x1b[0m',"SERVER > ROUTERS INITIALISED");
 

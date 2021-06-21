@@ -10,6 +10,7 @@ router.post("/rest/input/ai/", (req,res,next) => {
 });
 
 router.post("/rest/input/sensors/", (req,res,next) => {
+  mongodbModel.get
   mongodbModel.postsensordata(req.body);
   res.sendStatus(200)
 });
