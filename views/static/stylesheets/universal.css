@@ -87,6 +87,7 @@ body {
 
 }
 
+/* Navbar DropDown*/
 @media (min-width: 992px) {
   .collapse, navbar-collapse {
     position: absolute;
@@ -142,7 +143,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  background-color: rgba(92, 169, 4, 0.3);
+  /*background-color: rgba(92, 169, 4, 0.3);*/
   transition: 1s;
 }
 
