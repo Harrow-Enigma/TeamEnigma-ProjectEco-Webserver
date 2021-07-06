@@ -22,12 +22,18 @@ var DataSchema = new mongoose.Schema({
     "LOCATION1": {
       "Temperature":{type: Number},
       "Humidity":{type: Number},
-      "CO2":{type: Number}
+      "TVOC":{type: Number},
+      "eCO2": {type:Number},
+      "rawH2": {type: Number},
+      "rawEthanol": {type: Number}
       },
     "LOCATION2": {
       "Temperature":{type: Number},
       "Humidity":{type: Number},
-      "CO2":{type: Number}
+      "TVOC":{type: Number},
+      "eCO2": {type:Number},
+      "rawH2": {type: Number},
+      "rawEthanol": {type: Number}
       }
     } 
 );

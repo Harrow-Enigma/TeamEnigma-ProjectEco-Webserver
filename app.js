@@ -19,6 +19,7 @@ app.use('/', require('./routes/index.js'));
 app.use('/about', require('./routes/about.js'));
 app.use('/articles', require('./routes/articles.js'));
 app.use('/export', require('./routes/export.js'))
+app.use('/data', require('./routes/data.js'))
 app.use('/export', require('./routes/download.js'));
 
 app.use('/api/v1', require('./routes/apiv1.js'));

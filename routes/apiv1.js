@@ -10,9 +10,17 @@ router.post("/rest/input/ai/", (req,res,next) => {
 });
 
 router.post("/rest/input/sensors/", (req,res,next) => {
-  mongodbModel.get
-  mongodbModel.postsensordata(req.body);
-  res.sendStatus(200)
+  if (typeof req.body.token == 'undefined') {
+    res.sendStatus(401)
+  } else {
+    if (req.body.token  == process.env['dbpass']) {
+      mongodbModel.get
+      mongodbModel.postsensordata(req.body);
+      res.sendStatus(200)  
+      } else {
+      res.sendStatus(401)
+    }
+  }
 });
 
 router.get("/rest/output/", async (req,res, next) => {

@@ -1,344 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<%- include('../partials/head.ejs'); %>
+	<link rel="stylesheet" href="/static/stylesheets/index.css">
 
-  <%- include('../partials/head.ejs'); %>
+	<!-- Typewriter Text -->
+	<script type="text/javascript" src="/static/js/universal/typingtext.js"></script>
 </head>
+
 <body>
-  <header>
-    <%- include('../partials/header.ejs'); %>
-  </header>
 
-  <main>
+	<%- include('../partials/header.ejs'); %>
 
-    <div class="container" style="padding-top:50px; padding-bottom:50px">
-      <div class="row">
-        <div class="col-sm">
+  <div id="fixedText" style="opacity: 0; pointer-events: none; color: white">
+    <h3><span>The</span>
+      <!--<span class="fixedbold" style="font-weight: bolder; white-space: nowrap;">
+        <span id="messengertop" messages="[ &quot;Environment&quot; ]"></span>
+      </span>-->
+      <span class="fixedbold" style="font-weight: bolder; white-space: nowrap;">Environment</span>
+      is what we
+      <span class="fixedbold" style="font-weight: bolder">
+        breathe
+      </span> and
+      <span class="fixedbold" style="font-weight: bolder">
+        thrive
+      </span> in.
+    </h3>
 
-          <style>
-              
-            .card {
-              background-color: #fff;
-              box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              max-width: 300px;
-              height: 375px;
-              border-radius: 10px;
-              overflow: hidden;
-            }
+    <p style="font-size: 20px;">
+      Yet how many of us actually pay attention to the quality of the <span id="hover" style="transition: 2s;">environment</span> that we live in? If we could better predict environmental <span id="hover">pollution</span>, can we improve our lifestyle? And more importantly, does environmental factors tie into personal <span id="hover">well-being</span>?
+    </p>
 
-            .card .about {
-              height: 225px;
-              padding: 20px;
-              box-sizing: border-box;
-            }
+    <p style="font-size: 20px;"> 
+      These are the driving questions behind <span id="hover">Project Eco</span>, the first project developed under <span id="hover">Team Enigma</span>, the AI group from Harrow School.
+    </p>
+  </div>
 
-            .card .about h3,
-            .card .about .lead {
-              font-weight: 300;
-              margin: 0;
-            }
+	<div class="container-fluid" id="bodyContent" style="transition: 2s">
 
-            .card .about h3 {
-              font-size: 24px;
-            }
+		<section class="headerTransition"></section>
 
-            .card .about .lead {
-              color: #aaa;
-            }
+		<div class="container-fluid" id="about">
 
-            .card .info {
-              float: left;
-              padding: 10px 30px 10px 0;
-            }
+			<div class="bodyText">
 
-            .card .info p {
-              font-size: 11px;
-              color: #aaa;
-              font-weight: 300;
-            }
+        <section style="height: 50px;"></section>
 
-            .legends {
-              padding-top: 20px;
-              overflow: hidden;
-            }
+				<!-- <p style="font-size: 20px;">
+					Yet how many of us actually pay attention to the quality of the <span id="hover" style="transition: 2s;">environment</span> that we live in? If we could better predict environmental <span id="hover">pollution</span>, can we improve our lifestyle? And more importantly, does environmental factors tie into personal <span id="hover">well-being</span>?
+				</p>
 
-            .legend {
-              display: block;
-              width: 8px;
-              height: 8px;
-              margin-top: 15px;
-              margin-bottom: 15px;
-              border-radius: 50%;
-            }
+				<p style="font-size: 20px;"> 
+					These are the driving questions behind <span id="hover">Project Eco</span>, the first project developed under <span id="hover">Team Enigma</span>, the AI group from Harrow School.
+				</p> -->
 
-            .legend--this {
-              background-color: #5555FF;
-            }
-
-            .legend--prev {
-              background-color: #FF55B8;
-            }
-
-            .axis {
-              position: absolute;
-              color: #fff;
-              z-index: 1;
-              text-transform: uppercase;
-              display: flex;
-              width: 100%;
-              bottom: 0;
-            }
-
-            .axis .tick {
-              flex: 1;
-              position: relative;
-              overflow: hidden;
-              opacity: 0.2;
-              font-size: 11px;
-              text-align: center;
-              line-height: 40px;
-              padding-top: 150px;
-            }
-
-            .axis .tick:hover {
-              opacity: 1;
-              background-color: rgba(255, 255, 255, 0.2);
-            }
-
-            .axis .tick .value {
-              transform: translateY(-40px);
-              transition: 0.3s transform;
-              position: absolute;
-              top: 20px;
-              color: #444;
-              border-radius: 2px;
-              width: 100%;
-              line-height: 20px;
-            }
-
-            .axis .tick:hover .value.value--this {
-              transform: translateY(0);
-              display: block;
-            }
-
-            .value.value--this {
-              color: #5555FF;
-              font-weight: bold;
-            }
-          
-          </style>
-        
-          <div class="card">
-                  <!-- Custom information -->
-                  <div class="about">
-                    <h3>PAST HOUR</h3>
-                    <p class="lead">Temperature</p>
-                    <div class="legends">
-                      <div class="info">
-                        <span class="legend legend--this"></span>
-                        <p>LOCATION1</p>
-                      </div>
-                      <div class="info">
-                        <span class="legend legend--prev"></span>
-                        <p>LOCATION2</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Canvas for Chart.js -->
-                  <canvas id="canvas"></canvas>
-                  
-                  <!-- Custom Axis -->
-                  <div class="axis">
-                    <div class="tick">
-                      MON
-                      <span class="value value--this">24</span>
-                      <span class="value value--prev">20</span>
-                    </div>
-                    <div class="tick">
-                      TUE
-                      <span class="value value--this">18</span>
-                      <span class="value value--prev">22</span>
-                    </div>
-                    <div class="tick">
-                      WED
-                      <span class="value value--this">16</span>
-                      <span class="value value--prev">30</span>
-                    </div>
-                    <div class="tick">
-                      THU
-                      <span class="value value--this">18</span>
-                      <span class="value value--prev">22</span>
-                    </div>
-                    <div class="tick">
-                      FRI
-                      <span class="value value--this">24</span>
-                      <span class="value value--prev">18</span>
-                    </div>
-                    <div class="tick">
-                      SAT
-                      <span class="value value--this">36</span>
-                      <span class="value value--prev">22</span>
-                    </div>
-                    <div class="tick">
-                      SUN
-                      <span class="value value--this">28</span>
-                      <span class="value value--prev">30</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-            <script>
-              var canvas = document.getElementById("canvas");
-
-              // Apply multiply blend when drawing datasets
-              var multiply = {
-                beforeDatasetsDraw: function(chart, options, el) {
-                  chart.ctx.globalCompositeOperation = 'multiply';
-                },
-                afterDatasetsDraw: function(chart, options) {
-                  chart.ctx.globalCompositeOperation = 'source-over';
-                },
-              };
-
-              // Gradient color - this week
-              var gradientThisWeek = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
-              gradientThisWeek.addColorStop(0, '#5555FF');
-              gradientThisWeek.addColorStop(1, '#9787FF');
-
-              // Gradient color - previous week
-              var gradientPrevWeek = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
-              gradientPrevWeek.addColorStop(0, '#FF55B8');
-              gradientPrevWeek.addColorStop(1, '#FF8787');
+				<section style="height: 100px;"></section>
 
 
-              var config = {
-                  type: 'line',
-                  data: {
-                      datasets: [
-                        {
-                            labels: [],
-                            data: [],
-                            backgroundColor: gradientThisWeek,
-                            borderColor: 'transparent',
-                            pointBackgroundColor: '#FFFFFF',
-                            pointBorderColor: '#FFFFFF',
-                            lineTension: 0.40,
-                        },
-                        {
-                            label: 'Previous week',
-                            data: [20, 22, 30, 22, 18, 22, 30],
-                            backgroundColor: gradientPrevWeek,
-                            borderColor: 'transparent',
-                            pointBackgroundColor: '#FFFFFF',
-                            pointBorderColor: '#FFFFFF',
-                            lineTension: 0.40,
-                        }
-                      ]
-                  },
-                  options: {
-                      elements: { 
-                        point: {
-                          radius: 0,
-                          hitRadius: 5, 
-                          hoverRadius: 5 
-                        } 
-                      },
-                      legend: {
-                          display: false,
-                      },
-                      scales: {
-                          xAxes: [{
-                              display: false,
-                          }],
-                          yAxes: [{
-                              display: false,
-                              ticks: {
-                                beginAtZero: true,
-                              },
-                          }]
-                      }
-                  },
-                  plugins: [multiply],
-              };
+        <!--
+        <article class="project-intro">
 
-              window.chart = new Chart(canvas, config);
+          <h2 id="theProject" class="typewrite" data-period="3000" data-type='["The Project", "in 4 Parts:"]'>
+            <span class="wrap"></span>
+          </h2>
 
-              function dataanalyser(metric,location, datasource) {
-                  
-                inputlabels = []
-                inputvalues = []
-                inputboth = []
-                outputboth = []
+          <section style="height: 20px;"></section>
 
-                for (dataset in datasource.data) {
-                  inputboth.push({
-                    "x":datasource.data[dataset].DATE,
-                    "y":datasource.data[dataset].LOCATION1.metric
-                  })
-                }
-              
-                // Sort array by date in ASCENDING order
-                inputboth.sort(function (a, b) {
-                  if (Date.parse(a.x) < Date.parse(b.x)) {
-                  return -1;
-                  }
-                  if (Date.parse(a.x) > Date.parse(b.x)) {
-                  return 1;
-                  }
-                  return 0;
-                });
-
-                for (dataset in inputboth) {
-                  outputboth.push({
-                    "x": moment(inputboth[dataset].x).format('MMMM Do YYYY, h:mm:ss a'),
-                    "y": inputboth[dataset].y
-                  }) }
-                return outputboth;
-
-              }
-
-              var socket = io.connect()
-              socket.on('message', function (value) {
-
-                (config.data.datasets[0].data) = dataanalyser("CO2", "LOCATION1", value)
-                console.log(config.data.datasets[0].data)
-                chart.update()
-                
-              })
-              </script>
-
-
-
-        <div class="col-sm">
-          <div id="app">
-            <div v-if="data.loaded">
-              {{data.data[data.data.length-1]["LOCATION1"]["Temperature"]}}
-            </div>
+          <div class="image-wrap">
+            <img class="intro-image" src="static/assets/resources/some-leaves.webp" />
           </div>
+          
+          <ul style="font-size: 20px;">
+            <li><span id="hover">Backend server</span> for data handling</li>
+            <li>ESP-32 boards and sensors to collect <span id="hover">real-world data</span></li>
+            <li>An AI time series forecaster to predict <span id="hover">future trends</span> based on past data</li>
+            <li>Daily forms to collect boys' personal emotions, achievements and outlook during the day</li>
+          </ul>
 
-        </div>
+          <p style="font-size: 20px; margin-bottom: 50px;">
+            We hope to build a network of sensors around the Hill, monitoring <span id="hover">pollution data</span> daily. This real-time data, as well as all historical data, will be made public on our website. A custom-made AI will then crunch these data to make <span id="hover">future predictions</span>. As a bonus, boys are encouraged to submit their feelings about the day, in order to make a connection between <span id="hover">environmental conditions</span> and <span id="hover">psychological effects</span>.
+          </p>
 
-        <div class="col-sm">
-          <!-- another col-->
-        </div>
-      </div>
-    </div>
+        </article> -->
+        
+			</div>
+		</div>
+		
+		<div class="container" id="graph">
+			<h1>Graph stuff here</h1>
+		</div>
 
-  </main>
+		<section style="height: 100px;"></section>
+		
+		<div class="enigmaBtn" id="scramble">
+			Brought to you by 
+      <h2 id="enigma" style="font-weight: bolder;">
+        <div id="messengerbottom" messages='[ "Team Enigma" ]'></div>
+      </h2>
+		</div>
 
-  <footer id="Harrow football" style="margin-bottom: -50px;">
+		<section style="height: 300px;"></section>
+
+	</div>
+
+	<footer id="Harrow football" style="margin-bottom: -50px;">
       <!-- Include Header -->
       <%- include('../partials/footer.ejs'); %>
   </footer>
-  
+
+    <style type="text/css">
+        .typewrite > .wrap { 
+            border-right: 0.08em solid #000
+        }
+    </style>
+
 </body>
-
-  <script src="/static/js/universal/vue.js"></script>
-
 </html>

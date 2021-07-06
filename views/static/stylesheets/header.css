@@ -1,43 +1,43 @@
 /* Device Optimisation - Header */
-    header {
-      height: 400px;
-      background-image: url("/static/assets/universal/justsomeleaves.webp");
-      background-position: center;
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-    }
+header {
+  height: 400px;
+  background-image: url("/static/assets/universal/justsomeleaves.webp");
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
 
-    /* Height for devices larger than 992px */
-    @media (min-width: 992px) {
-      header {
-        height: 600px;
-      }
-    }
+/* Height for devices larger than 992px */
+@media (min-width: 992px) {
+  header {
+    height: 600px;
+  }
+}
 
-    /* CHANGE INTRO FOR SCREEN WIDTH */
-    @media all and (max-width: 4000px) {
-            .desktop {
-                display: block;
-                position: absolute;
-                padding-top: 120px;
-            }
-            .mobile {
-                display: none;
-            }
-        }
+/* CHANGE INTRO FOR SCREEN WIDTH */
+@media all and (max-width: 4000px) {
+  .desktop {
+    display: block;
+    position: absolute;
+    padding-top: 120px;
+  }
+  .mobile {
+    display: none;
+  }
+}
 
-        @media all and (max-width: 500px) {
-            .desktop {
-                display: none;
-            }
-            .mobile {
-                display: block;
-                position: absolute;
-                padding-top: 50px;
-            }
-    }
+@media all and (max-width: 500px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+    position: absolute;
+    padding-top: 50px;
+  }
+}
 
-    .show {
-      background-color: white;
-      border-radius:5px
-    }
+.show {
+  background-color: white;
+  border-radius:5px
+}
