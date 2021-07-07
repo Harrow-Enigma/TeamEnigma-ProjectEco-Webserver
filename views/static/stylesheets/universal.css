@@ -33,11 +33,6 @@
   font-family: "Poppins";
 }
 
-/* NAVBAR */
-.show {
-  background: transparent !important;
-  background: none !important;
-}
 /* .bg-custom {
   width: 100%;
   background-image: linear-gradient(180deg, #000000 0%, rgba(243, 243, 243, 0.5) 100%);
@@ -46,9 +41,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #F3F3F3;
 }
-
 .header {
   background-image: url("/static/assets/universal/green-leaves-white-background.jpg");
   background-repeat:no-repeat;
@@ -61,17 +54,15 @@ body {
 }
 
 .titlewrap {
-  width: 90%;
   top: 50%;
   left: 50px;
   position: absolute;
   transform: translate(0, -50%);
-  
 }
 .typewrite {
   font-size: 70px;
 }
-@media (max-width: 425px) {
+@media (max-width: 460px) {
   .titlewrap {
     width: 90%;
     position: absolute;
@@ -79,7 +70,6 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    
   }
   .typewrite {
     font-size: 50px;
@@ -91,14 +81,17 @@ body {
 @media (min-width: 992px) {
   .collapse, navbar-collapse {
     position: absolute;
-    right: 50px;
+    right: 20px;
   }
 }
 
 #bodyContent {
-  background-color: #F3F3F3;
   margin: 0;
   padding: 0;
+
+  position: relative;
+  background-color: black;
+  color: white;
 }
 
 #about {
@@ -123,19 +116,44 @@ body {
 
 p {
   font-size: 17px;
-}
 
+}
 .headerTransition {
+  margin: 0;
+  padding: 0;
+  height: 300vh;
+  width: 100% !important;
+
+  --before-opacity: 0.3;
+
   background-image: url("/static/assets/universal/leaf-leaves-background-picjumbo-com.jpg");
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
-  margin: 0;
-  padding: 0;
-  height: 150vh;
-  width: 100% !important;
+}
+.headerTransition::before {
+  content: "";
+
+  height: 300vh;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  transition: 2s;
+  z-index: 0;
+
+  /* Crucial bits */
+  background-color: black;
+  opacity: var(--before-opacity);
 }
 
+
+
+
+
+
+/* VERY ANNOYING ZONE */
 #fixedText {
   text-align: center;
   position: fixed;
@@ -143,50 +161,76 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  /*background-color: rgba(92, 169, 4, 0.3);*/
+  color: white;
+  /* background-color: rgba(92, 169, 4, 0.3); */
   transition: 1s;
+  width: 80%;
+  max-width: 700px;
+
+  /* this will cause some problems at some point. */
+  z-index: 1;
 }
 
 #fixedText h3 {
   font-size: 40px;
 }
-@media (max-width: 425px) {
+.fixedbold {
+  font-size: 60px;
+  font-weight: bolder;
+  -webkit-text-stroke: 2px white;
+  color: black;
+}
+#textfade2 p {
+  font-size: 20px;
+}
+@media screen and (min-width: 450px) and (max-width: 600px){
+  .fixedbold {
+    font-size: 45px;
+    -webkit-text-stroke: 1px white;
+    color: black;
+  }
   #fixedText h3 {
     font-size: 30px;
   }
-}
-
-/* New */
-.fixedbold {
-    font-size: 60px;
-
-    /* -webkit-text-stroke: 1px black; */
-    -webkit-text-stroke: 2px white;
-    /* color: white; */
-    color: black;
-    /* text-shadow:
-        3px 3px 0 #000,
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000; */
-}
-@media (max-width: 425px) {
-  .fixedbold {
-    font-size: 40px;
-
-    /* -webkit-text-stroke: 1px black; */
-    -webkit-text-stroke: 1px white;
-    /* color: white; */
-    color: black;
-    /* text-shadow:
-        3px 3px 0 #000,
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000; */
+  #textfade2 p {
+    font-size: 16px;
   }
 }
+@media (max-width: 450px) {
+  .fixedbold {
+    font-size: 37px;
+    -webkit-text-stroke: 1px white;
+    color: black;
+  }
+  #fixedText h3 {
+    font-size: 23px;
+  }
+  #textfade2 p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (orientation:landscape)
+and (max-height: 450px) {
+  .fixedbold {
+    font-size: 33px;
+    -webkit-text-stroke: 1px white;
+    color: black;
+  }
+  #fixedText h3 {
+    font-size: 20px;
+  }
+  #textfade2 p {
+    font-size: 14px;
+  }
+}
+
+/* VERY ANNOYING ZONE END */
+
+
+
+
+
 
 .bolder {
   font-weight: bolder;
@@ -272,4 +316,40 @@ p {
 .footer {
   height: 130px;
   text-align: center;
+}
+
+/* MOVE ITEMS INWARDS,  MOVED FROM ARTICLES.css as file is used on multiple pages */
+body {
+  background-color: #F3F3F3
+}
+
+@media (max-width: 425px) {
+  .shifted-container {
+    padding: 20px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .shifted-container {
+    padding: 50px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 50px;
+  }
+}
+@media (min-width: 768px) {
+  .shifted-container {
+    padding: 50px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 80px;
+  }
 }

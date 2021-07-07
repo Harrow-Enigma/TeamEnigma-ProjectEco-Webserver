@@ -1,23 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-  <%- include('../partials/head.ejs'); %>
-</head>
-<body>
-  <header>
-    <%- include('../partials/header.ejs'); %>
-  </header>
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/articles.css">
+  </head>
 
-  <main>
-      <p>articles 123</p>
-
-  </main>
-
-  <footer id="Harrow football" style="margin-bottom: -50px;">
-      <!-- Include Header -->
-      <%- include('../partials/footer.ejs'); %>
-  </footer>
+  <body>
   
-</body>
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main>
+
+      <div class="shifted-container">
+        <h1 class="title">Articles</h1>
+
+        <p>
+          Here is where you can find links to other ways in improving how environmentally sustainable you can be. Also every month we try to find new and interesting articles to read up on. Stay tuned for more updates!
+        </p>
+
+        <section style="height: 30px;"></section>
+
+        <div class="articles-grid">
+          <h3 class="section-title">Top Curated Articles</h3>
+          
+          <div class="card">
+            <img class="card-img-top" src="..." alt="Article Image">
+            <div class="card-body">
+              <h5 class="card-title">Article Title</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Link to Article</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <img class="card-img-top" src="..." alt="Article Image">
+            <div class="card-body">
+              <h5 class="card-title">Article Title</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Link to Article</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="..." alt="Article Image">
+            <div class="card-body">
+              <h5 class="card-title">Article Title</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Link to Article</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="..." alt="Article Image">
+            <div class="card-body">
+              <h5 class="card-title">Article Title</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Link to Article</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  
+    <%- include('../partials/footer.ejs'); %>
+
+  </body>
+
 </html>

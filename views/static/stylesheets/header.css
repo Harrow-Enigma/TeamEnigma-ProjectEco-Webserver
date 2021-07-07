@@ -1,4 +1,5 @@
 /* Device Optimisation - Header */
+/*
 header {
   height: 400px;
   background-image: url("/static/assets/universal/justsomeleaves.webp");
@@ -6,15 +7,15 @@ header {
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
+*/
 
 /* Height for devices larger than 992px */
+/*
 @media (min-width: 992px) {
   header {
     height: 600px;
   }
 }
-
-/* CHANGE INTRO FOR SCREEN WIDTH */
 @media all and (max-width: 4000px) {
   .desktop {
     display: block;
@@ -36,8 +37,40 @@ header {
     padding-top: 50px;
   }
 }
+*/
 
+/* NAVBAR */
 .show {
-  background-color: white;
-  border-radius:5px
+  background: transparent !important;
+  background: none !important;
+}
+.dropdown-menu {
+  min-width: 0 !important;
+  margin-left: 70%;
+  text-align: right;
+}
+@media (min-width: 992px) {
+  .dropdown-menu {
+    min-width: auto;
+    margin-left: auto;
+    text-align: left;
+  }
+}
+
+#textfade1, #textfade2 {
+  transition: 0.5s;
+}
+
+#enigmamessenger {
+  position: absolute;
+  right: 0;
+  color:gray;
+}
+@media (max-width: 460px) {
+  #enigmamessenger {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0)
+  }
 }

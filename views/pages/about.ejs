@@ -1,56 +1,48 @@
-<!Doctype HTML>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
-
     <%- include('../partials/head.ejs'); %>
-
-    <!--<link rel="stylesheet" href="/static/stylesheets/about.css">-->
-
+    <link rel="stylesheet" href="/static/stylesheets/about.css">
   </head>
 
   <body>
   
     <header>
-      <%- include('../partials/header.ejs'); %>
+      <%- include('../partials/navbar.ejs'); %>
     </header>
 
     <main>
 
-      <div class="container" style="padding: 25px 50px 25px">
-        <div class="row">
+      <div class="about-container">
+        <h1 class="title">Introduction</h1>
+        <!--we'll add aos later-->
+        <div class="body-text">
 
-          <div class="col"  data-aos="zoom-out-right">
-            <div>
-              <h1> Introduction </h1>
-              <p>
-                <b>The environment is what we breathe and thrive in. </b> Yet how many of us actually pay attention to the quality of the environment that we live in? If we could better predict environmental pollution, can we improve our lifestyle? And more importantly, does environmental factors tie into personal well-being?
-              </p>
+          <p class="text-body">
+            <b>The environment is what we breathe and thrive in.</b> Yet how many of us actually pay attention to the quality of the environment that we live in? If we could better predict environmental pollution, can we improve our lifestyle? And more importantly, does environmental factors tie into personal well-being?
+          </p>
 
-              <p> 
-                These are the driving questions behind Project ECO, the first project developed under Team Enigma, the AI group from Harrow School.
+          <p class="text-body">
+            These are the driving questions behind Project ECO, the first project developed under Team Enigma, the AI group from Harrow School.
+          </p>
 
-              <ul>
-              <li>Backend server for data handling</li>
-              <li>ESP-32 boards and sensors to collect real-world data</li>
-              <li>AI time series forecaster to predict future trends based on past data</li>
-              <li>Daily forms to collect boys' personal emotions, achievement and outlook during the day</li>
-              </ul>
+          <ul>
+            <li>Backend server for data handling</li>
+            <li>ESP-32 boards and sensors to collect real-world data</li>
+            <li>AI time series forecaster to predict future trends based on past data</li>
+            <li>Daily forms to collect boys' personal emotions, achievement and outlook during the day</li>
+          </ul>
+          
+          <p>
+            We hope to build a network of sensors around the Hill, monitoring pollution data daily. This real-time data, as well as all historical data, will be made public on our website. A custom-made AI will then crunch these data to make future predictions. As a bonus, boys are encouraged to submit their feelings about the day, in order to make a connection between environmental conditions and psychological effects.
+          </p>
+          
+          <!--<img class="text-image" src="/static/assets/about/diagram.webp">-->
 
-              We hope to build a network of sensors around the Hill, monitoring pollution data daily. This real-time data, as well as all historical data, will be made public on our website. A custom-made AI will then crunch these data to make future predictions. As a bonus, boys are encouraged to submit their feelings about the day, in order to make a connection between environmental conditions and psychological effects.
-
-              </p>
-
-              <img src="/static/assets/about/diagram.webp" class="img-fluid rounded-3">
-
-            </div>
-          </div>
-
-          <div class="col"  data-aos="zoom-out-left">
-            <img src="/static/assets/about/some-leaves.webp" class="img-fluid rounded-3">
-
-         </div>
-
+        </div>
+        <div class="body-image">
+          <img class="img-fluid rounded-3" src="/static/assets/about/some-leaves.webp">
         </div>
       </div>
 

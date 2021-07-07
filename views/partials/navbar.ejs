@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/static/stylesheets/header.css">
+
+<div class="container-fluid" style="margin: 0; padding: 0;">
+
+  <!-- change back to bg-transparent -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="z-index: 10">
+    <a class="navbar-brand" href="/" style="margin-left: 10px;">Project Eco</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 10px">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-right: 20px; text-align: right;">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link <%if (pagename === "Home") { %> active<% } %>" aria-current="page" href="/">Home</a>
+        <a class="nav-link <%if (pagename === "About") { %> active<% } %>" href="/about">About</a>
+        <a class="nav-link <%if (pagename === "Survey") { %> active<% } %>" href="/survey">Survey</a>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <%if (pagename === "Articles" || pagename === "Export") { %> active<% } %>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Resources
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item <%if (pagename === "Articles") { %> active<% } %>" href="/articles" >Articles</a></li>
+            <li><a class="dropdown-item <%if (pagename === "Export") { %> active<% } %>" href="/export">Export</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+</div>

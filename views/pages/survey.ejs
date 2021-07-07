@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/articles.css">
+  </head>
+
+  <body>
+  
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main>
+
+      <div class="shifted-container">
+        <h1 class="title">We'll make this quick.</h1>
+        <form action="/survey/success" method="POST" enctype="multipart/form-data">
+          <div class="col-md-6">
+            <h2>Location</h2> 
+              <div class="mb-3">
+                <label for="sitenumber" class="form-label">Site Number</label> 
+                <input min="0" type="text" step="any" name="sitenumber" class="form-control">
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+    </main>
+
+    <footer id="Harrow football" style="margin-bottom: -50px;">
+      <!-- Include Header -->
+      <%- include('../partials/footer.ejs'); %>
+    </footer>
+
+  </body>
+
+</html>

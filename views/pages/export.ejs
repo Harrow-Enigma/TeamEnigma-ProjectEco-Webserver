@@ -1,51 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-  <%- include('../partials/head.ejs'); %>
-</head>
-<body>
-  <header>
-    <%- include('../partials/header.ejs'); %>
-  </header>
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/universal.css">
+  </head>
 
-  <main>
-
-      <div class="container" style="padding: 25px 50px 25px">
-        <div class="row">
-
-          <div class="col"  data-aos="zoom-out-left">
-            <img src="/static/assets/resources/some-leaves.webp" class="img-fluid rounded-3">
-
-         </div>
-
-          <div class="col"  data-aos="zoom-out-right">
-            <div>
-              <h1> Data</h1>
-              <h3> Our data is public, and can be downloaded here: </h3>
-              
-              <p> 
-              <h4> Hit our API </h4>
-              Make a HTTP GET request to: <br>
-              <code> url </code>
-              
-              <hr>
-
-              <h4> Download </h4>
-
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </main>
-
-  <footer id="Harrow football" style="margin-bottom: -50px;">
-      <!-- Include Header -->
-      <%- include('../partials/footer.ejs'); %>
-  </footer>
+  <body>
   
-</body>
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main>
+
+      <div class="shifted-container">
+        <h1 class="title">Export</h1>
+
+        <p>
+          Export our data
+        </p>
+    </main>
+  
+    <%- include('../partials/footer.ejs'); %>
+
+  </body>
+
 </html>

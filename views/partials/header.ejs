@@ -5,28 +5,7 @@
 
   <div class="container-fluid" style="margin: 0; padding: 0;">
 
-    <!-- change back to bg-transparent -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-      <a class="navbar-brand" href="#" style="margin-left: 10px;">Project Eco</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 10px">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 30px;">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-link <%if (pagename === "Home") { %> active<% } %>" aria-current="page" href="/">Home</a>
-          <a class="nav-link <%if (pagename === "About") { %> active<% } %>" href="/about">About</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle <%if (pagename === "Articles" || pagename === "Export") { %> active<% } %>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Resources
-            </a>
-            <ul style="width: 30%;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item <%if (pagename === "Articles") { %> active<% } %>" href="/articles" >Articles</a></li>
-              <li><a class="dropdown-item <%if (pagename === "Export") { %> active<% } %>" href="/export">Export</a></li>
-            </ul>
-          </li>
-        </div>
-      </div>
-    </nav>
+    <%- include('../partials/navbar.ejs'); %>
 
   </div>
 
@@ -35,7 +14,7 @@
     <span class="typewrite" data-period="0" data-type="[ &quot;Project Eco&quot; ]">
       <span class="wrap">Project Eco</span>
     </span>
-    <p style="margin-left:240px; color:gray" id="enigmamessenger" messages="[ &quot;by Team Enigma&quot; ]"></p>
+    <p id="enigmamessenger" messages="[ &quot;by Team Enigma&quot; ]"></p>
   </div>
 
 </header>
@@ -68,30 +47,35 @@
     // Refer to .fixedText
     let textfade1 = document.getElementById("textfade1")
     let textfade2 = document.getElementById("textfade2")
-    console.log(height)
-    /*
+    
+    // Disaster in the making
     if (scroll < height) {
       textfade1.style.opacity = 0
       textfade2.style.opacity = 0
-    } else if (scroll >= height && scroll <= 1.5 * height) {
+    } else if (scroll > height && scroll < height * 1.7) {
       textfade1.style.opacity = 1
-    } else if (scroll >= height * 1.2 && scroll <= 1.5 * height) {
+      textfade2.style.opacity = 0
+    } else if (scroll > (height * 1.7) && scroll < (height * 3)) {
+      textfade1.style.opacity = 1
       textfade2.style.opacity = 1
-    } else if (scroll > 1.5 * height) {
+    } else if (scroll > height * 3) {
       textfade1.style.opacity = 0
       textfade2.style.opacity = 0
     }
-    */
+    
 
+    // Changing Pseudo Elements - what fun!
+    let darkBg = document.querySelector('.headerTransition')
     if (scroll < 2 * height) {
-      document.getElementById("bodyContent").style.backgroundColor = "#F3F3F3"
-      document.getElementById("bodyContent").style.color = "black"
-      document.getElementById("hover").style.color = "black"
+
+      darkBg.style.setProperty("--before-opacity", 0.3)
+
     } else if (scroll >= 2 * height) {
-      document.getElementById("bodyContent").style.backgroundColor = "#000000"
-      document.getElementById("bodyContent").style.color = "white"
-      document.getElementById("hover").style.color = "white"
+
+      darkBg.style.setProperty("--before-opacity", 1)
+
     }
+
     
   });
 

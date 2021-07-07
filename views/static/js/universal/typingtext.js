@@ -142,7 +142,9 @@ window.onload = function() {
     return function() {
       if (!executed1) {
         executed1 = true;
-        new Messenger(document.querySelector('#enigmamessenger'))
+        setTimeout(() => {
+          new Messenger(document.querySelector('#enigmamessenger'))
+        }, 1000)
       }
     };
   })();
@@ -172,24 +174,4 @@ window.onload = function() {
       }
     }
   });
-
-  // on scroll pos
-  window.addEventListener("scroll", (event) => {
-    var scroll = this.scrollY; 
-
-    if (scroll > height && scroll < 1.5 * height) {
-      runOnce2()
-    } else {
-      executed = false
-    }
-  })
-  var runOnce2 = (function() {
-    executed = false;
-    return function() {
-      if (!executed) {
-        executed = true;
-        new Messenger(document.querySelector('#messengertop'))
-      }
-    };
-  })();
 };

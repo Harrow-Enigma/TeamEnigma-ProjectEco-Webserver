@@ -1,0 +1,51 @@
+body {
+  background-color: #F3F3F3
+}
+
+@media (max-width: 425px) {
+  .about-container {
+    padding: 20px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .body-text p, .body-text li {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .about-container {
+    padding: 50px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .body-text p, .body-text li {
+    font-size: 17px;
+  }
+}
+@media (min-width: 768px) {
+  .about-container {
+    padding: 50px;
+    line-height: 30px;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  .title {
+    font-size: 80px;
+    grid-column: 1 / -1;
+  }
+  .body-text p, .body-text li {
+    font-size: 20px;
+  }
+  footer {
+    grid-column: 1 / -1;
+  }
+}
