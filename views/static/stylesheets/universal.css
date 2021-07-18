@@ -29,8 +29,27 @@
   font-style: italic;
 }
 
+/* Unfunny Joke */
+@font-face {
+	font-family: "Comic Sans";
+	src: url("/static/fonts/ComicNormal.ttf");
+}
+@font-face {
+	font-family: "Comic Sans";
+	src: url("/static/fonts/ComicBold.ttf");
+	font-weight: bolder;
+}
+@font-face {
+	font-family: "Comic Sans";
+	src: url("/static/fonts/ComicNormal.ttf");
+	font-weight: lighter;
+}
+/* Unfunny Joke */
+
+
 * {
   font-family: "Poppins";
+  /* font-family: "Poppins" */
 }
 
 /* .bg-custom {
@@ -77,12 +96,12 @@ body {
 
 }
 
-/* Navbar DropDown*/
+/* THE BOOGEYMAN */
 @media (min-width: 992px) {
-  .collapse, navbar-collapse {
+  /* .collapse, navbar-collapse {
     position: absolute;
     right: 20px;
-  }
+  } */
 }
 
 #bodyContent {
@@ -231,6 +250,100 @@ and (max-height: 450px) {
 
 
 
+/* INDEX LINKS */
+#index-links-card {
+  text-align: center;
+  width: 100%;
+  height: 200px;
+}
+.index-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#index-links-title {
+  text-align: center;
+  grid-column: 1 / -1;
+}
+@media (max-width: 768px) {
+  .index-links {
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+  #index-links-title h2 {
+    font-size: 50px;
+  }
+  #index-links-title p {
+    font-size: 20px;
+  }
+  .about-card {
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+  }
+  .news > h2 {
+    font-size: 40px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .index-links {
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+  #index-links-title h2 {
+    font-size: 60px;
+  }
+  #index-links-title p {
+    font-size: 20px;
+  }
+  .about-card {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .news > h2 {
+    font-size: 50px;
+  }
+}
+@media (min-width: 992px) {
+  .index-links {
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+  #index-links-title h2 {
+    font-size: 75px;
+  }
+  #index-links-title p {
+    font-size: 23px;
+  }
+  .about-card {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .news > h2 {
+    font-size: 60px;
+  }
+}
+.news {
+  width: 100%;
+  height: 5000px;
+  margin-top: 100px;
+  grid-column: 1 / -1;
+  padding: 30px;
+  background-color: #22252B;
+  border-radius: 0.25rem;
+}
+
 
 .bolder {
   font-weight: bolder;
@@ -305,13 +418,13 @@ and (max-height: 450px) {
   }
 }
 
-#graph {
+/* #graph {
   height: 300px;
   background-color: darkgray;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .footer {
   height: 130px;
@@ -350,6 +463,8 @@ body {
     max-width: 100%;
   }
   .title {
-    font-size: 80px;
+    font-size: 60px;
   }
 }
+
+/* This file is getting preeetty long */

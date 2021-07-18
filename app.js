@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const bodyParser = require("body-parser");
 
 console.log('\x1b[36m%s\x1b[0m',"SERVER > PACKAGES INSTALLED");
 
@@ -15,6 +16,9 @@ const fs = require('fs');
 app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/index.js'));
+
+app.use(bodyParser.urlencoded({extended:true}));
+
 
 app.use('/about', require('./routes/about.js'));
 app.use('/articles', require('./routes/articles.js'));

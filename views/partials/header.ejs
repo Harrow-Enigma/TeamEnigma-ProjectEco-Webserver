@@ -12,14 +12,48 @@
 	<!-- Typing Title -->
   <div class="titlewrap">
     <span class="typewrite" data-period="0" data-type="[ &quot;Project Eco&quot; ]">
-      <span class="wrap">Project Eco</span>
+      <span class="wrap" :style="styles">Project Eco</span>
     </span>
     <p id="enigmamessenger" messages="[ &quot;by Team Enigma&quot; ]"></p>
+
+    <!--
+    <div class="form-check form-switch jokeswitchwrap">
+      <input class="form-check-input" v-on:click="joke" type="checkbox" id="joke-btn">
+      <label class="form-check-label" for="joke-btn">Comic Sans</label>
+    </div>
+    -->
+
   </div>
+
 
 </header>
 
 <script>
+
+  // Vue is hyper confusing!
+  /*
+  const joke = new Vue({
+    el: '#joke-btn',
+    data: {
+      changed: false
+      styles: {
+        fontFamily: "Poppins",
+      }
+    },
+    methods: {
+      joke: function() {
+        joke.changed = !joke.changed
+        if (joke.changed) {
+          joke.styles = { fontFamily: "Comic Sans" }
+        }
+        console.log(joke.styles)
+      }
+    }
+  })
+  */
+
+
+
   var width = window.innerWidth
   var height = window.innerHeight
 
@@ -64,7 +98,7 @@
     }
     
 
-    // Changing Pseudo Elements - what fun!
+    // Changing Pseudo Elements - very sensitive stuff
     let darkBg = document.querySelector('.headerTransition')
     if (scroll < 2 * height) {
 

@@ -40,10 +40,10 @@ header {
 */
 
 /* NAVBAR */
-.show {
+/* .show {
   background: transparent !important;
   background: none !important;
-}
+} */
 .dropdown-menu {
   min-width: 0 !important;
   margin-left: 70%;
@@ -55,6 +55,10 @@ header {
     margin-left: auto;
     text-align: left;
   }
+}
+
+#jokeswitch {
+  transform: scale(1.2) !important; 
 }
 
 #textfade1, #textfade2 {

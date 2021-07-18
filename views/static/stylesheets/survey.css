@@ -1,0 +1,71 @@
+body {
+  background-color: #F3F3F3;
+}
+
+.carousel-buttons {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  width: 245px;
+}
+.carousel-buttons > a {
+  width: 120px;
+}
+.overflow-select {
+  background-color: white;
+  padding: 10px 20px;
+  height: 200px;
+  overflow: scroll;
+}
+
+@media (max-width: 425px) {
+  .survey-title {
+    font-size: 45px;
+  }
+  .form-el {
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #D3D3D3;
+    border-radius: 15px;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .survey-title {
+    font-size: 50px;
+  }
+  .form-el {
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #D3D3D3;
+    border-radius: 15px;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .survey-title {
+    font-size: 60px;
+  }
+  .form-el {
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: #D3D3D3;
+    border-radius: 15px;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+}

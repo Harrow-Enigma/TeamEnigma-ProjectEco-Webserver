@@ -1,26 +1,39 @@
 body {
-  background-color: #F3F3F3
+  background-color: #F3F3F3;
+}
+
+.card {
+  border: none;
 }
 
 @media (max-width: 425px) {
   .articles-grid {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(1, 1fr)
+    grid-template-columns: repeat(1, 1fr);
+    padding: 20px;
+    background-color: #BEBEBE;
+    border-radius: 10px;
   }
 }
 @media screen and (min-width: 425px) and (max-width: 768px) {
   .articles-grid {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(1, 1fr)
+    grid-template-columns: repeat(1, 1fr);
+    padding: 20px;
+    background-color: #BEBEBE;
+    border-radius: 10px;
   }
 }
 @media (min-width: 768px) {
   .articles-grid {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    background-color: #BEBEBE;
+    border-radius: 10px;
   }
   .section-title {
     grid-column: 1 / -1;

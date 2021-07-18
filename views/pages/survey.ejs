@@ -3,7 +3,7 @@
 
   <head>
     <%- include('../partials/head.ejs'); %>
-    <link rel="stylesheet" href="/static/stylesheets/articles.css">
+    <link rel="stylesheet" href="/static/stylesheets/survey.css">
   </head>
 
   <body>
@@ -12,29 +12,207 @@
       <%- include('../partials/navbar.ejs'); %>
     </header>
 
-    <main>
-
+    <main id="app">
       <div class="shifted-container">
-        <h1 class="title">We'll make this quick.</h1>
-        <form action="/survey/success" method="POST" enctype="multipart/form-data">
-          <div class="col-md-6">
-            <h2>Location</h2> 
-              <div class="mb-3">
-                <label for="sitenumber" class="form-label">Site Number</label> 
-                <input min="0" type="text" step="any" name="sitenumber" class="form-control">
+      
+        <form action="/survey/success" method="post">
+
+        <!-- Carousel Content -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-interval="500">
+           
+          <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                
+                <div class="form-el">
+                  <div>
+                    <h1 class="survey-title">We'll make this quick.</h1>
+                    <p>This is a quick survey. There are 5 questions.</p>
+                  </div>
+                </div>
+
               </div>
+
+              <div class="carousel-item">
+
+                <div class="form-el">
+                  <div>
+                    <h2>How do you feel today?</h2>
+                    <label for="moodRange" class="form-label" style="float: left;">Sad</label>
+                    <label for="moodRange" class="form-label" style="float: right;">Happy</label>
+                    <input type="range" class="form-range" name="moodRange" fmin="0" max="10" step="1" id="moodRange" v-model="moodRange">
+                  </div>
+                </div>
+
+              </div>
+              
+              <div class="carousel-item">
+
+                <div class="form-el">
+                  <div>
+                    <h2>Why do you say that?</h2>
+
+                    <select name="moodReason" class="form-select" aria-label="Select..." disabled>
+                      <option selected disabled>Select...</option>
+                      <option value="weather">Because of the weather</option>
+                      <option value="event">Because of something that happened</option>
+                      <option value="normal">It's how it is most of the time</option>
+                    </select>
+
+                    <div>- or -</div>
+
+                    <input type="text" class="form-control" name="moodReason" id="moodReason" placeholder="Tell us why..." v-model="moodReasonText">
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="carousel-item">
+
+                <div class="form-el">
+                  <div>
+                    <h2>Did you notice today...</h2>
+                    <div class="overflow-select">
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="observationCheck">
+                        <label class="form-check-label" for="observationCheck">
+                          Default checkbox
+                        </label>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="carousel-item">
+
+                <div class="form-el">
+                  <div>
+                    <h2>A Question</h2>
+                    <textarea class="form-control" placeholder="Type something..." name="question" id="question"></textarea>
+                  </div>
+                </div> 
+
+              </div>
+
+              <div class="carousel-item">
+
+                <div class="form-el">
+                  <div>
+                    <h2>Any Comments?</h2>
+                    <textarea class="form-control" placeholder="Type something..." id="comments" name="comments"></textarea>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="carousel-item">
+
+                <div class="form-el">
+                  <div>
+                    <h2>Thank you for completing the survey!</h2>
+                    <section style="height: 20px;"></section>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+
+              </div>
+
+            
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
 
-        </form>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          </div>
 
+        </div>
+
+        <!-- Carousel Controllers -->
+        <div class="carousel-buttons">
+          <a class="btn btn-primary" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <i class="fa fa-arrow-left"></i> Previous
+          </a>
+          <a class="btn btn-primary" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            Next <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <section style="height: 50px;"></section>
+
+        <!-- How the heck does Vue work?? -->
+        
+      </form>
+      
+      </div>
     </main>
 
-    <footer id="Harrow football" style="margin-bottom: -50px;">
-      <!-- Include Header -->
-      <%- include('../partials/footer.ejs'); %>
-    </footer>
+    <!-- Include Footer -->
+    <%- include('../partials/footer.ejs'); %>
 
   </body>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        moodRange: '5',
+        moodReasonText : ''
+      }
+    })
+
+    console.log(moodRange.value)
+  </script>
 
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/survey.css">
+  </head>
+
+  <body>
+  
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main id="app">
+      <div class="shifted-container">
+      
+        <h1> Thanks For Submitting </h1>
+        <h3> Your data will help us make important predictions about the environment </h3>
+
+        <div class="card bg-white border-0" style="width: 18rem;" >
+          <div class="card-body">
+            <h5 class="card-title">Your Answers</h5>
+            
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Question</th>
+                  <th scope="col">Answer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+
+
+
+        
+        <a href="https://youtu.be/dQw4w9WgXcQ">Claim your prize</a>
+        
+      </div>
+    </main>
+
+    <!-- Include Footer -->
+    <%- include('../partials/footer.ejs'); %>
+
+  </body>
+
+  <script>
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+        myData: JSON.parse('<%- data %>')
+    }
+  }) 
+
+  </script>
+</html>
