@@ -3,7 +3,11 @@
 <div class="container-fluid" style="margin: 0; padding: 0;">
 
   <!-- change back to bg-transparent -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="z-index: 10">
+  <nav class="navbar navbar-expand-lg <%if (pagename !== "Survey") { %> navbar-light bg-transparent<% } %> <%if (pagename === "Survey") { %> navbar-dark bg-dark<% } %>
+    bg-transparent" style="z-index: 10">
+
+   
+
     <a class="navbar-brand" href="/" style="margin-left:10px;">
 
     <img style="padding-right:10px" src="/static/assets/universal/favicon.ico">Project Eco</a>

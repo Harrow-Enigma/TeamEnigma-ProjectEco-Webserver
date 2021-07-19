@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/stylesheets/about.css">
   </head>
 
-  <body>
+  <body id="about-body">
   
     <header>
       <%- include('../partials/navbar.ejs'); %>
@@ -15,24 +15,23 @@
     <main>
 
       <div class="about-container">
-        <h1 class="title">Introduction</h1>
+        <h1 class="title">About Us</h1>
         <!--we'll add aos later-->
         <div class="body-text">
 
+          <h2>Our Mission</h2>
           <p class="text-body">
-            <b>The environment is what we breathe and thrive in.</b> Yet how many of us actually pay attention to the quality of the environment that we live in? If we could better predict environmental pollution, can we improve our lifestyle? And more importantly, does environmental factors tie into personal well-being?
+            is to connect, promote and empower the community to follow an environmentally positive future by increasing public awareness of environmental conditions around the community, and linking these to personal emotions and achievement.
+          </p>
+
+          <h2>We aim to</h2>
+          <p class="text-body">
+            Utilise big data and IoT to increase awareness of the environment’s effects on mental health and provides tailored pollution forecasts; empowering the community to take action.
           </p>
 
           <p class="text-body">
             These are the driving questions behind Project ECO, the first project developed under Team Enigma, the AI group from Harrow School.
           </p>
-
-          <ul>
-            <li>Backend server for data handling</li>
-            <li>ESP-32 boards and sensors to collect real-world data</li>
-            <li>AI time series forecaster to predict future trends based on past data</li>
-            <li>Daily forms to collect boys' personal emotions, achievement and outlook during the day</li>
-          </ul>
           
           <p>
             We hope to build a network of sensors around the Hill, monitoring pollution data daily. This real-time data, as well as all historical data, will be made public on our website. A custom-made AI will then crunch these data to make future predictions. As a bonus, boys are encouraged to submit their feelings about the day, in order to make a connection between environmental conditions and psychological effects.
@@ -41,9 +40,7 @@
           <!--<img class="text-image" src="/static/assets/about/diagram.webp">-->
 
         </div>
-        <div class="body-image">
-          <img class="img-fluid rounded-3" src="/static/assets/about/some-leaves.webp">
-        </div>
+
       </div>
 
     </main>

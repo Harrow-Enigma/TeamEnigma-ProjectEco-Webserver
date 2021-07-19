@@ -96,12 +96,44 @@ body {
 
 }
 
+@media screen and (max-width: 425px) {
+  .title-text-wrap {
+    position: absolute;
+    width: 90%;
+    max-width: 500px;
+    line-height: 22px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0)
+  }
+}
+@media screen and (min-width: 425px) {
+  .title-text-wrap {
+    position: absolute;
+    width: 90%;
+    max-width: 500px;
+    line-height: 22px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    bottom: 50px;
+    margin-left: 50px;
+  }
+}
+
 /* THE BOOGEYMAN */
-@media (min-width: 992px) {
-  /* .collapse, navbar-collapse {
+/* @media (min-width: 992px) {
+  collapse, navbar-collapse {
     position: absolute;
     right: 20px;
-  } */
+  }
+} */
+@media screen and (min-width: 992px) {
+  #navbarNavAltMarkup {
+    position: absolute;
+    right: 20px;
+  }
 }
 
 #bodyContent {
