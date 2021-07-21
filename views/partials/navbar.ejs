@@ -20,16 +20,8 @@
         <a class="nav-link <%if (pagename === "Home") { %> active<% } %>" aria-current="page" href="/">Home</a>
         <a class="nav-link <%if (pagename === "About") { %> active<% } %>" href="/about">About</a>
         <a class="nav-link <%if (pagename === "Survey") { %> active<% } %>" href="/survey">Survey</a>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle <%if (pagename === "Articles" || pagename === "Export") { %> active<% } %>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Resources
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item <%if (pagename === "Articles") { %> active<% } %>" href="/articles" >Articles</a></li>
-            <li><a class="dropdown-item <%if (pagename === "Export") { %> active<% } %>" href="/export">Export</a></li>
-          </ul>
-        </li>
+        <a class="nav-link <%if (pagename === "Articles") { %> active<% } %>" href="/articles">Articles</a>
+        <a class="nav-link <%if (pagename === "Data") { %> active<% } %>" href="/data">Data</a>
       </div>
     </div>
   </nav>
