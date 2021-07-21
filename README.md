@@ -1,7 +1,6 @@
-Team Enigma ProjectEco Webserver
+# Team Enigma ProjectEco Webserver
 
-![Team Enigma]
-(https://img.shields.io/badge/Team%20Enigma-Harrow%20School-blue)
+![Team Enigma](https://img.shields.io/badge/Team%20Enigma-Harrow%20School-blue)
 ![GitHub language count](https://img.shields.io/github/languages/count/DylanK46/TeamEngima-ProjectEco-Webserver)![GitHub repo file count](https://img.shields.io/github/directory-file-count/DylanK46/TeamEngima-ProjectEco-Webserver) ![GitHub repo size](https://img.shields.io/github/repo-size/DylanK46/TeamEngima-ProjectEco-Webserver) ![GitHub repo size](https://img.shields.io/github/issues/DylanK46/TeamEngima-ProjectEco-Webserver) ![GitHub repo size](https://img.shields.io/github/last-commit/DylanK46/TeamEngima-ProjectEco-Webserver)
 
 ## Introduction
