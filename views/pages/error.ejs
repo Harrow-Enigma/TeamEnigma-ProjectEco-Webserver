@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-  <%- include('../partials/head.ejs'); %>
-</head>
-<body>
-  <header>
-    <%- include('../partials/header.ejs'); %>
-  </header>
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/universal.css">
+  </head>
 
-  <main>
-      <p>Error</p> <%= errorname %> 
-
-  </main>
-
-  <footer id="Harrow football" style="margin-bottom: -50px;">
-      <!-- Include Header -->
-      <%- include('../partials/footer.ejs'); %>
-  </footer>
+  <body>
   
-</body>
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main>
+
+      <div class="shifted-container">
+        <h1 class="title">Error</h1>
+
+        <p>
+          Error Code  : <%= errorname %>, that's all we have! 
+        </p>
+    </main>
+  
+    <%- include('../partials/footer.ejs'); %>
+
+  </body>
+
 </html>

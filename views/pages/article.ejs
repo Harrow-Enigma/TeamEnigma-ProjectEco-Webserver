@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/survey.css">
+  </head>
+
+  <body>
+  
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main id="app">
+      <div class="shifted-container">
+      
+        <h1><%= articlename %></h1>
+        <h5> Published <%= articledate %></h5>
+
+        <img src="<%= articleimageurl %>" class="img-fluid rounded">
+
+        <p> <%= articlecontent %> </p>
+
+      
+      </div>
+    </main>
+
+    <h3> @george can you clean up this html thanks </h3>
+
+    <!-- Include Footer -->
+    <%- include('../partials/footer.ejs'); %>
+
+  </body>
+
+</html>

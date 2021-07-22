@@ -3,7 +3,7 @@ const converter = require('json-2-csv');
 var express = require('express');
 var router = express.Router();
 
-const mongodbModel = require("../models/sensormongodb.js");
+const mongodbModel = require("../models/mongodb.js");
 
 router.get("/", async (req,res, next) => {
 

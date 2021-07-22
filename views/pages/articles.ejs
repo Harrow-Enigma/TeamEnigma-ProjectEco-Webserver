@@ -12,7 +12,7 @@
       <%- include('../partials/navbar.ejs'); %>
     </header>
 
-    <main>
+    <main id="app">
 
       <div class="shifted-container">
         <h1 class="title">Articles</h1>
@@ -26,49 +26,40 @@
         <div class="articles-grid">
           <h3 class="section-title">Top Curated Articles</h3>
           
-          <div class="card">
-            <img class="card-img-top" src="https://harrowschool-my.sharepoint.com/personal/17xud_harrowschool_org_uk/Documents/Microsoft%20Teams%20Chat%20Files/pexels-scott-webb-1931143.jpg" alt="Article Image">
-            <div class="card-body">
-              <h5 class="card-title">Greenhouse Gas Bad</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Link to Article</a>
-            </div>
-          </div>
-          
-          <div class="card">
-            <img class="card-img-top" src="https://harrowschool-my.sharepoint.com/personal/17xud_harrowschool_org_uk/Documents/Microsoft%20Teams%20Chat%20Files/pexels-scott-webb-1931143.jpg" alt="Article Image">
-            <div class="card-body">
-              <h5 class="card-title">Article Title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Link to Article</a>
-            </div>
+          <div v-for="article in articles">
+              <div class="card">
+                <img class="card-img-top" v-bind:src="article.imageurl" alt="Article Image"> 
+                <div class="card-body">
+                  <h5 class="card-title">{{article.title}}</h5>
+                  <p class="card-text">{{article.content.substring(0, 100)}}...</p>
+                  <a v-bind:href="'articles/'+encodeURI(article.title)" class="btn btn-primary">Link to Article</a>
+                </div>
+              </div>
           </div>
 
-          <div class="card">
-            <img class="card-img-top" src="https://harrowschool-my.sharepoint.com/personal/17xud_harrowschool_org_uk/Documents/Microsoft%20Teams%20Chat%20Files/pexels-scott-webb-1931143.jpg" alt="Article Image">
-            <div class="card-body">
-              <h5 class="card-title">Article Title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Link to Article</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <img class="card-img-top" src="https://harrowschool-my.sharepoint.com/personal/17xud_harrowschool_org_uk/Documents/Microsoft%20Teams%20Chat%20Files/pexels-scott-webb-1931143.jpg" alt="Article Image">
-            <div class="card-body">
-              <h5 class="card-title">Article Title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Link to Article</a>
-            </div>
-          </div>
         </div>
 
       </div>
-
     </main>
   
     <%- include('../partials/footer.ejs'); %>
 
   </body>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          articles: null
+        }
+      },
+      mounted () {
+        axios
+          .get('/api/v1/rest/output/articles')
+          .then(response => (this.articles = response.data))
+      }
+    })
+  </script>
 
 </html>

@@ -4,7 +4,7 @@ var router = express.Router();
 var theServer = require('../app');
 var io = theServer.getIO(); //your io var
 
-const mongodbModel = require("../models/sensormongodb");
+const mongodbModel = require("../models/mongodb.js");
 
 router.get("/", (req,res, next) => {
   res.render('pages/index.ejs' ,{"pagename":"Home"});

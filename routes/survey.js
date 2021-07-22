@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const mongodbModel = require("../models/formmongodb.js");
-
+const mongodbModel = require("../models/mongodb.js");
 
 router.get("/", (req,res, next) => {
   res.render('pages/survey.ejs' ,{"pagename":"Survey"});
