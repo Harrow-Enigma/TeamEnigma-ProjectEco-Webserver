@@ -57,8 +57,10 @@
   });
 
   // Declare Alert Data Structure
-  var AlertaDataSchema = new mongoose.Schema({
+  var AlertDataSchema = new mongoose.Schema({
+    'DATE': {type: Date},
     'type': {type: String},
+    'id': {type: Number},
     'title': {type: String},
     'content': {type: String},
     'action': {type: String}, 
@@ -70,7 +72,8 @@
     'DATE' : {type: Date},
     'title': {type: String},
     'imageurl': {type: String},
-    'content': {type: String}
+    'content': {type: String},
+    'featured': {type : Boolean}
   });
 
 // ----------------------------------------- //
@@ -84,7 +87,7 @@
 
   var articledatamodel = mongoose.model("articlemodel", ArticleDataSchema, "articledata");
 
-  var alertdatamodel = mongoose.model("alertmodel", AlertaDataSchema, "alertdata");
+  var alertdatamodel = mongoose.model("alertmodel", AlertDataSchema, "alertdata");
 
 
 // ----------------------------------------- //
@@ -148,7 +151,8 @@
       "DATE": datestamp, 
       'title': json["title"],
       'imageurl': json["imageurl"],
-      'content': json["content"]
+      'content': json["content"],
+      'featured' : json["featured"]
     });
     
     doc1.save(function(err, doc) {
@@ -173,6 +177,51 @@
   // This one reads article data from the DB
   exports.getarticledata = (title) => {
     return articledatamodel.find({ 'title': { $eq: title } }, function(err, result) {
+      if (err) {
+        return(err);
+      } else {
+        return(result);
+      }
+    });
+  };
+
+  // This one posts alert data to the DB
+  exports.postalertedata = (json) => {
+    var date = new Date();
+    var datestamp = date.toISOString();
+
+    var doc1 = new alertdatamodel({
+      "DATE": datestamp, 
+      'type': json["type"],
+      'id': json["id"],
+      'title': json["title"],
+      'imageURL': json["imageURL"],
+      'content': json["content"],
+      'action': json["action"]
+    });
+    
+    doc1.save(function(err, doc) {
+      if (err) return console.error(err);
+      console.log(chalk.yellow('DATABASE > DOCUMENT INSERTED [alertdatamodel]'))    
+    });
+
+    return("Success")
+  };
+
+  // This one reads alerts data from the DB
+  exports.getalertsdata = () => {
+    return alertdatamodel.find({}, function(err, result) {
+      if (err) {
+        return(err);
+      } else {
+        return(result);
+      }
+    });
+  };
+
+  // This one reads alert data from the DB
+  exports.getalertdata = (title, id) => {
+    return alertdatamodel.find({ 'title': { $eq: title }, 'id': { $eq: id } }, function(err, result) {
       if (err) {
         return(err);
       } else {

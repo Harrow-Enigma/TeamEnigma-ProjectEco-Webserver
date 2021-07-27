@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="/static/stylesheets/index.css">
 
 	<!-- Typewriter Text -->
-	<script type="text/javascript" src="/static/js/universal/typingtext.js"></script>
+	<script type="text/javascript" src="/static/js/universal/typingtext.js" defer></script>
 </head>
 
 <body>
@@ -16,9 +16,6 @@
 
     <div id="fixedText">
       <h3 id="textfade1" style="opacity: 0;">
-        <!--<span class="fixedbold" style="font-weight: bolder; white-space: nowrap;">
-          <span id="messengertop" messages="[ &quot;Environment&quot; ]"></span>
-        </span>-->
         The
         <span class="fixedbold">Environment</span>
         is what we
@@ -53,8 +50,8 @@
       <div id="index-links-card" class="card text-white bg-dark findings-card">
         <div class="card-body index-card-body">
           <div>
-            <h3 class="card-title">Findings</h3>
-            <p class="card-text text-muted">Check out our research data and findings.</p>
+            <h3 class="card-title">Articles</h3>
+            <p class="card-text text-muted">Take a deeper look into environmental research.</p>
             <a href="/articles" class="btn btn-secondary">Go</a>
           </div>
         </div>
@@ -183,47 +180,20 @@
 
         </div>
 
-
-
-
-
-
-
-
-        <!--
-        <div class="card">
-          <div class="card-header" id="heading1" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1" style="cursor: pointer">
-            <span class="badge badge-pill" style="background-color: #0275d8">10 Jul</span>
-            <span class="btn-sm text-left mt-1 mb-1">
-              <a href="#!">
-                Reconnect with Music - DBS Music Medley 2021
-              </a>
-            </span>
-          </div>
-          <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
-            <div class="card-body small">
-              <p class="text-center">
-                <img class="img-thumbnail" width="400" src="newspic/5.png">
-              </p>
-              <p>
-                The Diocesan Boys’ School Foundation Limited, DBS Music Department, DBS Parent-Teacher Association and Diocesan School Old Boys’ Association present to you “Reconnect with Music -&nbsp;DBS Music Medley 2021” on Saturday, 21st August 2021. This special event held during the COVID time is a new challenge, a heritage of our School.
-              </p>
-            </div>
-          </div>
-        </div>
-        -->
-
-
       </div>
     </div>
 
     <section style="height: 100px;"></section>
 		
-    <div class="enigmaBtn" id="scramble">
-      Brought to you by 
-      <h2 id="enigma" style="font-weight: bolder;">
-        <div id="messengerbottom" messages='[ "Team Enigma" ]'></div>
-      </h2>
+
+    <div id="booyah">
+      <div class="enigmaBtn" id="scramble">
+        {{ message }}
+        <h2 id="enigma" style="font-weight: bolder;" v-on:click="changeMsg">
+          <div id="messengerbottom" messages='[ "Team Enigma" ]'></div>
+        </h2>
+      </div>
+      <img v-if="showWalrus" src="https://i.imgflip.com/5hf4ex.jpg" alt="A Walrus" style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0;">
     </div>
 
     <section style="height: 200px;"></section>
@@ -241,6 +211,38 @@
       border-right: 0.08em solid #000
     }
   </style>
+
+  <script>
+    var booyah = new Vue({
+      el: '#booyah',
+      data: {
+        textList: [
+          'Brought to you by',
+          'Brought to you by',
+          'Brought to you by',
+          'Stop clicking.',
+          'Please stop.',
+          'Something bad will happen.',
+          'This is not a joke.',
+          'You will regret this.',
+          '...',
+          'You were warned.',
+        ],
+        count: 0,
+        message: 'Brought to you by',
+        showWalrus: false,
+      },
+      methods: {
+        changeMsg: function() {
+          this.count++
+          this.message = this.textList[this.count]
+          if (this.count > 9) {
+            this.showWalrus = true
+          }
+        }
+      }
+    })
+  </script>
 
 </body>
 </html>

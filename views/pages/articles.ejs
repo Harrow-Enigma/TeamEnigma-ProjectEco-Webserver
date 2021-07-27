@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="/static/stylesheets/articles.css">
   </head>
 
-  <body style="background-image: url('/static/assets/articles/articlesbackground.jpg');  background-size: cover;">
+  <body>
+  <!--
+  I dislike the background image.
+
+  style="background-image: url('/static/assets/articles/articlesbackground.jpg');  background-size: cover;"-->
   
     <header>
       <%- include('../partials/navbar.ejs'); %>
@@ -18,28 +22,72 @@
         <h1 class="title">Articles</h1>
 
         <p>
-          Here is where you can find links to other ways in improving how environmentally sustainable you can be. Also every month we try to find new and interesting articles to read up on. Stay tuned for more updates!
+          Here are some good reads to the ways you can improve your environmental sustainability. This list is updated with new and interesting articles that we find. Check back for updates!
         </p>
+
+        <hr>
 
         <section style="height: 30px;"></section>
 
         <div class="articles-grid">
-          <h3 class="section-title">Top Curated Articles</h3>
-          
-          <div v-for="article in articles">
-              <div class="card">
-                <img class="card-img-top" v-bind:src="article.imageurl" alt="Article Image"> 
-                <div class="card-body">
-                  <h5 class="card-title">{{article.title}}</h5>
-                  <p class="card-text">{{article.content.substring(0, 100)}}...</p>
-                  <a v-bind:href="'articles/'+encodeURI(article.title)" class="btn btn-primary">Link to Article</a>
+
+          <div id="article-block" class="focus-article" style="background: #DEDEDE; padding: 15px;">
+              <div v-for="article in articles">
+                <div v-if="article.featured">
+
+                  <div class="card" style="height: 100%">
+                    <img class="card-img-top" v-bind:src="article.imageurl" alt="Article Image">
+                    <div class="card-body">
+                      <span class="badge badge-pill" style="background-color: #FFAA00; margin-bottom: 10px;">Featured</span>
+                      <span class="badge badge-pill" style="background-color: #0000AA; margin-bottom: 10px;">
+                      {{ /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[2] + ' ' + /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[1] }}
+                      </span>
+                      <h5 class="card-title">{{article.title}}</h5>
+                      <p class="card-text">{{article.content.substring(0, 400)}}...</p>
+                      <section style="height: 50px;"></section>
+                      <a v-bind:href="'/articles/'+encodeURI(article.title)" class="btn btn-primary" style="position: absolute; bottom: 15px; right: 15px;">Go</a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
           </div>
 
+          <div v-for="article in articles"  v-if="!article.featured" style="background: #DEDEDE; padding: 15px; border: 2px solid gray;">
+            <div class="card" style="height: 100%;">
+              <img class="card-img-top" v-bind:src="article.imageurl" alt="Article Image"> 
+              <div class="card-body">
+                <span class="badge badge-pill" style="background-color: #0000AA; margin-bottom: 10px;">
+                  {{ /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[2] + ' ' + /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[1] }}
+                </span>
+                <h5 class="card-title">{{article.title}}</h5>
+                <p class="card-text">{{article.content.substring(0, 100)}}...</p>
+                <section style="height: 50px;"></section>
+                <a v-bind:href="'/articles/'+encodeURI(article.title)" class="btn btn-primary" style="position: absolute; bottom: 15px; right: 15px;">Go</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        
         </div>
 
+        <!--
+          <h3 class="section-title">Top Today</h3>
+          
+          <div v-for="article in articles">
+            <div class="card">
+              <img class="card-img-top" v-bind:src="article.imageurl" alt="Article Image"> 
+              <div class="card-body">
+                <h5 class="card-title">{{article.title}}</h5>
+                <p class="card-text">{{article.content.substring(0, 100)}}...</p>
+                <a v-bind:href="'/articles/'+encodeURI(article.title)" class="btn btn-primary">Link to Article</a>
+              </div>
+            </div>
+          </div>
+        -->
+
       </div>
+
     </main>
   
     <%- include('../partials/footer.ejs'); %>

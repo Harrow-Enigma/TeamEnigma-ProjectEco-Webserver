@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/static/stylesheets/alerts.css">
+  </head>
+
+  <body>
+  
+    <header>
+      <%- include('../partials/navbar.ejs'); %>
+    </header>
+
+    <main id="app">
+
+      <div class="shifted-container">
+        <h1 class="title">Alerts</h1>
+
+        <p>
+          Alerts and advice based on your forecasted pollution trends.
+        </p>
+
+        <hr>
+
+        <section style="height: 30px;"></section>
+
+        <div class="card" style="height: 100%">
+          <img class="card-img-top" src="https://i.pinimg.com/originals/1a/17/e2/1a17e230dabdfbba111616d123196c76.jpg" alt="Alert Icon"> 
+          <div class="card-body">
+            <h3 class="card-title">You are doomed</h3>
+            <p class="card-text">We will all die from pollution</p>
+            <section style="height: 50px;"></section>
+            <h3 class="card-title">Play <a href='https://www.google.com/doodles/doodle-champion-island-games-july-24'>this</a> to save the world.</h3>
+          </div>
+        </div>
+
+        <div v-for="alert in alerts" style="background: #BEBEBE; padding: 15px;">
+          <div class="card" style="height: 100%">
+            <img class="card-img-top" v-bind:src="alert.imageURL" alt="Alert Icon"> 
+            <div class="card-body">
+              <h3 class="card-title">{{alert.title}}</h3>
+              <p class="card-text">{{alert.content}}</p>
+              <section style="height: 50px;"></section>
+              <h3 class="card-title">{{alert.action}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  
+    <%- include('../partials/footer.ejs'); %>
+
+  </body>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          alerts: null
+        }
+      },
+      mounted () {
+        axios
+          .get('/api/v1/rest/output/alerts')
+          .then(response => (this.alerts = response.data))
+      }
+    })
+  </script>
+
+</html>

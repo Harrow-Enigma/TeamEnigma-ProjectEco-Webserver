@@ -3,7 +3,8 @@ body {
 }
 
 .card {
-  border: none;
+  border: 2px;
+  border-color: yellow;
 }
 
 .card-img-top {
@@ -20,7 +21,10 @@ body {
   }
   .focus-article {
     grid-column: 1 / -1;
-    border: 2px solid gray;
+    background-color: #BEBEBE;
+  }
+  .article {
+    background-color: #BEBEBE;
   }
 }
 @media screen and (min-width: 425px) and (max-width: 768px) {
@@ -31,7 +35,10 @@ body {
   }
   .focus-article {
     grid-column: 1 / -1;
-    border: 2px solid gray;
+    background-color: #BEBEBE;
+  }
+  .article {
+    background-color: #BEBEBE;
   }
 }
 @media (min-width: 768px) {
@@ -42,7 +49,10 @@ body {
   }
   .focus-article {
     grid-column: 2 / -1;
-    grid-row: 1 / 2;
-    border: 2px solid gray;
+    background-color: #BEBEBE;
+    grid-row: 1 / 2
+  }
+  .article {
+    background-color: #BEBEBE;
   }
 }

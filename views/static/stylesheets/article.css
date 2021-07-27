@@ -1,0 +1,46 @@
+@media (max-width: 425px) {
+  #published-time {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  #published-time {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+@media (min-width: 768px) {
+  #published-time {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+#article-top-image {
+  width: 100%;
+}
+
+#article-bottom-img {
+  height: 150px;
+}
+
+#article-scroll-content {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 20px;
+  -webkit-line-clamp: 7; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+#article-scroll-card-title {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
