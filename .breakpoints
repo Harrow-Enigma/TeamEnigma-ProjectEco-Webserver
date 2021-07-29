@@ -4,16 +4,24 @@
       {
         "id": "de810dbf-1ca5-4549-9e4e-d3c8f4fe9394",
         "line": 73,
-        "version": 326,
+        "version": 342,
         "index": 2004
+      }
+    ],
+    "views/pages/survey.ejs": [
+      {
+        "id": "46d82556-45bd-43b6-b0f8-d152b040bddb",
+        "line": 181,
+        "version": 4710,
+        "index": 7736
       }
     ],
     "views/static/js/universal/typingtext.js": [
       {
         "id": "38e7d956-f62f-45d6-bf67-c9537a0a8799",
-        "line": 139,
-        "version": 371,
-        "index": 3692
+        "line": 138,
+        "version": 373,
+        "index": 3675
       }
     ]
   }

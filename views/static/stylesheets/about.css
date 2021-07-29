@@ -22,6 +22,13 @@ body {
     background-color: #D7DDDD;
     /* background-position: right; */
   }
+  #some-arrow-things {
+    border: 2px solid black;
+    background: #D7DDDD;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 768px) {
   .about-container {
@@ -41,6 +48,13 @@ body {
     background-repeat: no-repeat;
     background-color: #D7DDDD;
     /* background-position: left; */
+  }
+  #some-arrow-things {
+    border: 2px solid black;
+    background: #D7DDDD;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 50px;
   }
 }
 @media (min-width: 768px) {
@@ -69,5 +83,10 @@ body {
     background-repeat: no-repeat;
     background-color: #D7DDDD;
     /* background-position: left; */
+  }
+  #some-arrow-things {
+    border: 2px solid black;
+    background: #D7DDDD;
+    margin-top: 200px;
   }
 }

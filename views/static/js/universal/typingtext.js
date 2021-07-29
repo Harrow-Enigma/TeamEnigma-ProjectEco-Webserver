@@ -115,7 +115,6 @@ var Messenger = function(el) {
   };
   m.init();
 }
-console.clear();
 
 window.onload = function() {
   var elements = document.getElementsByClassName('typewrite');

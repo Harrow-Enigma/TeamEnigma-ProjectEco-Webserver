@@ -12,6 +12,26 @@ body {
   object-fit: cover;
 }
 
+.article-card-title {
+  display: block;
+  line-height: 1.2;
+  color: black;
+  text-decoration: none;
+}
+.article-card-title:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#articles-body {
+  background-image: url('../assets/articles/myfirstbornson.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-position: right; */
+}
+
 @media (max-width: 425px) {
   .articles-grid {
     display: grid;
@@ -20,7 +40,8 @@ body {
   }
   .focus-article {
     grid-column: 1 / -1;
-    border: 2px solid gray;
+    border: 2px solid lightgray;
+    border-radius: 10px;
   }
 }
 @media screen and (min-width: 425px) and (max-width: 768px) {
@@ -31,10 +52,35 @@ body {
   }
   .focus-article {
     grid-column: 1 / -1;
-    border: 2px solid gray;
+    border: 2px solid lightgray;
+    border-radius: 10px;
   }
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .articles-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .focus-article {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1300px) {
+  .articles-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .focus-article {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 1300px) {
   .articles-grid {
     display: grid;
     grid-gap: 20px;
@@ -43,6 +89,7 @@ body {
   .focus-article {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
-    border: 2px solid gray;
+    border: 2px solid lightgray;
+    border-radius: 10px;
   }
 }

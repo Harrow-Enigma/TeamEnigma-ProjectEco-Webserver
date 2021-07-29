@@ -335,6 +335,9 @@ and (max-height: 450px) {
   .news > h2 {
     font-size: 40px;
   }
+  .alerts > h2 {
+    font-size: 40px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .index-links {
@@ -357,6 +360,9 @@ and (max-height: 450px) {
   }
   .news > h2 {
     font-size: 50px;
+  }
+  .alerts > h2 {
+    font-size: 40px;
   }
 }
 @media (min-width: 992px) {
@@ -381,8 +387,20 @@ and (max-height: 450px) {
   .news > h2 {
     font-size: 60px;
   }
+  .alerts > h2 {
+    font-size: 40px;
+  }
 }
 .news {
+  width: 100%;
+  margin-top: 100px;
+  grid-column: 1 / -1;
+  padding: 30px;
+  background-color: #22252B;
+  border-radius: 0.25rem;
+}
+
+.alerts {
   width: 100%;
   margin-top: 100px;
   grid-column: 1 / -1;
@@ -480,7 +498,8 @@ and (max-height: 450px) {
 
 /* MOVE ITEMS INWARDS,  MOVED FROM ARTICLES.css as file is used on multiple pages */
 body {
-  background-color: #F3F3F3
+  background-color: #F3F3F3;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 425px) {

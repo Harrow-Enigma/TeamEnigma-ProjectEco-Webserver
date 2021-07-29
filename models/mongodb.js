@@ -73,7 +73,8 @@
     'title': {type: String},
     'imageurl': {type: String},
     'content': {type: String},
-    'featured': {type : Boolean}
+    'featured': {type : Boolean},
+    'author' : {type :String}
   });
 
 // ----------------------------------------- //
@@ -152,7 +153,8 @@
       'title': json["title"],
       'imageurl': json["imageurl"],
       'content': json["content"],
-      'featured' : json["featured"]
+      'featured' : json["featured"],
+      'author' : json["author"]
     });
     
     doc1.save(function(err, doc) {
