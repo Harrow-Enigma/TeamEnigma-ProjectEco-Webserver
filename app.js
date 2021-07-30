@@ -12,24 +12,35 @@
 // IMPORTS - firstly, we'll want to import these  libraries.
     const express = require('express'); // Web Application Framework
     const http = require('http') // HTTP library for using the Web Application Framework
-    const io = require('socket.io')(http); // Socket.io for full-duplex client<->server side real time transmision
     const bodyParser = require("body-parser"); //body-parser for parsing form bodies into json
     const path = require('path'); // Standard good old node.js path library
     const fs = require('fs'); // Standard good old node.js filesystyem library
     const chalk = require('chalk'); // chalk lets our console.log()'s look beautiful in colour
-    
-    console.log(chalk.blue('SERVER > PACKAGES INSTALLED'))    
 
-// SOCKET.io INITIALISATION - This little smudge of code allows the routers to access socket.io library
-    module.exports.getIO = function(){
-        return io;
-    }
-    console.log(chalk.blue('SERVER > SOCKET.IO INITIALISED'))    
+    console.log(chalk.blue('SERVER > PACKAGES INSTALLED'))    
 
 // EXPRESS APP 
 
     //INITIALISATION
-        const app = express();
+        const app = express(); //init express app
+        const server = http.createServer(app);
+
+        const { Server } = require("socket.io"); //init socket
+        const io = new Server(server); // Socket.io for full-duplex client<->server side real time transmision
+        console.log(chalk.blue('SERVER > SOCKET.IO INITIALISED'))   
+
+    // SHARE SOCKET
+        const mongodbModel = require("./models/mongodb.js");
+        io.on('connection', function(socket) {
+          setInterval(function() {
+            var modelobject = mongodbModel.querysensordata(10)
+            modelobject.exec(function(err, data) {
+              if (err) return handleError(err);
+              socket.emit('message', { data: data})
+            })
+            }, 1000);
+
+        }); 
 
     // EJS DECLARATION + USE BODYPARSER
         app.set('view engine', 'ejs');
@@ -60,12 +71,8 @@
     
     console.log(chalk.blue('SERVER > ROUTERS INITIALISED'))    
 
-
-    // DECLARE CONNECTCOUNTER VAR
-        connectCounter = 0;
-
     // START EXPRESS HTTP SERVER
-    http.Server(app).listen(port, () => {
+    server.listen(port, () => {
       console.log(chalk.green('SERVER > STARTED @ port '+port))    
     }); 
 
@@ -77,5 +84,6 @@
           res.render('pages/error.ejs' ,{"pagename":"Error","errorcode":res.statusCode, "errorname":   HttpStatus.getStatusText(res.statusCode)});
         })
         console.log(chalk.blue('SERVER > ROUTER INITIALISED '+'['+'404'+']'))  */
+
 
 module.exports = app;

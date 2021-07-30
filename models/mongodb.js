@@ -53,7 +53,11 @@
   // Declare form Data Structure
   var FormDataSchema = new mongoose.Schema({
     "DATE":{type: Date},
-    "comments" :{type: String}
+    "q1" :{type: Number},
+    "q2" :{type: Number},
+    "q3" :{type: Number},
+    "q4" :{type: String},
+    "q5" :{type: String}
   });
 
   // Declare Alert Data Structure
@@ -107,7 +111,7 @@
     
     doc1.save(function(err, doc) {
       if (err) return console.error(err);
-      console.log(chalk.orange('DATABASE > DOCUMENT INSERTED [postsensordata]'))
+      console.log(chalk.yellow('DATABASE > DOCUMENT INSERTED [postsensordata]'))
     });
 
     return("Success")
@@ -125,13 +129,28 @@
     });
   }
 
+  // This one reads sensor data from the DB
+  exports.querysensordata = (minutesago) => {  
+    return sensordatamodel.find({"DATE" : { $lt: new Date(), $gte: new Date(new Date().getTime() - 1000 * 60 * minutesago)}}, function(err, result) {
+      if (err) {
+        return(err);
+      } else {
+        return(result);
+      }
+    });
+  }
+
   // This one posts form data to the DB
   exports.postformdata = (json) => {
     var date = new Date();
     var datestamp = date.toISOString();
     var doc1 = new formdatamodel({
     "DATE": datestamp , 
-    "comments":  json["comments"]
+    "q1":  json["q1"],
+    "q2":  json["q2"],
+    "q3":  json["q3"],
+    "q4":  json["q4"],
+    "q5":  json["q5"]
     });
     
     doc1.save(function(err, doc) {

@@ -23,8 +23,6 @@ body {
     /* background-position: right; */
   }
   #some-arrow-things {
-    border: 2px solid black;
-    background: #D7DDDD;
     margin: 0 auto;
     width: 100%;
     margin-top: 50px;
@@ -50,8 +48,6 @@ body {
     /* background-position: left; */
   }
   #some-arrow-things {
-    border: 2px solid black;
-    background: #D7DDDD;
     margin: 0 auto;
     width: 100%;
     margin-top: 50px;
@@ -85,8 +81,6 @@ body {
     /* background-position: left; */
   }
   #some-arrow-things {
-    border: 2px solid black;
-    background: #D7DDDD;
     margin-top: 200px;
   }
 }

@@ -15,13 +15,12 @@
     <main id="app">
       <div class="shifted-container">
       
-        <h1> Thanks For Submitting </h1>
-        <h3> Your data will help us make important predictions about the environment </h3>
+        <h1>Thanks For Submitting</h1>
+        <h3>Your data will help us make important predictions about the environment</h3>
 
         <div class="card bg-white border-0" style="width: 18rem;" >
           <div class="card-body">
             <h5 class="card-title">Your Answers</h5>
-            
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -30,32 +29,33 @@
                 </tr>
               </thead>
               <tbody>
+
                 <tr>
-                  <th scope="row"></th>
-                  <td></td>
+                  <th scope="row">How do you feel today?</th>
+                  <td>{{myData.q1}}/5</td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
-                  <td></td>
+                  <th scope="row">How well could you concentrate?</th>
+                  <td>{{myData.q2}}/5</td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
-                  <td></td>
+                  <th scope="row">How stressful has your work been?</th>
+                  <td>{{myData.q3}}/5</td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
-                  <td></td>
+                  <th scope="row">Have you encountered any dizziness, headaches, or shortness of breath lately?</th>
+                  <td>{{myData.q4}}</td>
                 </tr>
+                <tr>
+                  <th scope="row">Have you had any allergic responses today?</th>
+                  <td>{{myData.q5}}</td>
+                </tr>
+
               </tbody>
             </table>
-
           </div>
         </div>
 
-
-
-
-        
         <a href="https://youtu.be/dQw4w9WgXcQ">Claim your prize</a>
         
       </div>
@@ -66,14 +66,23 @@
 
   </body>
 
+  <!-- Insert laziness here -->
+  <style>
+    .submitted-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+    }
+  </style>
+
   <script>
 
-  var app = new Vue({
-    el: '#app',
-    data: {
-        myData: JSON.parse('<%- data %>')
-    }
-  }) 
+    var app = new Vue({
+      el: '#app',
+      data: {
+          myData: JSON.parse('<%- data %>')
+      }
+    }) 
 
   </script>
 </html>

@@ -10,7 +10,7 @@
     </a>
   </div>
   <div>
-    <p style="color:#8a8a8a">MIT Licence © Team Enigma 2021</p>
+    <p <%if (pagename !== "Survey") { %> style="color:#8a8a8a" <% } %> <%if (pagename === "Survey") { %> style="color:white"<% } %>>MIT Licence © Team Enigma 2021</p>
   </div>
 </footer>
 
@@ -18,3 +18,5 @@
 <script>
   AOS.init();
 </script>
+
+

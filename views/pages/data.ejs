@@ -14,46 +14,176 @@
 
     <main>
 
-      <div class="shifted-container">
-        <h1 class="title">Data</h1>
+            <div class="shifted-container">
+              <h1 class="title">Data</h1>
 
-        <p>
-          There's no data to browse yet, so enjoy pictures of these walrus'.
-        </p>
+                <div id="app">
+                  <div >
+                    <canvas v-show="loaded" id="chart" width="400" height="150"></canvas>
+                  </div>
 
-        <hr>
+                  <div v-show="!loaded">
 
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-inner">
+                    <div class="text-center">
+                      Hold tight, we're connecting you to the data stream... 
+                      <br>
+                      <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
 
-            <div class="carousel-item active">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Pacific_Walrus_-_Bull_%288247646168%29.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/10A55/production/_118218186_mediaitem118216244.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://www.wwf.org.uk/sites/default/files/styles/hero_s/public/2019-04/Cape%20Sedtse-Kamen%20%28C%29%20Anatoly%20Kruchnev%20%281%29.JPG?h=7685ba0d&itok=f4DQojay" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://cdn2.wanderlust.co.uk/media/1030/cropped-shutterstock_1229807503.jpg?anchor=center&mode=crop&width=1200&height=0&rnd=131988591290000000" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://www.westerntelegraph.co.uk/resources/images/12453056/" class="d-block w-100" alt="...">
-            </div>
-            
-          </div>
+                  </div>
+                </div>
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+                
 
-        </div>
+                <script>
+                  var app = new Vue({
+                        el: '#app',
+                        data: {
+                          data: "",
+                          loaded: false
+                        },
+                      });
+
+                  var socket = io.connect()
+
+                  var ctx = document.getElementById('chart').getContext('2d')
+
+                  grd = ctx.createLinearGradient(0.000, 350.000, 0.000, 100.000);
+                  grd.addColorStop(0.000, 'rgba(255,0,202,1)');
+                  grd.addColorStop(1.000, 'rgba(255,149,0,1)');
+
+
+                  var data = {
+                    datasets: [{
+                      data: [],
+                      label: 'rawH2',
+                      backgroundColor: grd,
+                    }]
+                  }
+
+                  
+                  var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {
+                      elements: {
+                          point:{
+                              radius: 0,
+                              pointHitRadius:1
+                          }
+                      },
+                      animation:  { easing: "easeInOutBack"},
+                      scales: {
+                        xAxes: [{
+                          type: 'time',
+                          max: new Date(),
+                          min: new Date(new Date().getTime() - 1000 * 60 * 10),
+                        }]
+                    }
+                          
+                    }
+                  })
+                  
+                  socket.on('message', function (value) {
+                    inputlabels = []
+                    inputvalues = []
+                    inputboth = []
+                    app.data = value
+                    app.loaded = true
+
+                    for (dataset in value.data) {
+                      inputboth.push({
+                        "x":value.data[dataset].DATE,
+                        "y":value.data[dataset].LOCATION1.rawH2
+                      })
+                    }
+                  
+                    // Sort array by date in ASCENDING order
+                    inputboth.sort(function (a, b) {
+                      if (Date.parse(a.x) < Date.parse(b.x)) {
+                      return -1;
+                      }
+                      if (Date.parse(a.x) > Date.parse(b.x)) {
+                      return 1;
+                      }
+                      return 0;
+                    });
+                    data.datasets[0].data = inputboth
+                    
+                    /*
+                    const sortByDate = arr => {
+                      const sorter = (a, b) => {
+                          return new Date(a.date).getTime() - new Date(b.date).getTime();
+                          console.log(Date(a.date).getTime()
+                      }
+                      arr.sort(sorter);
+                    };
+                    sortByDate(arr);
+                    console.log(arr); */
+                    //data.datasets[0].data = inputvalues
+                    //data.labels = inputlabels
+                    //console.log(inputboth)
+                    
+                    /*
+                    console.log(value.data[value.data.length-1])
+                    
+                    var length = data.labels.length
+                    if (length >= 20) {
+                      data.datasets[0].data.shift()
+                      data.labels.shift()
+                    }
+                    data.labels.push(moment().format('HH:mm:ss'))
+                    data.datasets[0].data.push(value)
+                    
+                    data.datasets[0].data = value.data[value.data.length-1].LOCATION1.Temperature
+                    data.labels = value.data.DATE
+                    */
+                    
+                    chart.update()
+                    
+                  })
+            </script> 
+
+            <!-- WALRUS 
+            <p>
+              There's no data to browse yet, so enjoy pictures of these walrus'.
+            </p>
+
+            <hr>
+
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Pacific_Walrus_-_Bull_%288247646168%29.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/10A55/production/_118218186_mediaitem118216244.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://www.wwf.org.uk/sites/default/files/styles/hero_s/public/2019-04/Cape%20Sedtse-Kamen%20%28C%29%20Anatoly%20Kruchnev%20%281%29.JPG?h=7685ba0d&itok=f4DQojay" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://cdn2.wanderlust.co.uk/media/1030/cropped-shutterstock_1229807503.jpg?anchor=center&mode=crop&width=1200&height=0&rnd=131988591290000000" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://www.westerntelegraph.co.uk/resources/images/12453056/" class="d-block w-100" alt="...">
+                </div>
+                
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button> -->
+
+      </div>
 
     </main>
   

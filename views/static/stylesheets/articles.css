@@ -17,6 +17,7 @@ body {
   line-height: 1.2;
   color: black;
   text-decoration: none;
+  font-size: 1.5rem;
 }
 .article-card-title:hover {
   color: blue;
