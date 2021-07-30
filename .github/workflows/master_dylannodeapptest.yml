@@ -24,7 +24,8 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        node index.js
+        npm install forever
+        npm start
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
