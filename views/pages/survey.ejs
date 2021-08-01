@@ -195,22 +195,45 @@
 
                 <div class="form-el">
                   <div>
+                  
+                    <h2>Please enter the PM2.5 and NO2 levels in your area:</h2>
+                    <p style="margin-bottom: 20px; line-height: 20px;">You can find this data in the website below, under "Air Quality Index (AQI) Values"</p>
 
-                    <!--
-                    <iframe src="https://aqicn.org/here#end" title="AQI in your area" class="aqicn-iframe">
+                    <input 
+                      type="number" 
+                      placeholder="PM2.5"
+                      name="q6.1"
+                      required
+                    >
+                    </input>
+                    <input 
+                      type="number" 
+                      placeholder="NO2"
+                      name="q6.2"
+                      required
+                    >
+                    </input>
+
+                    <section style="height: 10px;"></section>
+
+                    <iframe 
+                      src="https://aqicn.org/here#end" 
+                      title="AQI in your area" 
+                      class="aqicn-iframe"
+                    >
                     </iframe>
                     
                     <p>If the website doesn't load, please visit <a href="https://aqicn.org/here">here</a>.</p>
 
-                    -->
 
                     <!-- widget search here -->
-
+                    <!-- fix later:
                     <h2>Where are you taking this survey?</h2>
                     <input id='input-station' placeholder="City or location">
                     <br>
 
                     <div id='result-search' style='min-height: 300px'></div>
+                    -->
 
 
                   </div>
@@ -432,7 +455,9 @@
 
             document.querySelector('.invalidMsg').style.display = "block"
 
-            document.querySelector('.invalidMsg').innerHTML = `Complete the form in ${time} seconds or we will send your IP (${data.ip}) to hackers.`
+            document.querySelector('.invalidMsg').innerHTML = 
+            //`Complete the form in ${time} seconds or we will send your IP (${data.ip}) to hackers.`
+            "Please answer all the questions."
 
             time -= 1
           }, 1000)

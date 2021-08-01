@@ -64,7 +64,9 @@
     "q2" :{type: Number},
     "q3" :{type: Number},
     "q4" :{type: String},
-    "q5" :{type: String}
+    "q5" :{type: String},
+    "q6.1" :{type: Number},
+    "q6.2" :{type: Number},
   });
 
   // Declare Alert Data Structure
@@ -170,7 +172,9 @@
     "q2":  json["q2"],
     "q3":  json["q3"],
     "q4":  json["q4"],
-    "q5":  json["q5"]
+    "q5":  json["q5"],
+    "q6.1":  json["q6.1"],
+    "q6.2":  json["q6.2"],
     });
     
     doc1.save(function(err, doc) {
