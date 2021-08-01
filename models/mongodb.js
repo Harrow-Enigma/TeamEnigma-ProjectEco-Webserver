@@ -38,7 +38,7 @@
         "eCO2": {type:Number},
         "rawH2": {type: Number},
         "rawEthanol": {type: Number}
-        },
+      },
       "LOCATION2": {
         "Temperature":{type: Number},
         "Humidity":{type: Number},
@@ -46,8 +46,15 @@
         "eCO2": {type:Number},
         "rawH2": {type: Number},
         "rawEthanol": {type: Number}
-        }
-      } 
+      },
+      "DERBY": {
+        "Temperature":{type: Number},
+        "Humidity":{type: Number},
+        "TVOC":{type: Number},
+        "eCO2": {type:Number},
+        "rawH2": {type: Number},
+        "rawEthanol": {type: Number}
+      }}
   );
 
   // Declare form Data Structure
@@ -130,8 +137,21 @@
   }
 
   // This one reads sensor data from the DB
-  exports.querysensordata = (minutesago) => {  
-    return sensordatamodel.find({"DATE" : { $lt: new Date(), $gte: new Date(new Date().getTime() - 1000 * 60 * minutesago)}}, function(err, result) {
+  exports.querysensordata = (minutesago,location) => { 
+    //var query = { : , $location : }
+    
+    var datevariablename = "DATE";
+    var datequerystring = { $lt: new Date(), $gte: new Date(new Date().getTime() - 1000 * 60 * minutesago)};
+
+    var locationvariablename = location;
+    var locationquerystring = { $exists : true };
+
+    var query = {};
+
+    query[datevariablename] = datequerystring;
+    query[locationvariablename] = locationquerystring;
+
+    return sensordatamodel.find(query, function(err, result) {
       if (err) {
         return(err);
       } else {

@@ -16,10 +16,14 @@
 
             <div class="shifted-container">
               <h1 class="title">Data</h1>
+              <h3> THIS IS STILL VERY VERY BUGGY </h3>
+              <h5> devnote: BACKEND CODE IS STILL A MESS FOR THIS, REMEMBER TO EDIT app.js only LOCATION1 is supported (for now)</h5>
 
                 <div id="app">
                   <div >
-                    <canvas v-show="loaded" id="chart" width="400" height="150"></canvas>
+                    <canvas v-show="loaded" data-metric="eCO2" data-location="LOCATION1" class="line" width="400" height="150"></canvas>
+
+                    <canvas v-show="loaded" data-metric="rawH2" data-location="LOCATION1" class="line" width="400" height="150"></canvas>
                   </div>
 
                   <div v-show="!loaded">
@@ -44,48 +48,12 @@
                           data: "",
                           loaded: false
                         },
-                      });
+                    });
 
                   var socket = io.connect()
 
-                  var ctx = document.getElementById('chart').getContext('2d')
+                  var fulldata = []
 
-                  grd = ctx.createLinearGradient(0.000, 350.000, 0.000, 100.000);
-                  grd.addColorStop(0.000, 'rgba(255,0,202,1)');
-                  grd.addColorStop(1.000, 'rgba(255,149,0,1)');
-
-
-                  var data = {
-                    datasets: [{
-                      data: [],
-                      label: 'rawH2',
-                      backgroundColor: grd,
-                    }]
-                  }
-
-                  
-                  var chart = new Chart(ctx, {
-                    type: 'line',
-                    data: data,
-                    options: {
-                      elements: {
-                          point:{
-                              radius: 0,
-                              pointHitRadius:1
-                          }
-                      },
-                      animation:  { easing: "easeInOutBack"},
-                      scales: {
-                        xAxes: [{
-                          type: 'time',
-                          max: new Date(),
-                          min: new Date(new Date().getTime() - 1000 * 60 * 10),
-                        }]
-                    }
-                          
-                    }
-                  })
-                  
                   socket.on('message', function (value) {
                     inputlabels = []
                     inputvalues = []
@@ -93,25 +61,63 @@
                     app.data = value
                     app.loaded = true
 
-                    for (dataset in value.data) {
-                      inputboth.push({
-                        "x":value.data[dataset].DATE,
-                        "y":value.data[dataset].LOCATION1.rawH2
-                      })
-                    }
-                  
-                    // Sort array by date in ASCENDING order
-                    inputboth.sort(function (a, b) {
-                      if (Date.parse(a.x) < Date.parse(b.x)) {
-                      return -1;
-                      }
-                      if (Date.parse(a.x) > Date.parse(b.x)) {
-                      return 1;
-                      }
-                      return 0;
-                    });
-                    data.datasets[0].data = inputboth
                     
+
+                    fulldata = inputboth
+                    
+
+                  $('.line').each(function(index, element){    
+
+                      var graphdata = []
+
+                      for (dataset in app.data.data) {
+                        graphdata.push({
+                          "x":app.data.data[dataset].DATE,
+                          "y":app.data.data[dataset][element.getAttribute("data-location")][element.getAttribute("data-metric")]
+                        })
+                      }
+                      console.log(graphdata)
+
+
+                      var ctx = element.getContext("2d");
+                    
+                      grd = ctx.createLinearGradient(0.000, 350.000, 0.000, 100.000);
+                      grd.addColorStop(0.000, '#fc4a1a');
+                      grd.addColorStop(1.000, '#f7b733');
+
+
+                      var data = {
+                        datasets: [{
+                          data: graphdata,
+                          label: [element.getAttribute("data-metric")]+' at '+[element.getAttribute("data-location")],
+                          backgroundColor: grd,
+                        }]
+                      }
+                      
+                      var chart = new Chart(ctx, {
+                        type: 'line',
+                        data: data,
+                        options: {
+                          elements: {
+                              point:{
+                                  radius: 0,
+                                  pointHitRadius:1
+                              }
+                          },
+                          animation:  false,
+                          scales: {
+                            xAxes: [{
+                              type: 'time',
+                              max: new Date(),
+                              min: new Date(new Date().getTime() - 1000 * 60 * 10),
+                            }]
+                        }
+                              
+                        }
+                      })
+
+                  });
+
                     /*
                     const sortByDate = arr => {
                       const sorter = (a, b) => {
@@ -140,8 +146,6 @@
                     data.datasets[0].data = value.data[value.data.length-1].LOCATION1.Temperature
                     data.labels = value.data.DATE
                     */
-                    
-                    chart.update()
                     
                   })
             </script> 

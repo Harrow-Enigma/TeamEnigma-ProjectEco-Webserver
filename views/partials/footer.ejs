@@ -3,14 +3,14 @@
 <!-- Include footer css -->
 <link rel="stylesheet" href="/static/stylesheets/footer.css">
 
-<footer>
+<footer  <%if (pagename==="Home") { %> class="bg-dark" <% } %>   >
   <div>
     <a href="https://github.com/DylanK46/TeamEngima-ProjectEco-Webserver" class="social">
-      <i class="fab fa-github fa-4x"></i>
+      <i <%if (pagename==="Home") { %> style="color:white"<% } %> class="fab fa-github fa-4x"></i>
     </a>
   </div>
   <div>
-    <p <%if (pagename !== "Survey") { %> style="color:#8a8a8a" <% } %> <%if (pagename === "Survey") { %> style="color:white"<% } %>>MIT Licence © Team Enigma 2021</p>
+    <p <%if (pagename !== "Survey" && pagename!=="Home") { %> style="color:#8a8a8a" <% } %> <%if ((pagename === "Survey") || (pagename==="Home")) { %> style="color:white"<% } %>>MIT Licence © Team Enigma 2021</p>
   </div>
 </footer>
 

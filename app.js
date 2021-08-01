@@ -30,13 +30,42 @@
         console.log(chalk.blue('SERVER > SOCKET.IO INITIALISED'))   
 
     // SHARE SOCKET
+
+        function sortdata(value,location) {
+          var inputboth = []
+
+
+          for (dataset in value) {
+                      inputboth.push({
+                        "DATE":value[dataset].DATE,
+                        "LOCATION1":value[dataset][location]
+                      })
+                    }
+          
+                  
+                    // Sort array by date in ASCENDING order
+                    inputboth.sort(function (a, b) {
+                      if (Date.parse(a.x) < Date.parse(b.x)) {
+                      return -1;
+                      }
+                      if (Date.parse(a.x) > Date.parse(b.x)) {
+                      return 1;
+                      }
+                      return 0;
+                    });
+          return inputboth
+        }
+
+
         const mongodbModel = require("./models/mongodb.js");
         io.on('connection', function(socket) {
           setInterval(function() {
-            var modelobject = mongodbModel.querysensordata(10)
+
+            var modelobject = mongodbModel.querysensordata(10,"LOCATION1")
+
             modelobject.exec(function(err, data) {
               if (err) return handleError(err);
-              socket.emit('message', { data: data})
+              socket.emit('message', { data: sortdata(data,"LOCATION1")})
             })
             }, 1000);
 
