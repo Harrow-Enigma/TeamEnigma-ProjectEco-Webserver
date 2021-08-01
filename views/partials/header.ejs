@@ -121,7 +121,10 @@
     
 
     // Changing Pseudo Elements - very sensitive stuff
+    //filter: blur(8px);
+  //-webkit-filter: blur(8px);
     let darkBg = document.querySelector('.headerTransition')
+
     if (scroll < 2 * height) {
 
       darkBg.style.setProperty("--before-opacity", 0.3)
@@ -129,6 +132,18 @@
     } else if (scroll >= 2 * height) {
 
       darkBg.style.setProperty("--before-opacity", 1)
+
+    }
+
+    if (scroll < height + 300) {
+
+      darkBg.style.setProperty("filter", "blur(0px)")
+      darkBg.style.setProperty("-webkit-filter", "blur(0px)")
+
+    } else if (scroll >= height + 250) {
+
+      darkBg.style.setProperty("filter", "blur(8px)")
+      darkBg.style.setProperty("-webkit-filter", "blur(8px)")
 
     }
 

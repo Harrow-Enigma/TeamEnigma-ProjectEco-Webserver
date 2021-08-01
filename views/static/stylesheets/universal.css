@@ -190,6 +190,7 @@ p {
   padding: 0;
   height: 300vh;
   width: 100% !important;
+  transition: 1s;
 
   --before-opacity: 0.3;
 
@@ -240,7 +241,6 @@ p {
 .fixedbold {
   font-size: 60px;
   font-weight: 900;
-  /* color: white; */
   background-clip: text;
 	-webkit-background-clip: text;
 	color: transparent;
@@ -253,8 +253,11 @@ p {
 @media screen and (min-width: 450px) and (max-width: 600px){
   .fixedbold {
     font-size: 45px;
-    font-weight: bolder;
-    color: white;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url('/static/assets/universal/moreleaves.jpg');
   }
   #fixedText h3 {
     font-size: 30px;
@@ -266,8 +269,11 @@ p {
 @media (max-width: 450px) {
   .fixedbold {
     font-size: 37px;
-    font-weight: bolder;
-    color: white;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url('/static/assets/universal/moreleaves.jpg');
   }
   #fixedText h3 {
     font-size: 23px;
@@ -281,8 +287,11 @@ p {
 and (max-height: 450px) {
   .fixedbold {
     font-size: 33px;
-    font-weight: bolder;
-    color: white;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url('/static/assets/universal/moreleaves.jpg');
   }
   #fixedText h3 {
     font-size: 20px;

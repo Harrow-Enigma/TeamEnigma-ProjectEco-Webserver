@@ -7,6 +7,9 @@
   // Import Mongoose Library
   var mongoose = require('mongoose');
 
+  // use waqui
+  const waqiModel = require("../models/waqi.js");
+
   // Import Chalk
   const chalk = require('chalk'); // chalk lets our console.log()'s look beautiful in colour
 
@@ -65,8 +68,10 @@
     "q3" :{type: Number},
     "q4" :{type: String},
     "q5" :{type: String},
-    "q6.1" :{type: Number},
-    "q6.2" :{type: Number},
+    "localpollutiondata": {
+        "Latitude":{type: Number},
+        "Longitude":{type: Number},
+        "data" :{type:Object}}
   });
 
   // Declare Alert Data Structure
@@ -163,9 +168,12 @@
   }
 
   // This one posts form data to the DB
-  exports.postformdata = (json) => {
+  exports.postformdata = async (json) => {
     var date = new Date();
     var datestamp = date.toISOString();
+
+    var weatherstationdata = await waqiModel.getlocalpollutiondata(json["q6.1"],json["q6.2"])
+
     var doc1 = new formdatamodel({
     "DATE": datestamp , 
     "q1":  json["q1"],
@@ -173,8 +181,11 @@
     "q3":  json["q3"],
     "q4":  json["q4"],
     "q5":  json["q5"],
-    "q6.1":  json["q6.1"],
-    "q6.2":  json["q6.2"],
+    "localpollutiondata": {
+        "Latitude":json["q6.1"],
+        "Longitude":json["q6.2"],
+        "data" : weatherstationdata
+        }
     });
     
     doc1.save(function(err, doc) {
