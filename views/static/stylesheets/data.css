@@ -1,6 +1,5 @@
 @media (max-width: 1000px) {
   .graph-grid {
-    border: 2px solid gray;
     padding: 20px;
     display: grid;
     grid-gap: 25px;
@@ -9,7 +8,6 @@
 }
 @media (min-width: 1000px) {
   .graph-grid {
-    border: 2px solid gray;
     padding: 20px;
     display: grid;
     grid-gap: 25px;

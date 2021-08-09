@@ -13,14 +13,16 @@
     </header>
 
     <main id="app">
+
       <div class="shifted-container">
       
-        <h1>Thanks For Submitting</h1>
-        <h3>Your data will help us make important predictions about the environment</h3>
+        <h1 class="title">Thanks for your input.</h1>
+        <p>This data will help us enormously in making important predictions about the environment.</p>
 
-        <div class="card bg-white border-0" style="width: 18rem;" >
+        <div class="card bg-white border-0" style="width: 100%;">
           <div class="card-body">
-            <h5 class="card-title">Your Answers</h5>
+            <h3 class="card-title">Your Responses</h3>
+
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -51,16 +53,22 @@
                   <td>{{myData.q5}}</td>
                 </tr>
                 <tr>
-                  <th scope="row">Long/Latitude</th>
+                  <th scope="row">Longitude/Latitude</th>
                   <td>{{myData["q6.1"]}} / {{myData["q6.2"]}}</td>
                 </tr>
 
               </tbody>
             </table>
+
           </div>
         </div>
-        
+
       </div>
+
+    
+      <h6>The form currently has <%= formcount %> responses</h6> 
+    
+
     </main>
 
     <!-- Include Footer -->

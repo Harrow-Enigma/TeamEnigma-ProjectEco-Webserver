@@ -44,8 +44,8 @@
                       </span>
                       <a v-bind:href="'/articles/'+encodeURI(article.title)" class="card-title article-card-title">{{article.title}}</a>
                       <p class="card-text"><b>{{article.author}}</b></p>
-                      <p class="card-text">{{article.content.substring(0, 400)}}...</p>
-                      <section style="height: 50px;"></section>
+                      <p class="card-text" v-html="article.content.substring(0, 400)+'...'"></p>
+                      <section style="height: 150px;"></section>
                       <a v-bind:href="'/articles/'+encodeURI(article.title)" class="btn btn-primary" style="position: absolute; bottom: 15px; right: 15px;">Go</a>
                     </div>
                   </div>

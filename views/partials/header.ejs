@@ -15,8 +15,71 @@
       <span class="wrap" :style="styles">Project Eco</span>
     </span>
     <p id="enigmamessenger" messages="[ &quot;by Team Enigma&quot; ]"></p>
-  
 
+    <!--
+
+    <div id="scroll-ticker" class="scroll-ticker">
+      <p class="ticker-text">
+        
+        <span style="margin-left: 30px;"></span>
+        GME: <span style="color: red">151.77</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+        </svg>
+
+        <span style="margin-left: 30px;"></span>
+        PM<sub>2.5</sub> : <span style="color: orange">65µg/m³</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+        </svg>
+
+        <span style="margin-left: 30px;"></span>
+        NO<sub>2</sub> : <span style="color: green">40a.u.</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+        </svg>
+
+        <span style="margin-left: 30px;"></span>
+        BTC: $<span style="color: green">{{btc}}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+        </svg>
+
+        <span style="margin-left: 30px;"></span>
+        DOGE: $<span style="color: green">{{doge}}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+        </svg>
+
+        <!--
+        <span style="margin-left: 30px;"></span>
+        Temperature: <span style="color: yellow">25°C</span>
+        -->
+      </p>
+      
+    </div>
+
+    <script>
+    new Vue({
+      el: '#scroll-ticker',
+      data () {
+        return {
+          btc: null,
+          doge:null
+        }
+      },
+      mounted () {
+        axios
+          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(response => (this.btc = response.data.bpi.USD.rate))
+        axios
+          .get('https://sochain.com//api/v2/get_price/DOGE/USD')
+          .then(response => (this.doge = response.data.data.prices[0].price ))
+        }
+    })
+    </script>
+
+  
     <!--
     <div class="form-check form-switch jokeswitchwrap">
       <input class="form-check-input" v-on:click="joke" type="checkbox" id="joke-btn">
@@ -71,7 +134,6 @@
   </div>
   -->
 
-
 </header>
 
 <script>
@@ -108,43 +170,34 @@
     if (scroll < height) {
       textfade1.style.opacity = 0
       textfade2.style.opacity = 0
-    } else if (scroll > height && scroll < height * 1.7) {
+    } else if (scroll > height && scroll < height * 2.5) {
       textfade1.style.opacity = 1
       textfade2.style.opacity = 0
-    } else if (scroll > (height * 1.7) && scroll < (height * 3)) {
+    } else if (scroll > (height * 2.5) && scroll < (height * 5)) {
       textfade1.style.opacity = 1
       textfade2.style.opacity = 1
-    } else if (scroll > height * 3) {
+    } else if (scroll > height * 5) {
       textfade1.style.opacity = 0
       textfade2.style.opacity = 0
     }
     
 
     // Changing Pseudo Elements - very sensitive stuff
-    //filter: blur(8px);
-  //-webkit-filter: blur(8px);
+    
     let darkBg = document.querySelector('.headerTransition')
 
-    if (scroll < 2 * height) {
-
+    if (scroll < 3 * height) {
       darkBg.style.setProperty("--before-opacity", 0.3)
-
-    } else if (scroll >= 2 * height) {
-
+    } else if (scroll >= 3 * height) {
       darkBg.style.setProperty("--before-opacity", 1)
-
     }
 
     if (scroll < height + 300) {
-
       darkBg.style.setProperty("filter", "blur(0px)")
       darkBg.style.setProperty("-webkit-filter", "blur(0px)")
-
     } else if (scroll >= height + 250) {
-
       darkBg.style.setProperty("filter", "blur(8px)")
       darkBg.style.setProperty("-webkit-filter", "blur(8px)")
-
     }
 
     

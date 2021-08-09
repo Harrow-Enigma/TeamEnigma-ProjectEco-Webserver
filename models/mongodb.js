@@ -69,8 +69,8 @@
     "q4" :{type: String},
     "q5" :{type: String},
     "localpollutiondata": {
-        "Latitude":{type: Number},
-        "Longitude":{type: Number},
+        "Latitude":{type: String},
+        "Longitude":{type: String},
         "data" :{type:Object}}
   });
 
@@ -172,20 +172,23 @@
     var date = new Date();
     var datestamp = date.toISOString();
 
-    var weatherstationdata = await waqiModel.getlocalpollutiondata(json["q6.1"],json["q6.2"])
+    var latitude = parseFloat(/(\d+(.|,))\d+/.exec(json["q6.1"])[0])
+    var longitude = parseFloat(/(\d+(.|,))\d+/.exec(json["q6.2"])[0])
+
+    var weatherstationdata = await waqiModel.getlocalpollutiondata(latitude,longitude);
 
     var doc1 = new formdatamodel({
-    "DATE": datestamp , 
+    "DATE": datestamp ,
     "q1":  json["q1"],
     "q2":  json["q2"],
     "q3":  json["q3"],
     "q4":  json["q4"],
     "q5":  json["q5"],
     "localpollutiondata": {
-        "Latitude":json["q6.1"],
-        "Longitude":json["q6.2"],
+        "Latitude":latitude,
+        "Longitude":longitude,
         "data" : weatherstationdata
-        }
+      }
     });
     
     doc1.save(function(err, doc) {
@@ -285,3 +288,24 @@
       }
     });
   };
+
+  exports.countformdata = () => {
+    return formdatamodel.estimatedDocumentCount({}, function(err, count) {
+      if (err) {
+        return(err);
+      } else {
+        return(count);
+      }
+    });
+  };
+
+  // This one reads all form data from DB
+  exports.getformsdata = () => {
+    return formdatamodel.find({}, function(err, result) {
+      if (err) {
+        return(err);
+      } else {
+        return(result);
+      }
+    });
+  }

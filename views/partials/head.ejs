@@ -74,13 +74,68 @@ if(navigator.appName.indexOf("Internet Explorer")!=-1 || navigator.userAgent.mat
 
 <!-- GOOGLE ANALYTICS -->
 
+<script>
+const parseCookie = str =>
+  str
+    .split(';')
+    .map(v => v.split('='))
+    .reduce((acc, v) => {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+      return acc;
+    }, {});
+</script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NG45GEZTKP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function enablecookies() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-NG45GEZTKP');
-</script> -->
+    gtag('config', 'G-NG45GEZTKP');
+
+    console.log("3rd party cookies enabled")
+
+    document.cookie = "cookies=enabled";
+
+    $('#cookiesmodal').modal('hide');
+
+    }
+
+</script> 
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        if ((parseCookie(document.cookie).cookies) === 'enabled') {
+          enablecookies()
+        } else if (((parseCookie(document.cookie).cookies) === 'disabled')) {
+          $('#cookiesmodal').modal('hide');
+        } else { $('#cookiesmodal').modal('show'); }
+    });
+</script>
+
+<div class="modal fade" id="cookiesmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Want a cookie?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Third Party Cookies help us gain insight into how users react with our site.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="document.cookie = 'cookies=disabled'" data-bs-dismiss="modal">No Thanks</button>
+        <button type="button" class="btn btn-primary" onclick="enablecookies()">Sure</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+console.log(parseCookie(document.cookie).cookies) // 3rd party cookies enabled
+
+  
+</script>

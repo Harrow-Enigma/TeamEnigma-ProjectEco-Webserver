@@ -84,6 +84,26 @@ body {
   height: 100vh;
 }
 
+
+.scroll-ticker {
+  background-color: black;
+  color: white;
+	width: 390px;
+  overflow: hidden;
+  z-index: 10;
+  margin-top: 40px;
+  margin-bottom: -5px;
+  height: 30px;
+}
+.ticker-text {
+  font-size: 20px;
+	white-space: nowrap;
+	animation: marquee 12s linear infinite; 
+}
+@keyframes marquee {
+  0%   { transform: translate(100%, 0); }
+  100% { transform: translate(-830px, 0); }
+}
 .titlewrap {
   top: 50%;
   left: 50px;
@@ -105,7 +125,15 @@ body {
   .typewrite {
     font-size: 50px;
   }
-
+  .scroll-ticker {
+    background-color: black;
+    color: white;
+    width: 80%;
+    overflow: hidden;
+    z-index: 10;
+    margin: 40px auto 0 auto;
+    height: 30px;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -188,7 +216,7 @@ p {
 .headerTransition {
   margin: 0;
   padding: 0;
-  height: 300vh;
+  height: 500vh;
   width: 100% !important;
   transition: 1s;
 
@@ -202,7 +230,7 @@ p {
 .headerTransition::before {
   content: "";
 
-  height: 300vh;
+  height: 500vh;
   position: absolute;
   top: 0;
   right: 0px;

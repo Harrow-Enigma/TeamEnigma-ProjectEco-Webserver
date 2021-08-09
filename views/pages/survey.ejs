@@ -151,10 +151,10 @@
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="no" required>Yes
+                          <input class="form-check-input" type="radio" name="q4" value="no" required>No
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="yes" required>No
+                          <input class="form-check-input" type="radio" name="q4" value="yes" required>Yes
                         </label>
                       </div>
                     </div>
@@ -173,10 +173,10 @@
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="no" required>Yes
+                          <input class="form-check-input" type="radio" name="q5" value="no" required>No
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="yes" required>No
+                          <input class="form-check-input" type="radio" name="q5" value="yes" required>Yes
                         </label>
                       </div>
                     </div>
@@ -193,7 +193,7 @@
                   <div>
                   
                     <h2>Where are you taking this survey?</h2>
-                    <p style="line-height: 18px;">This will allow us to match your mental health to the weather near you</p>
+                    <p style="line-height: 18px;">This will allow us to get weather data in your area.</p>
 
                     <script type="text/javascript">
                       function getLocationConstant() {
@@ -216,7 +216,7 @@
                       }
                     </script>
 
-                    <button type="button" class="btn btn-info" onclick="getLocationConstant()">Check Device GPS</button>
+                    <button type="button" class="btn btn-info" onclick="getLocationConstant()">Use Device GPS</button>
 
                     <section style="height: 20px;"></section>
 
@@ -269,7 +269,7 @@
                     <p id="instructions-text">Your responses provide us with useful data for delivering accurate predictions.</p>
                     <section style="height: 20px;"></section>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <div class="alert alert-danger invalidMsg" style="border-radius: 10px; margin-top: 20px; display: none"></div>
+                    <div class="alert alert-danger invalidMsg" style="border-radius: 10px; margin-top: 20px; display: none">Please complete all the questions.</div>
                   </div>
                 </div>
 
@@ -279,7 +279,7 @@
           </div>
           
           <div>
-            <!--Note: this needs to be inside this div in order ro work-->
+            <!--Note: this needs to be inside this div in order to work-->
             <div class="carousel-indicators" id="survey-indicators" style="padding-left: 10px; padding-right: 10px;">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
