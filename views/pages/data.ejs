@@ -4,6 +4,7 @@
   <head>
     <%- include('../partials/head.ejs'); %>
     <link rel="stylesheet" href="/static/stylesheets/universal.css">
+    <link rel="stylesheet" href="/static/stylesheets/data.css">
   </head>
 
   <body>
@@ -13,22 +14,14 @@
     </header>
 
     <main>
-
+      <div class="shifted-container">
+        <h1 class="title">Data</h1>
             <div class="shifted-container">
               <h1 class="title">Data</h1>
 
                 <div id="app">
-                  <div>
-                    <canvas v-show="loaded" data-metric="eCO2" data-location="LOCATION1" class="line" width="400" height="150"></canvas>
 
-                    <canvas v-show="loaded" data-metric="rawH2" data-location="LOCATION1" class="line" width="400" height="150"></canvas>
-
-                    <canvas v-show="loaded" data-metric="TVOC" data-location="LOCATION1" class="line" width="400" height="150"></canvas>
-
-                    <canvas v-show="loaded" data-metric="rawEthanol" data-location="LOCATION1" class="line" width="400" height="150"></canvas>
-                  </div>
-
-                  <div v-show="!loaded">
+                 <div v-show="!loaded">
 
                     <div class="text-center">
                       Hold tight, we're connecting you to the data stream... 
@@ -39,6 +32,52 @@
                     </div>
 
                   </div>
+
+                  <div v-show="loaded" class="graph-grid">
+                    <div>
+                      <h3><b>eC02</b></h3>
+                      <canvas data-metric="eCO2" data-location="LOCATION1" class="line" responsive="true" maintainAspectRatio="true"></canvas>
+                      <p class="graphinfoparagraph">
+                        eCO2 – means estimated concentration of carbon dioxide calculated from known TVOC concentration. This is based on the assumption that the VOC produced by humans is proportional to their exhaled CO2. That means it gives similar signal to real CO2 sensor, in the case the main, prevailing source of air pollution in such room are people who stay inside. The analogue output of the VOC sensor is in the range 400 – 2000 ppm eCO2. - www.careforair.eu
+                      </p>
+                      <hr>
+                    </div>
+
+                    <div>
+                      <h3><b>rawH2</b></h3>
+                      <canvas data-metric="rawH2" data-location="LOCATION1" class="line" responsive="true" maintainAspectRatio="true"></canvas>
+                      <p class="graphinfoparagraph">
+                        Hydrogen can be produced using a number of different processes. Thermochemical processes use heat and chemical reactions to release hydrogen from organic materials, such as fossil fuels and biomass, or from materials like water. Water (H2O) can also be split into hydrogen (H2) and oxygen (O2) using electrolysis or solar energy. Microorganisms such as bacteria and algae can produce hydrogen through biological processes. - www.energy.gov/
+                      </p>
+                      <hr>
+                    </div>
+
+                    <div>
+                      <h3><b>TVOC</b></h3>
+                      <canvas data-metric="TVOC" data-location="LOCATION1" class="line" responsive="true" maintainAspectRatio="true"></canvas>
+                      <p class="graphinfoparagraph">
+                        Volatile organic compounds (VOC) are organic chemicals that have a high vapour pressure at room temperature. High vapor pressure correlates with a low boiling point, which relates to the number of the sample's molecules in the surrounding air, a trait known as volatility.
+
+                        VOCs are responsible for the odor of scents and perfumes as well as pollutants. VOCs play an important role in communication between animals and plants, e.g. attractants for pollinators, protection from predation,and even inter-plant interactions.Some VOCs are dangerous to human health or cause harm to the environment. Anthropogenic VOCs are regulated by law, especially indoors, where concentrations are the highest. Most VOCs are not acutely toxic, but may have long-term chronic health effects.
+                        - Wikipedia, the online encyclopedia
+                      </p>
+                      <hr>
+                    </div>
+
+                    <div>
+                      <h3><b>rawEthanol</b></h3>
+                      <canvas  data-metric="rawEthanol" data-location="LOCATION1" class="line" responsive="true" maintainAspectRatio="true"></canvas>
+                      <p class="graphinfoparagraph">
+                        Ethanol (also called ethyl alcohol, grain alcohol, drinking alcohol, or simply alcohol) is an organic chemical compound. It is a simple alcohol with the chemical formula C2H6O. Its formula can be also written as CH 3−CH 2−OH or C2H 5OH (an ethyl group linked to a hydroxyl group), and is often abbreviated as EtOH. Ethanol is a volatile, flammable, colorless liquid with a slight characteristic odor. It is a psychoactive drug, recreational drug, and the active ingredient in alcoholic drinks.
+
+                        Ethanol is naturally produced by the fermentation of sugars by yeasts or via petrochemical processes such as ethylene hydration. It has medical applications as an antiseptic and disinfectant. It is used as a chemical solvent and in the synthesis of organic compounds. Ethanol is a fuel source.
+                      </p>
+                      <hr>
+                    </div>
+                    
+                  </div>
+
+                 
                 </div>
 
                 
@@ -78,8 +117,6 @@
                           "y":app.data.data[dataset][element.getAttribute("data-location")][element.getAttribute("data-metric")]
                         })
                       }
-                      console.log(graphdata)
-
 
                       var ctx = element.getContext("2d");
                     
