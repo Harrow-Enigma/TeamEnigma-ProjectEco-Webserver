@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/stylesheets/survey.css">
   </head>
 
-  <body style="background-image: url('/static/assets/survey/surveybackground.png');  background-size: cover;" onload="load()">
+  <body style="background-image: url('/static/assets/survey/surveybackground.png');  background-size: cover;">
   
     <header>
       <%- include('../partials/navbar.ejs'); %>
@@ -30,6 +30,13 @@
                     <div>
                       <p id="instructions-text">There are 6 short questions, which will take approximately 2 minutes in total.</p>
                       <p id="instructions-text">Click the "Next" button below to get started!</p>
+
+                      <button type="button" class="btn btn-primary" onclick=" $('.carousel').carousel('next');">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"></path>
+                        </svg>
+                      </button>
+
                     </div>
                   </div>
                 </div>
@@ -196,6 +203,14 @@
                     <p style="line-height: 18px;">This will allow us to get weather data in your area.</p>
 
                     <script type="text/javascript">
+
+                      $(function(){
+                          $("input[name^='q'][name!='q6.1'][name!='q6.2']").click(function(){
+                              console.log("test");
+                              $(".carousel").carousel("next");
+                          });
+                      });
+
                       function getLocationConstant() {
                         if (navigator.geolocation) {
                           navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
@@ -206,8 +221,8 @@
 
                       // If we have a successful location update
                       function onGeoSuccess(event) {
-                        document.getElementById("q6.1").value = (event.coords.latitude).toString();
-                        document.getElementById("q6.2").value = (event.coords.longitude).toString();
+                        document.getElementById("q6.1").value = (Math.round(event.coords.latitude * 10000) / 10000).toString();
+                        document.getElementById("q6.2").value = (Math.round(event.coords.longitude * 10000) / 10000).toString();
                       }
 
                       // If something has gone wrong with the geolocation request
@@ -245,6 +260,12 @@
                     <br>
 
                     <section style="height: 10px;"></section>
+
+                    <button type="button" class="btn btn-primary" onclick=" $('.carousel').carousel('next');">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"></path>
+                        </svg>
+                    </button>
 
                     <!-- widget search here -->
                     <!-- fix later:

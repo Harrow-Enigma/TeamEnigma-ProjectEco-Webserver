@@ -57,6 +57,19 @@ header {
   }
 }
 
+.alertcollapsebtn {
+  margin-left: 20px;
+  background: none;
+  border: 2px solid #f0ad4e;
+  color: #f0ad4e;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+.alertcollapsebtn:hover {
+  background: #f0ad4e;
+  color: white;
+}
+
 .offcanvas-header {
   color: black;
   text-decoration: none;

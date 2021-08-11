@@ -14,3 +14,10 @@
     grid-template-columns: repeat(2, 45vw);
   }
 }
+
+.graphinfoparagraph {
+  margin: 20px;
+  padding: 20px 30px;
+  background: lightgray;
+  border-radius: 10px;
+}
