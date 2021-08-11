@@ -54,6 +54,11 @@ router.get("/rest/output/sensors", async (req,res, next) => {
   res.send(data)
 });
 
+router.get("/rest/output/formnumberofresponses", async (req,res, next) => {
+  const data = await mongodbModel.countformdata()
+  res.send(data)
+});
+
 router.get("/rest/output/queriedsensors", async (req,res, next) => {
   const data = await mongodbModel.querysensordata(req.body.minutesago)
   res.send(data)
@@ -66,6 +71,11 @@ router.get("/rest/output/articles", async (req,res, next) => {
 
 router.get("/rest/output/alerts", async (req,res, next) => {
   const data = await mongodbModel.getalertsdata()
+  res.send(data)
+});
+
+router.get("/rest/output/forms", async (req,res, next) => {
+  const data = await mongodbModel.getformsdata()
   res.send(data)
 });
 

@@ -7,6 +7,9 @@
   // Import Mongoose Library
   var mongoose = require('mongoose');
 
+  // use waqui
+  const waqiModel = require("../models/waqi.js");
+
   // Import Chalk
   const chalk = require('chalk'); // chalk lets our console.log()'s look beautiful in colour
 
@@ -65,8 +68,10 @@
     "q3" :{type: Number},
     "q4" :{type: String},
     "q5" :{type: String},
-    "q6.1" :{type: Number},
-    "q6.2" :{type: Number},
+    "localpollutiondata": {
+        "Latitude":{type: String},
+        "Longitude":{type: String},
+        "data" :{type:Object}}
   });
 
   // Declare Alert Data Structure
@@ -163,18 +168,27 @@
   }
 
   // This one posts form data to the DB
-  exports.postformdata = (json) => {
+  exports.postformdata = async (json) => {
     var date = new Date();
     var datestamp = date.toISOString();
+
+    var latitude = parseFloat(/(\d+(.|,))\d+/.exec(json["q6.1"])[0])
+    var longitude = parseFloat(/(\d+(.|,))\d+/.exec(json["q6.2"])[0])
+
+    var weatherstationdata = await waqiModel.getlocalpollutiondata(latitude,longitude);
+
     var doc1 = new formdatamodel({
-    "DATE": datestamp , 
+    "DATE": datestamp ,
     "q1":  json["q1"],
     "q2":  json["q2"],
     "q3":  json["q3"],
     "q4":  json["q4"],
     "q5":  json["q5"],
-    "q6.1":  json["q6.1"],
-    "q6.2":  json["q6.2"],
+    "localpollutiondata": {
+        "Latitude":latitude,
+        "Longitude":longitude,
+        "data" : weatherstationdata
+      }
     });
     
     doc1.save(function(err, doc) {
@@ -274,3 +288,24 @@
       }
     });
   };
+
+  exports.countformdata = () => {
+    return formdatamodel.estimatedDocumentCount({}, function(err, count) {
+      if (err) {
+        return(err);
+      } else {
+        return(count);
+      }
+    });
+  };
+
+  // This one reads all form data from DB
+  exports.getformsdata = () => {
+    return formdatamodel.find({}, function(err, result) {
+      if (err) {
+        return(err);
+      } else {
+        return(result);
+      }
+    });
+  }

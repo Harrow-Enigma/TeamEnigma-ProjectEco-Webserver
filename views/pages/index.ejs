@@ -15,7 +15,7 @@
 	<div class="container-fluid" id="bodyContent">
 
     <div id="fixedText">
-      <h3 id="textfade1" style="opacity: 0;">
+      <h3 id="textfade1" style="opacity: 0; color: black;">
         The
         <span class="fixedbold" data-text="Environment">
           Environment
@@ -230,9 +230,16 @@
 
     </div>
 
+    <section style="height: 50px;"></section>
 
-    <section style="height: 100px;"></section>
-		
+    <!--
+    <div style="text-align: center;">
+      <h2>Join our Newsletter?</h2>
+      <input type="text" placeholder="Enter Email...">
+    </div>
+    -->
+
+    <section style="height: 50px;"></section>
 
     <div id="booyah">
       <div class="enigmaBtn" id="scramble">
@@ -241,7 +248,7 @@
           <div id="messengerbottom" messages='[ "Team Enigma" ]'></div>
         </h2>
       </div>
-      <img v-if="showWalrus" src="/" alt="A Walrus" style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0;">
+      <img id="walruspic" v-if="showWalrus" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pacific_Walrus_-_Bull_%288247646168%29.jpg/1280px-Pacific_Walrus_-_Bull_%288247646168%29.jpg" alt="A Walrus" style="width: 100%; height: auto; margin-top: 100px;">
     </div>
 
     <section style="height: 200px;"></section>
@@ -264,13 +271,13 @@
           'Brought to you by',
           'Brought to you by',
           'Brought to you by',
-          'Stop clicking.',
-          'Please stop.',
-          'Something bad will happen.',
-          'This is not a joke.',
-          'You will regret this.',
-          '...',
-          'You were warned.',
+          'Brought to you by',
+          'Hey!',
+          'You just found an easter egg!',
+          'Congrats!',
+          'It gets really boring here, y\'know?',
+          'So...',
+          'Here\'s something for you!',
         ],
         count: 0,
         message: 'Brought to you by',
@@ -282,6 +289,7 @@
           this.message = this.textList[this.count]
           if (this.count > 9) {
             this.showWalrus = true
+            this.message = ":)"
           }
         }
       }

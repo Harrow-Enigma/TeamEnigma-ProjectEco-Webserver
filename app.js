@@ -67,7 +67,7 @@
               if (err) return handleError(err);
               socket.emit('message', { data: sortdata(data,"LOCATION1")})
             })
-            }, 1000);
+            }, 3000);
 
         }); 
 

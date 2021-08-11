@@ -26,13 +26,16 @@
           <%= 
             `${/^(\w+)\s(\w+\s\d+\s\d+)\s(\d+:\d+:\d+)/.exec(articledate)[1]}, 
             ${/^(\w+)\s(\w+\s\d+\s\d+)\s(\d+:\d+:\d+)/.exec(articledate)[2]} at 
-            ${/^(\w+)\s(\w+\s\d+\s\d+)\s(\d+:\d+:\d+)/.exec(articledate)[3]}` 
+            ${/^(\w+)\s(\w+\s\d+\s\d+)\s(\d+:\d+:\d+)/.exec(articledate)[3]}`
           %>
         </p>
 
         <hr>
 
-        <img src="<%= articleimageurl %>" id="article-top-image">
+        <figure>
+          <img src="<%= articleimageurl %>" id="article-top-image">
+          <figcaption>A figcaption</figcaption>
+        </figure>
 
         <section style="height: 20px;"></section>
 

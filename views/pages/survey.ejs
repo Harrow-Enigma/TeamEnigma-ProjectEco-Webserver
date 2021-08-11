@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/stylesheets/survey.css">
   </head>
 
-  <body style="background-image: url('/static/assets/survey/surveybackground.png');  background-size: cover;" onload="load()">
+  <body style="background-image: url('/static/assets/survey/surveybackground.png');  background-size: cover;">
   
     <header>
       <%- include('../partials/navbar.ejs'); %>
@@ -30,6 +30,13 @@
                     <div>
                       <p id="instructions-text">There are 6 short questions, which will take approximately 2 minutes in total.</p>
                       <p id="instructions-text">Click the "Next" button below to get started!</p>
+
+                      <button type="button" class="btn btn-primary" onclick=" $('.carousel').carousel('next');">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"></path>
+                        </svg>
+                      </button>
+
                     </div>
                   </div>
                 </div>
@@ -41,10 +48,6 @@
                 <div class="form-el">
                   <div>
                     <h2>How do you feel today?</h2>
-                    <!--
-                    <label for="moodRange" class="form-label" style="float: left;">Sad</label>
-                    <label for="moodRange" class="form-label" style="float: right;">Happy</label>
-                    <input type="range" class="form-range" name="moodRange" fmin="0" max="5" step="1" id="moodRange" v-model="moodRange"> -->
 
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
@@ -155,10 +158,10 @@
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="no" required>Yes
+                          <input class="form-check-input" type="radio" name="q4" value="no" required>No
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="yes" required>No
+                          <input class="form-check-input" type="radio" name="q4" value="yes" required>Yes
                         </label>
                       </div>
                     </div>
@@ -177,10 +180,10 @@
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="no" required>Yes
+                          <input class="form-check-input" type="radio" name="q5" value="no" required>No
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="yes" required>No
+                          <input class="form-check-input" type="radio" name="q5" value="yes" required>Yes
                         </label>
                       </div>
                     </div>
@@ -196,45 +199,81 @@
                 <div class="form-el">
                   <div>
                   
-                    <h2>Please enter the PM2.5 and NO2 levels in your area:</h2>
-                    <p style="margin-bottom: 20px; line-height: 20px;">You can find this data in the website below, under "Air Quality Index (AQI) Values"</p>
+                    <h2>Where are you taking this survey?</h2>
+                    <p style="line-height: 18px;">This will allow us to get weather data in your area.</p>
 
-                    <input 
-                      type="number" 
-                      placeholder="PM2.5"
+                    <script type="text/javascript">
+
+                      $(function(){
+                          $("input[name^='q'][name!='q6.1'][name!='q6.2']").click(function(){
+                              console.log("test");
+                              $(".carousel").carousel("next");
+                          });
+                      });
+
+                      function getLocationConstant() {
+                        if (navigator.geolocation) {
+                          navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+                        } else {
+                          alert("Your browser or device doesn't support Geolocation");
+                        }
+                      }
+
+                      // If we have a successful location update
+                      function onGeoSuccess(event) {
+                        document.getElementById("q6.1").value = (Math.round(event.coords.latitude * 10000) / 10000).toString();
+                        document.getElementById("q6.2").value = (Math.round(event.coords.longitude * 10000) / 10000).toString();
+                      }
+
+                      // If something has gone wrong with the geolocation request
+                      function onGeoError(event) {
+                        alert("Error code " + event.code + ". " + event.message);
+                      }
+                    </script>
+
+                    <button type="button" class="btn btn-info" onclick="getLocationConstant()">Use Device GPS</button>
+
+                    <section style="height: 20px;"></section>
+
+                    <input
+                      placeholder="Your Latitude..."
+                      type="text" 
+                      class="form-control"
                       name="q6.1"
-                      required
+                      id="q6.1"
+                      novalidate
+                      style="margin-top: 20px;"
                     >
                     </input>
-                    <input 
-                      type="number" 
-                      placeholder="NO2"
+                  
+                    <input
+                      placeholder="Your Longitude..."
+                      type="text" 
+                      class="form-control"
                       name="q6.2"
-                      required
+                      id="q6.2"
+                      novalidate
+                      style="margin-top: 20px;"
                     >
                     </input>
+
+                    <br>
 
                     <section style="height: 10px;"></section>
 
-                    <iframe 
-                      src="https://aqicn.org/here#end" 
-                      title="AQI in your area" 
-                      class="aqicn-iframe"
-                    >
-                    </iframe>
-                    
-                    <p>If the website doesn't load, please visit <a href="https://aqicn.org/here">here</a>.</p>
-
+                    <button type="button" class="btn btn-primary" onclick=" $('.carousel').carousel('next');">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"></path>
+                        </svg>
+                    </button>
 
                     <!-- widget search here -->
                     <!-- fix later:
-                    <h2>Where are you taking this survey?</h2>
                     <input id='input-station' placeholder="City or location">
                     <br>
 
                     <div id='result-search' style='min-height: 300px'></div>
                     -->
-
 
                   </div>
                 </div>
@@ -251,7 +290,7 @@
                     <p id="instructions-text">Your responses provide us with useful data for delivering accurate predictions.</p>
                     <section style="height: 20px;"></section>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <div class="alert alert-danger invalidMsg" style="border-radius: 10px; margin-top: 20px; display: none"></div>
+                    <div class="alert alert-danger invalidMsg" style="border-radius: 10px; margin-top: 20px; display: none">Please complete all the questions.</div>
                   </div>
                 </div>
 
@@ -261,7 +300,7 @@
           </div>
           
           <div>
-            <!--Note: this needs to be inside this div in order ro work-->
+            <!--Note: this needs to be inside this div in order to work-->
             <div class="carousel-indicators" id="survey-indicators" style="padding-left: 10px; padding-right: 10px;">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -295,178 +334,8 @@
     </main>
 
 
-    <!-- please someone smart, fix this disaster thanks -->
-
     <script>
-    
-      function init(tokenId, inputId, outputId) {
-        token.id = tokenId;
-        var input = $(inputId);
-        var timer = null;
-        var output = $(outputId);
-        input.on("keyup", function() {
-          /* Debounce */
-          if (timer) clearTimeout(timer);
-          timer = setTimeout(function() {
-            search(input.val(), output);
-          }, 250);
-        });
-      }
-
-      function search(keyword, output) {
-        var info = token() == "demo" ? "(based on demo token)" : "";
-        output.html("<h2>Search results " + info + ":</h2>");
-        output.append($("<div/>").html("Loading..."));
-        output.append($("<div/>").addClass("cp-spinner cp-meter"));
-        $.getJSON("//api.waqi.info/search/?token=" + token() + "&keyword=" + keyword, function(result) {
-          var info = token() == "demo" ? "(based on demo token)" : "";
-          output.html("<h2>Search results " + info + ":</h2>");
-          if (!result || result.status != "ok") {
-            output.append("Sorry, something wrong happend: ");
-            if (result.data) output.append($("<code>").html(result.data));
-            return;
-          }
-          if (result.data.length == 0) {
-            output.append("Sorry, there is no result for your query!");
-            return;
-          }
-          var table = $("<table/>").addClass("result");
-          output.append(table);
-          output.append($("<div/>").html("Click on any of the station to see the detailled AQI"));
-          var stationInfo = $("<div/>");
-          output.append(stationInfo);
-          result.data.forEach(function(station, i) {
-            var tr = $("<tr>");
-            tr.append($("<td>").html(station.station.name));
-            tr.append($("<td>").html(colorize(station.aqi)));
-            tr.append($("<td>").html(station.time.stime));
-            tr.on("click", function() {
-              showStation(station, stationInfo);
-            });
-            table.append(tr);
-            if (i == 0) showStation(station, stationInfo);
-          });
-        });
-      }
-
-      function showStation(station, output) {
-        output.html("<h2>Pollutants & Weather conditions:</h2>");
-        output.append($("<div/>").html("Loading..."));
-        output.append($("<div/>").addClass("cp-spinner cp-meter"));
-        $.getJSON("//api.waqi.info/feed/@" + station.uid + "/?token=" + token(), function(result) {
-          output.html("<h2>Pollutants & Weather conditions:</h2>");
-          if (!result || result.status != "ok") {
-            output.append("Sorry, something wrong happend: ");
-            if (result.data) output.append($("<code>").html(result.data));
-            return;
-          }
-          var names = {
-            pm25: "PM<sub>2.5</sub>",
-            pm10: "PM<sub>10</sub>",
-            o3: "Ozone",
-            no2: "Nitrogen Dioxide",
-            so2: "Sulphur Dioxide",
-            co: "Carbon Monoxyde",
-            t: "Temperature",
-            w: "Wind",
-            r: "Rain (precipitation)",
-            h: "Relative Humidity",
-            d: "Dew",
-            p: "Atmostpheric Pressure",
-          };
-          output.append($("<div>").html("Station: " + result.data.city.name + " on " + result.data.time.s));
-          var table = $("<table/>").addClass("result");
-          output.append(table);
-          for (var specie in result.data.iaqi) {
-            var aqi = result.data.iaqi[specie].v;
-            var tr = $("<tr>");
-            tr.append($("<td>").html(names[specie] || specie));
-            tr.append($("<td>").html(colorize(aqi, specie)));
-            table.append(tr);
-          }
-        });
-      }
-
-      function token() {
-        return $(token.id).val() || "demo";
-      }
-
-      function colorize(aqi, specie) {
-        specie = specie || "aqi";
-        if (["pm25", "pm10", "no2", "so2", "co", "o3", "aqi"].indexOf(specie) < 0) return aqi;
-        var spectrum = [{
-          a: 0,
-          b: "#cccccc",
-          f: "#ffffff"
-        }, {
-          a: 50,
-          b: "#009966",
-          f: "#ffffff"
-        }, {
-          a: 100,
-          b: "#ffde33",
-          f: "#000000"
-        }, {
-          a: 150,
-          b: "#ff9933",
-          f: "#000000"
-        }, {
-          a: 200,
-          b: "#cc0033",
-          f: "#ffffff"
-        }, {
-          a: 300,
-          b: "#660099",
-          f: "#ffffff"
-        }, {
-          a: 500,
-          b: "#7e0023",
-          f: "#ffffff"
-        }, ];
-        var i = 0;
-        for (i = 0; i < spectrum.length - 2; i++) {
-          if (aqi == "-" || aqi <= spectrum[i].a) break;
-        }
-        return $("<div/>").html(aqi).css("font-size", "120%").css("min-width", "30px").css("text-align", "center").css("background-color", spectrum[i].b).css("color", spectrum[i].f);
-      }
-
-      init("8fdb0252487a4fe8324a8afd801b9582ffbc4add","#input-station","#result-search")
-    
-    </script>
-
-    <script>
-
-      data = {}
-      $.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
-        // Convert key-value pairs to JSON
-        // https://stackoverflow.com/a/39284735/452587
-        data = data.trim().split('\n').reduce(function(obj, pair) {
-          pair = pair.split('=')
-          return obj[pair[0]] = pair[1], obj
-        }, {})
-
-        document.querySelector('form').addEventListener('invalid', e => {
-          e.preventDefault()
-          let time = 150
-          const timer = setInterval(() => {
-            if (time <= 0) {
-              clearInterval(timer)
-            }
-
-            document.querySelector('.invalidMsg').style.display = "block"
-
-            document.querySelector('.invalidMsg').innerHTML = 
-            //`Complete the form in ${time} seconds or we will send your IP (${data.ip}) to hackers.`
-            "Please answer all the questions."
-
-            time -= 1
-          }, 1000)
-        }, true)
-        document.querySelector('form').addEventListener('input', e => {
-          e.preventDefault()
-          document.querySelector('.invalidMsg').style.display = "none"
-        }, true)
-      })
+        
 
     </script>
 

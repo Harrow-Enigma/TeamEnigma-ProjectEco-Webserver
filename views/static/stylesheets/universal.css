@@ -67,6 +67,7 @@
 .alert {
   margin-bottom: 0;
   border-radius: 0;
+  z-index: 99;
 }
 
 body {
@@ -84,6 +85,26 @@ body {
   height: 100vh;
 }
 
+
+.scroll-ticker {
+  background-color: black;
+  color: white;
+	width: 390px;
+  overflow: hidden;
+  z-index: 10;
+  margin-top: 40px;
+  margin-bottom: -5px;
+  height: 30px;
+}
+.ticker-text {
+  font-size: 20px;
+	white-space: nowrap;
+	animation: marquee 12s linear infinite; 
+}
+@keyframes marquee {
+  0%   { transform: translate(100%, 0); }
+  100% { transform: translate(-830px, 0); }
+}
 .titlewrap {
   top: 50%;
   left: 50px;
@@ -105,7 +126,15 @@ body {
   .typewrite {
     font-size: 50px;
   }
-
+  .scroll-ticker {
+    background-color: black;
+    color: white;
+    width: 80%;
+    overflow: hidden;
+    z-index: 10;
+    margin: 40px auto 0 auto;
+    height: 30px;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -188,8 +217,9 @@ p {
 .headerTransition {
   margin: 0;
   padding: 0;
-  height: 300vh;
+  height: 500vh;
   width: 100% !important;
+  transition: 1s;
 
   --before-opacity: 0.3;
 
@@ -201,7 +231,7 @@ p {
 .headerTransition::before {
   content: "";
 
-  height: 300vh;
+  height: 500vh;
   position: absolute;
   top: 0;
   right: 0px;
@@ -240,7 +270,6 @@ p {
 .fixedbold {
   font-size: 60px;
   font-weight: 900;
-  /* color: white; */
   background-clip: text;
 	-webkit-background-clip: text;
 	color: transparent;
@@ -253,8 +282,11 @@ p {
 @media screen and (min-width: 450px) and (max-width: 600px){
   .fixedbold {
     font-size: 45px;
-    font-weight: bolder;
-    color: white;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url('/static/assets/universal/moreleaves.jpg');
   }
   #fixedText h3 {
     font-size: 30px;
@@ -266,8 +298,11 @@ p {
 @media (max-width: 450px) {
   .fixedbold {
     font-size: 37px;
-    font-weight: bolder;
-    color: white;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url('/static/assets/universal/moreleaves.jpg');
   }
   #fixedText h3 {
     font-size: 23px;
@@ -281,8 +316,11 @@ p {
 and (max-height: 450px) {
   .fixedbold {
     font-size: 33px;
-    font-weight: bolder;
-    color: white;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url('/static/assets/universal/moreleaves.jpg');
   }
   #fixedText h3 {
     font-size: 20px;
