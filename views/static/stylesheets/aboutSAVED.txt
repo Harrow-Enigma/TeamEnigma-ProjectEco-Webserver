@@ -1,0 +1,143 @@
+body {
+  background-color: #F3F3F3
+}
+
+@media (max-width: 425px) {
+  .about-container {
+    padding: 20px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .body-text p, .body-text li {
+    font-size: 17px;
+  }
+  #about-body {
+    background-image: url('../assets/about/Plant.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #D7DDDD;
+    /* background-position: right; */
+  }
+  #some-arrow-things {
+    background-color: rgba(215, 221, 221, 0.7);
+    border: 2px solid gray;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 50px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 1000px) {
+  .about-container {
+    padding: 50px;
+    line-height: 30px;
+    max-width: 100%;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .body-text p, .body-text li {
+    font-size: 17px;
+  }
+  #about-body {
+    background-image: url('https://images.pexels.com/photos/2748756/pexels-photo-2748756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #D7DDDD;
+    /* background-position: left; */
+  }
+  #some-arrow-things {
+    background-color: rgba(215, 221, 221, 0.7);
+    border: 2px solid gray;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 50px;
+  }
+}
+@media (min-width: 1000px) {
+  .about-container {
+    padding: 50px;
+    line-height: 30px;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  .title {
+    font-size: 60px;
+    grid-column: 1 / -1;
+  }
+  .body-text p, .body-text li {
+    font-size: 20px;
+  }
+  footer {
+    grid-column: 1 / -1;
+  }
+  #about-body {
+    background-image: url('https://images.pexels.com/photos/2748756/pexels-photo-2748756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #D7DDDD;
+    /* background-position: left; */
+  }
+  #some-arrow-things {
+    background-color: rgba(215, 221, 221, 0.7);
+    border: 2px solid gray;
+    margin-top: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTML
+
+
+<!--
+          <h1 class="title">
+            About Us
+            <hr>
+          </h1>
+          
+          <div class="body-text">
+
+            <h2>Our Mission</h2>
+            <p class="text-body">
+              Our Mission is to alert the community about environmental conditions, and empower them to take change.
+            </p>
+
+            <h2>We aim to</h2>
+            <p class="text-body">
+              We aim to increase awareness of the environment's effects on mental health.
+            </p>
+            
+            <h2>How?</h2>
+            <p class="text-body">
+              <li>we collect data from sensors, and responses from a survey;</li>
+              <li>we monitor and analyse the data, and make forecasts;</li>
+              <li>we warn, advise and inform the public;</li>
+              <li>then we encourage the community to take actions to reduce pollutant emissions.</li>
+            </p>
+
+          </div>
+
+          <img id="some-arrow-things" src="../static/assets/about/infographic.png" alt="not a walrus" style="width: 600px;">
+
+        -->
+
+        <section style="height: 200px;"></section>

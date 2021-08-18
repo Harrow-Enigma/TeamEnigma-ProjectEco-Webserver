@@ -71,7 +71,8 @@
     "localpollutiondata": {
         "Latitude":{type: String},
         "Longitude":{type: String},
-        "data" :{type:Object}}
+        "data" :{type:Object}},
+    "fake": {type: String}
   });
 
   // Declare Alert Data Structure
@@ -188,7 +189,8 @@
         "Latitude":latitude,
         "Longitude":longitude,
         "data" : weatherstationdata
-      }
+    },
+    "fake" : json["fake"]
     });
     
     doc1.save(function(err, doc) {
@@ -300,8 +302,9 @@
   };
 
   // This one reads all form data from DB
+  // https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/#suppress-specific-fields-in-embedded-documents
   exports.getformsdata = () => {
-    return formdatamodel.find({}, function(err, result) {
+    return formdatamodel.find({}, {DATE: 0, localpollutiondata: {Latitude: 0, Longitude: 0}}, function(err, result) {
       if (err) {
         return(err);
       } else {

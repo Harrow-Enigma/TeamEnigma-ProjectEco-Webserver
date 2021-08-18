@@ -16,8 +16,6 @@
     <main>
       <div class="shifted-container">
         <h1 class="title">Data</h1>
-            <div class="shifted-container">
-              <h1 class="title">Data</h1>
 
                 <div id="app">
 
@@ -225,6 +223,60 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button> -->
+
+              <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  BETA Graphs
+                </button>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+
+                  <canvas id="myChart"></canvas>
+                  
+                  <script>
+                  
+
+                    axios.get('https://dev-test.projecteco.ml/api/v1/rest/output/forms/')
+                    .then(function (response) {
+                      // handle success
+                    })
+                    .catch(function (error) {
+                      // handle error
+                      console.log(error);
+                    })
+                    .then(function () {
+                      // always executed
+                    });
+                    
+                    const config = {
+                      type: 'bar',
+                      data: {
+                          datasets: [{
+                              data: [{id: 'Sales', nested: {value: 1500}}, {id: 'Purchases', nested: {value: 500}}]
+                          }]
+                      },
+                      options: {
+                          parsing: {
+                              xAxisKey: 'id',
+                              yAxisKey: 'nested.value'
+                          }
+                      }
+                    };
+
+                    var myChart = new Chart(document.getElementById('myChart'),config);  
+                  </script>
+                  
+
+
+
+
+
+
+
+
+                </div>
+              </div>
 
       </div>
 

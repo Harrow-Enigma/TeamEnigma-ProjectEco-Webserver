@@ -1,5 +1,13 @@
 {
   "files": {
+    "views/pages/about.ejs": [
+      {
+        "id": "7cf38187-5e39-4980-af0f-09c3986b4652",
+        "line": 562,
+        "version": 7711,
+        "index": 16869
+      }
+    ],
     "views/pages/alerts.ejs": [
       {
         "id": "de810dbf-1ca5-4549-9e4e-d3c8f4fe9394",
@@ -11,9 +19,9 @@
     "views/pages/survey.ejs": [
       {
         "id": "46d82556-45bd-43b6-b0f8-d152b040bddb",
-        "line": 187,
-        "version": 9175,
-        "index": 8184
+        "line": 182,
+        "version": 9219,
+        "index": 7601
       }
     ],
     "views/static/js/universal/typingtext.js": [

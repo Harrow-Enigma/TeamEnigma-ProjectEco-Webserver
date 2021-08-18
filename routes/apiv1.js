@@ -79,4 +79,32 @@ router.get("/rest/output/forms", async (req,res, next) => {
   res.send(data)
 });
 
+router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret", async (req,res, next) => {
+  res.send({"Somehow wrapping this message in JSON makes it display better on mobile": "🤫 The existence of this page is a massive secret.\nWant more secrets?\nTry Caesar shifting an all-lowercase version of our team name (without space or puncatuations). There is a page at one of these locations.\n(also try appending team member names at the end of this api call path)"})
+});
+
+router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/david", async (req,res, next) => {
+  res.send({"github": "null / unknown / boring", "message": "🤫 Shhhh David is ANGRY!", "biggest_comtribution": "The boss and bogeyman."})
+});
+
+/*
+https://dev-test.projecteco.ml/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/david
+*/
+
+router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/dylan", async (req,res, next) => {
+  res.send({"github": "normal / boring", "message": "🤫 Shhhh David is ANGRY!", "biggest_comtribution": "The worldwide web."})
+});
+
+router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/george", async (req,res, next) => {
+  res.send({"github": "filamity", "message": "🤫 Shhhh Geroge is working!", "biggest_comtribution": "The walrus / https://youtu.be/k7YVxLLIuGM"})
+});
+
+router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/vincent", async (req,res, next) => {
+  res.send({"github": "null / unknown / boring", "message": "🤫 Shhhh What a G!", "biggest_comtribution": "You reading this rn."})
+});
+
+router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret", async (req,res, next) => {
+  res.send({"Somehow wrapping this message in JSON makes it display better on mobile": "🤷 Are you bored yet?"})
+});
+
 module.exports = router;

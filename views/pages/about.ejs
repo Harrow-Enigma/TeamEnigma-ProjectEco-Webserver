@@ -1,60 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <%- include('../partials/head.ejs'); %>
-    <link rel="stylesheet" href="/static/stylesheets/about.css">
-  </head>
+<head>
+  <%- include('../partials/head.ejs'); %>
+  <link rel="stylesheet" href="/static/stylesheets/about.css">
+</head>
 
-  <body id="about-body">
-  
-    <header>
-      <%- include('../partials/navbar.ejs'); %>
-    </header>
+<body id="about-body">
 
-    <main>
+  <div class="about-top-intro">
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="about-title-card">
+      <div style="margin-bottom: 100px;">
+        <h2 id="about-intro-title">
+          About<br>
+          Project<br>
+          Eco<br>
+        </h2>
 
-      <div class="about-container">
-        <h1 class="title">
-          About Us
-          <hr>
-        </h1>
-        
-        <div class="body-text">
+        <p id="about-intro-p">
+          The Environment is a crucial part of our lives, it affects everything from our immediate surroundings to our daily routines. However, like everything else we need to make sure that we are taking good care of it in return. Until now most people have been conserving the environment individually. Project ECO seeks to unite the community into one combined effort to reduce effects of pollution.
+        </p>
 
-          <h2>Our Mission</h2>
-          <p class="text-body">
-            Our Mission is to alert the community about environmental conditions, and empower them to take change.
-          </p>
+        <!--
+        <div class="form-check form-switch">
+          <input 
+            class="form-check-input" 
+            type="checkbox" 
+            id="cockney" 
+            onclick="cockney()"
+          >
+          <label 
+            class="form-check-label text-muted" 
+            for="cockney"
+          >Change accent</label>
+        </div> -->
 
-          <h2>We aim to</h2>
-          <p class="text-body">
-            We aim to increase awareness of the environment's effects on mental health.
-          </p>
+      </div>
+    </div>
+  </div>
+
+  <main style="height: 500vh;">
+
+    <!-- CONTENT BOX -->
+    <div class="about-container">
+
+      <div class="about-body-box">
+
+        <!-- <pc> -->
+        <div class="about-pc-tile-wrap">
+          <div 
+            class="about-step-card-1"
+            onclick="toggleD()"
+            style="padding: 30px;"
+          >
+            <h2 class="about-step-card-text" style="font-weight: 600;">
+              Data
+            </h2>
+            <p class="about-pc-content-1" style="display: none;">
+              We collect data from sensors, and responses from a survey.
+            </p>
+          </div>
           
-          <h2>How?</h2>
-          <p class="text-body">
-            <li>we collect data from sensors, and responses from a survey;</li>
-            <li>we monitor and analyse the data, and make forecasts;</li>
-            <li>we warn, advise and inform the public;</li>
-            <li>then we encourage the community to take actions to reduce pollutant emissions.</li>
-          </p>
-          
-          <!--<img class="text-image" src="/static/assets/about/diagram.webp">-->
+          <div 
+            class="about-step-card-2"
+            onclick="toggleA()"
+            style="display: flex; align-items: center; justify-content: center;"
+          >
+            <h2 class="about-step-card-text" style="font-weight: 600;">
+              Algorithm
+            </h2>
+            <p class="about-pc-content-2" style="display: none;">
+              Then, we monitor and analyse the data, and make forecasts based on it.
+            </p>
+          </div>
 
+          <div 
+            class="about-step-card-3"
+            onclick="toggleW()"
+            style="display: flex; align-items: center; justify-content: center;"
+          >
+            <h2 class="about-step-card-text" style="font-weight: 600;">
+              Warnings
+            </h2>
+            <p class="about-pc-content-3" style="display: none;">
+              Now we warn, advise and inform the public with existing data and forecasts.
+            </p>
+          </div>
+
+          <div 
+            class="about-step-card-4"
+            onclick="toggleC()"
+            style="display: flex; align-items: center; justify-content: center;"
+          >
+            <h2 class="about-step-card-text" style="font-weight: 600;">
+              Community
+            </h2>
+            <p class="about-pc-content-4" style="display: none;">
+              Lastly we encourage the community to take actions to reduce pollutant emissions.
+            </p>
+          </div>
         </div>
+        <!-- </pc> -->
 
-        <!-- <img id="some-arrow-things" src="../static/assets/about/Arrow.png" alt="not a walrus"> -->
 
-        <section style="height: 200px;"></section>
+        <!-- <mobile> -->
+        <div class="about-mobile">
+          <div class="about-mobile-1" style="opacity: 1; z-index: 99;">
+            <h1 class="about-mobile-title">
+              Data
+            </h1>
+            <p>
+              We collect data from sensors, and responses from a survey.
+            </p>
+            <div class="arrow bounce" onclick="toA()" id="arrow1">
+              <a class="fa fa-arrow-down fa-2x" href="#" onclick="return false;"></a>
+            </div>
+          </div>
+
+          <div class="about-mobile-2" style="opacity: 0; pointer-events: none;">
+            <h1 class="about-mobile-title">
+              Algorithm
+            </h1>
+            <p>
+              Then, we monitor and analyse the data, and make forecasts based on it.
+            </p>
+            <div class="arrow bounce" onclick="toW()" id="arrow2">
+              <a class="fa fa-arrow-down fa-2x" href="#" onclick="return false;"></a>
+            </div>
+          </div>
+
+          <div class="about-mobile-3" style="opacity: 0; pointer-events: none;">
+            <h1 class="about-mobile-title">
+              Warnings
+            </h1>
+            <p>
+              Now we warn, advise and inform the public with existing data and forecasts.
+            </p>
+            <div class="arrow bounce" onclick="toC()" id="arrow3">
+              <a class="fa fa-arrow-down fa-2x" href="#" onclick="return false;"></a>
+            </div>
+          </div>
+
+          <div class="about-mobile-4" style="opacity: 0; pointer-events: none;">
+            <h1 class="about-mobile-title">
+              Community
+            </h1>
+            <p>
+              Lastly we encourage the community to take actions to reduce pollutant emissions.
+            </p>
+            <div class="arrow bounce" onclick="toTop()" id="arrow4">
+              <a class="fa fa-arrow-up fa-2x" href="#" onclick="return false;"></a>
+            </div>
+          </div>
+        </div>
+        <!-- </mobile> -->
+
+
+        <!-- <corner pieces> -->
+        <h2 
+          class="about-step-number-1" 
+          style="opacity: 1; cursor: pointer;" 
+          onclick="toTop()"
+        >
+          1
+        </h2>
+        <h2 
+          class="about-step-number-2" 
+          style="opacity: 0.3; cursor: pointer;"
+          onclick="toA()"
+        >
+          2
+        </h2>
+        <h2 
+          class="about-step-number-3" 
+          style="opacity: 0.3; cursor: pointer;"
+          onclick="toW()"
+        >
+          3
+        </h2>
+        <h2 
+          class="about-step-number-4" 
+          style="opacity: 0.3; cursor: pointer;"
+          onclick="toC()"
+        >
+          4
+        </h2>
+        <!-- </corner pieces> -->
 
       </div>
 
-    </main>
+    </div>
 
-    <footer>
-      <%- include('../partials/footer.ejs'); %>
-    </footer>
-    
-  </body>
-</html>
+  </main>
+
+  <!--footer previously here-->
+  <%- include('../partials/footer.ejs'); %>
+  
+</body>
+
+<script>
+  let dtile = document.querySelector(".about-step-card-1")
+  let atile = document.querySelector(".about-step-card-2")
+  let wtile = document.querySelector(".about-step-card-3")
+  let ctile = document.querySelector(".about-step-card-4")
+
+  let stepnum1 = document.querySelector(".about-step-number-1")
+  let stepnum2 = document.querySelector(".about-step-number-2")
+  let stepnum3 = document.querySelector(".about-step-number-3")
+  let stepnum4 = document.querySelector(".about-step-number-4")
+
+  let content1 = document.querySelector(".about-pc-content-1")
+  let content2 = document.querySelector(".about-pc-content-2")
+  let content3 = document.querySelector(".about-pc-content-3")
+  let content4 = document.querySelector(".about-pc-content-4")
+
+  var width = window.innerWidth
+  var height = window.innerHeight
+
+  // COCKNEY JOKE
+  accent = false
+  changeaccentp = document.getElementById("about-intro-p")
+  changeaccenttitle = document.getElementById("about-intro-title")
+  const cockney = () => {
+    accent = !accent
+    if (accent) {
+      changeaccentp.innerHTML = 
+      "The chuffin' Environment is a crucial part o' us lives, it affects evryfink from us immediate surroundings ter us daily routines. 'owever, right, like evryfink else we need ter make sure that we are takin' good care o' it in return, do wot Guvnor! Until now most blokes 'ave been conservin' the environment individually, i'n it? Project ECO seeks ter unite the bleedin' community into one combined effort ter reduce effects o' pollution."
+      changeaccenttitle.innerHTML =
+      `
+      'bout us
+      <div style="margin-bottom: 20px;">project</div>
+      `
+    } else {
+      changeaccentp.innerHTML = 
+      "The Environment is a crucial part of our lives, it affects everything from our immediate surroundings to our daily routines. However, like everything else we need to make sure that we are taking good care of it in return. Until now most people have been conserving the environment individually. Project ECO seeks to unite the community into one combined effort to reduce effects of pollution."
+      changeaccenttitle.innerHTML =
+      `
+      About<br>
+      Project<br>
+      Eco<br>
+      `
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    if (typeof (window.innerWidth) == 'number') {
+      width = window.innerWidth;
+      height = window.innerHeight;
+    } else {
+      if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+        width = document.documentElement.clientWidth;
+        height = document.documentElement.clientHeight;
+      } else {
+        if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+          width = document.body.clientWidth;
+          height = document.body.clientHeight;
+        }
+      }
+    }
+  })
+
+  const toA = () => {
+    window.scrollTo(0, (height * 2 + 10))
+  }
+  const toW = () => {
+    window.scrollTo(0, (height * 3 + 10))
+  }
+  const toC = () => {
+    window.scrollTo(0, (height * 4 + 10))
+  }
+  const toTop = () => {
+    window.scrollTo(0, height)
+  }
+
+  const toggleD = () => {
+    dtile.style.cssText = `
+      grid-column: 1 / 5;
+      grid-row: 1 / 5;
+      padding: 30px;
+    `
+    atile.style.cssText = `
+      grid-column: 5 / 6;
+      grid-row: 1 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    wtile.style.cssText = `
+      grid-column: 5 / 6;
+      grid-row: 5 / 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    ctile.style.cssText = `
+      grid-column: 1 / 5;
+      grid-row: 5 / 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+
+    stepnum1.style.opacity = 1
+    stepnum2.style.opacity = 0.3
+    stepnum3.style.opacity = 0.3
+    stepnum4.style.opacity = 0.3
+
+    content1.style.display = "block"
+    content2.style.display = "none"
+    content3.style.display = "none"
+    content4.style.display = "none"
+  }
+  const toggleA = () => {
+    dtile.style.cssText = `
+      grid-column: 1 / 2;
+      grid-row: 1 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    atile.style.cssText = `
+      grid-column: 2 / 6;
+      grid-row: 1 / 5;
+      padding: 30px;
+    `
+    wtile.style.cssText = `
+      grid-column: 2 / 6;
+      grid-row: 5 / 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    ctile.style.cssText = `
+      grid-column: 1 / 2;
+      grid-row: 5 / 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+
+    stepnum1.style.opacity = 0.3
+    stepnum2.style.opacity = 1
+    stepnum3.style.opacity = 0.3
+    stepnum4.style.opacity = 0.3
+
+    content1.style.display = "none"
+    content2.style.display = "block"
+    content3.style.display = "none"
+    content4.style.display = "none"
+  }
+  const toggleW = () => {
+    dtile.style.cssText = `
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    atile.style.cssText = `
+      grid-column: 2 / 6;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    wtile.style.cssText = `
+      grid-column: 2 / 6;
+      grid-row: 2 / 6;
+      padding: 30px;
+    `
+    ctile.style.cssText = `
+      grid-column: 1 / 2;
+      grid-row: 2 / 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+
+    stepnum1.style.opacity = 0.3
+    stepnum2.style.opacity = 0.3
+    stepnum3.style.opacity = 1
+    stepnum4.style.opacity = 0.3
+
+    content1.style.display = "none"
+    content2.style.display = "none"
+    content3.style.display = "block"
+    content4.style.display = "none"
+  }
+  const toggleC = () => {
+    dtile.style.cssText = `
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    atile.style.cssText = `
+      grid-column: 5 / 6;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    wtile.style.cssText = `
+      grid-column: 5 / 6;
+      grid-row: 2 / 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `
+    ctile.style.cssText = `
+      grid-column: 1 / 5;
+      grid-row: 2 / 6;
+      padding: 30px;
+    `
+
+    stepnum1.style.opacity = 0.3
+    stepnum2.style.opacity = 0.3
+    stepnum3.style.opacity = 0.3
+    stepnum4.style.opacity = 1
+
+    content1.style.display = "none"
+    content2.style.display = "none"
+    content3.style.display = "none"
+    content4.style.display = "block"
+  }
+
+  if (width < 900) {
+    window.addEventListener("scroll", (event) => {
+      let scroll = this.scrollY;
+      
+      let mobile1 = document.querySelector(".about-mobile-1")
+      let mobile2 = document.querySelector(".about-mobile-2")
+      let mobile3 = document.querySelector(".about-mobile-3")
+      let mobile4 = document.querySelector(".about-mobile-4")
+
+      let arrow1 = document.querySelector("#arrow1")
+      let arrow2 = document.querySelector("#arrow2")
+      let arrow3 = document.querySelector("#arrow3")
+      let arrow4 = document.querySelector("#arrow4")
+
+      if (scroll <= height * 2) {
+        mobile1.style.cssText = `
+          opacity: 1;
+          z-index: 99;
+        `
+        mobile2.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile3.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile4.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        stepnum1.style.opacity = 1
+        stepnum2.style.opacity = 0.3
+        stepnum3.style.opacity = 0.3
+        stepnum4.style.opacity = 0.3
+        arrow1.style.display = "block"
+        arrow2.style.display = "none"
+        arrow3.style.display = "none"
+        arrow4.style.display = "none"
+      } else if ((scroll > height * 2) && (scroll <= height * 3)) {
+        mobile1.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile2.style.cssText = `
+          opacity: 1;
+          z-index: 99;
+        `
+        mobile3.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile4.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        stepnum1.style.opacity = 0.3
+        stepnum2.style.opacity = 1
+        stepnum3.style.opacity = 0.3
+        stepnum4.style.opacity = 0.3
+        arrow1.style.display = "none"
+        arrow2.style.display = "block"
+        arrow3.style.display = "none"
+        arrow4.style.display = "none"
+      } else if ((scroll > height * 3) && (scroll <= height * 4)) {
+        mobile1.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile2.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile3.style.cssText = `
+          opacity: 1;
+          z-index: 99;
+        `
+        mobile4.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        stepnum1.style.opacity = 0.3
+        stepnum2.style.opacity = 0.3
+        stepnum3.style.opacity = 1
+        stepnum4.style.opacity = 0.3
+        arrow1.style.display = "none"
+        arrow2.style.display = "none"
+        arrow3.style.display = "block"
+        arrow4.style.display = "none"
+      } else if (scroll > height * 4) {
+        mobile1.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile2.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile3.style.cssText = `
+          opacity: 0;
+          pointer-events: none;
+        `
+        mobile4.style.cssText = `
+          opacity: 1;
+          z-index: 99;
+        `
+        stepnum1.style.opacity = 0.3
+        stepnum2.style.opacity = 0.3
+        stepnum3.style.opacity = 0.3
+        stepnum4.style.opacity = 1
+        arrow1.style.display = "none"
+        arrow2.style.display = "none"
+        arrow3.style.display = "none"
+        arrow4.style.display = "block"
+      }
+    })
+  } else {
+    content1.style.display = "block"
+
+    window.addEventListener("scroll", (event) => {
+      let scroll = this.scrollY
+
+      if (scroll <= height * 2) {
+        toggleD()
+      } else if ((scroll > height * 2) && (scroll <= height * 3)) {
+        toggleA()
+      } else if ((scroll > height * 3) && (scroll <= height * 4)) {
+        toggleW()
+      } else if (scroll > height * 4) {
+        toggleC()
+      }
+    })
+  }
+</script>

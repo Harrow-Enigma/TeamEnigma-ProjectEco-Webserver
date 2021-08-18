@@ -31,7 +31,7 @@
 
         <div class="articles-grid">
 
-          <div id="article-block" class="focus-article" style="background: #DEDEDE; padding: 15px;">
+          <div id="article-block" class="focus-article">
               <div v-for="article in articles">
                 <div v-if="article.featured">
 
@@ -54,8 +54,8 @@
               </div>
           </div>
 
-          <div v-for="article in articles" v-if="!article.featured" style="background: #DEDEDE; padding: 15px; border: 2px solid lightgray; border-radius: 10px;">
-            <div class="card" style="height: 100%;">
+          <div v-for="article in articles" v-if="!article.featured">
+            <div class="card" style="height: 100%;" >
               <img class="card-img-top" v-bind:src="article.imageurl" alt="Article Image"> 
               <div class="card-body">
                 <span class="badge badge-pill" style="background-color: #0000AA; margin-bottom: 10px;">
