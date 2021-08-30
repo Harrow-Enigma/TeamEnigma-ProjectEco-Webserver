@@ -2,7 +2,6 @@ body {
   background-color: #F3F3F3;
 }
 
-
 .carousel-buttons {
   position: absolute;
   left: 50%;
@@ -25,6 +24,41 @@ body {
   line-height: 20px;
 }
 
+@media (max-height: 425px) {
+  .survey-card-title {
+    font-size: 24px;
+  }
+  .survey-card-gap {
+    height: 0.5vh;
+  }
+  .survey-card-margin-gap {
+    margin-bottom: 0;
+  }
+  .survey-longlat-inputs {
+    display: grid; 
+    grid-template-columns: 200px 200px 100px;
+    grid-template-rows: 50px;
+    grid-gap: 10px;
+  }
+}
+@media (min-height: 425px) {
+  .survey-card-title {
+    font-size: 32px;
+  }
+  .survey-card-gap {
+    height: 2vh;
+  }
+  .survey-card-margin-gap {
+    margin-bottom: 30px;
+  }
+  .survey-card-title-longlat {
+    margin-bottom: 0;
+  }
+  .survey-longlat-inputs {
+    display: block;
+  }
+}
+
 @media (max-width: 425px) {
   .survey-title {
     margin-bottom: 20px;
@@ -43,15 +77,22 @@ body {
     text-align: center;
     padding: 10px;
   }
+  .form-el-2 {
+    margin-right: 10px;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    height: 39vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
   #survey-indicators {
     border-radius: 20px;
     position: absolute !important;
     background-color: rgba(255, 255, 255, 0.2);
-  }
-  .aqicn-iframe {
-    border: 2px solid black;
-    width: 100%; 
-    height: 200px;
   }
 }
 @media screen and (min-width: 425px) and (max-width: 768px) {
@@ -72,15 +113,22 @@ body {
     text-align: center;
     padding: 30px;
   }
+  .form-el-2 {
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    height: 39vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
   #survey-indicators {
     border-radius: 20px;
     position: absolute !important;
     background-color: rgba(255, 255, 255, 0.2);
-  }
-  .aqicn-iframe {
-    border: 2px solid black;
-    width: 100%; 
-    height: 250px;
   }
 }
 @media (min-width: 768px) {
@@ -100,24 +148,25 @@ body {
     text-align: center;
     padding: 30px;
   }
+  .form-el-2 {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 0 !important;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    height: 39vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
   #survey-indicators {
     border-radius: 20px;
     position: absolute !important;
     background-color: rgba(255, 255, 255, 0.2);
     bottom: -30px;
     margin: 0 30%;
-  }
-  .aqicn-iframe {
-    border: 2px solid black;
-    width: 100%; 
-    height: 300px;
-  }
-}
-@media screen and (orientation:landscape)
-and (max-height: 450px) {
-  .aqicn-iframe {
-    width: 0;
-    height: 0;
   }
 }
 

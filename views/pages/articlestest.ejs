@@ -3,16 +3,22 @@
 
   <head>
     <%- include('../partials/head.ejs'); %>
-    <link rel="stylesheet" href="/static/stylesheets/articles.css">
+    <link rel="stylesheet" href="/static/stylesheets/testarticles.css">
   </head>
+
+  
 
   <v-if="isloaded" body id="articles-body">
 
+    
+
+    <div id="app" >
+
+    <main class="articles-top-intro">
     <header>
       <%- include('../partials/navbar.ejs'); %>
     </header>
-
-    <main class="container" style="padding-top:45px" id="app">
+    <div class="container" style="padding-top:45px">
 
     <h1 class="title">
       Articles
@@ -27,8 +33,7 @@
 
     <div v-for="article in articles">
       <div v-if="article.featured">
-        <div style="position: relative;">
-          <div class="article-backlight"></div>
+        <div style="padding-bottom:10px">
           <div class="p-4 p-md-5 mb-5 text-white rounded" v-bind:style="'background-image:linear-gradient(180deg, rgba(0,0,0,0.7707457983193278) 0%, rgba(0,0,0,0.6783088235294117) 100%),url(\''+article.imageurl+'\');'" id="article-block" style="position: relative;">
             <div class="col-md-6 px-0">
               <h1 class="display-4" style="font-weight: bolder">
@@ -37,10 +42,7 @@
               <p class="lead my-3" v-html="article.content.substring(0, 400)+'...'"></p>
               <p class="lead mb-0">
                 <a v-bind:href="'/articles/'+encodeURI(article.title)" class="text-white fw-bold">
-                  To Article
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                  </svg>
+                  Read More...
                 </a>
                 
               </p>
@@ -49,11 +51,15 @@
         </div>
       </div>
     </div>
+    </div>
+  </main>
 
-    <hr style="color:transparent">
+  <main style="background-color:black">
+
+    <div class="container" >
 
     <!--row mb-2 row-cols-1 row-cols-md-2 g-4-->
-    <div class="article-container-grid">
+    <div class="article-container-grid pt-5">
       <div v-for="article in articles" v-if="!article.featured">
 
         <div style="position: relative;">
@@ -61,7 +67,7 @@
           <div class="article-backlight"></div>
 
           <!--row g-0 flex-md-row mb-4 position-relative h-100 -->
-          <div class="bg-dark text-white article-frontlight shadow-sm overflow-hidden h-md-300" id="article-block" style="border-radius: 0.25rem;">
+          <div class="bg-light text-black article-frontlight shadow-sm overflow-hidden h-md-300" id="article-block" style="border-radius: 0.25rem;">
 
             <div>
 
@@ -88,19 +94,16 @@
                 </p>
                 <p style="margin-top: 25px; margin-bottom: 0;">
 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="24" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin-left: -10px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                   </svg>
-                  <span style="margin-left: -10px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
+                  <span style="margin-left: -14px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
 
-                  <span style="float: right; cursor: pointer;" class="heart-like noselect" onclick="handleLike(this)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="heart-like-icon" fill="#f8f9fa">
-                      <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
-                    </svg>
-                    <span class="like-count" style="margin-left: 0px; vertical-align: middle;">
-                      {{Math.ceil(Math.random()*100)}}
-                    </span>
+                  <span style="float: right;">
+                    <a v-bind:href="'/articles/'+encodeURI(article.title)">
+                      Read More...
+                    </a>
                   </span>
                 </p>
               </div>
@@ -118,7 +121,7 @@
     </div>
 
     <div class="row g-5 pt-5">
-      <div class="col-md-8">
+      <div class="col-md-8" style="color:white">
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
           <!-- 
           i don't really get this, but feel free to uncomment.
@@ -160,7 +163,7 @@
 
       <div class="col-md-4">
         <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-dark rounded">
+          <div class="p-4 mb-3 bg-light rounded">
             <h4 class="fst-italic">About</h4>
             <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
           </div>
@@ -184,7 +187,7 @@
             </ol>
           </div> -->
 
-          <div class="p-4 mb-3 bg-dark rounded">
+          <div class="p-4 mb-3 bg-light rounded">
             <div class="mb-3">
               <h4 class="fst-italic">Mailing List</h4>
               <label for="mailinglist" class="form-label">Sign up to our mailing list</label>
@@ -192,7 +195,7 @@
             </div>
           </div>
 
-          <div class="p-4">
+          <div class="p-4" style="color:white">
             <h4 class="fst-italic">Elsewhere</h4>
             <ol class="list-unstyled">
               <li><a href="#">GitHub</a></li>
@@ -201,65 +204,26 @@
             </ol>
           </div>
 
+          
+
         </div>
       </div>
     </div>
 
   </div>
+  </div>
   </main>
-
+  </div>
   
     <%- include('../partials/footer.ejs'); %>
+
+    <style>
+    
+    </style>
 
   </body>
 
   <script>
-    const handleLike = (el) => {
-      let heart = el.children[0]
-      let count = el.children[1]
-      let currentColor = heart.getAttribute("fill")
-      let currentCount = parseInt(count.innerHTML)
-      if (currentColor === "#f8f9fa") {
-        heart.setAttribute("fill", "red")
-        count.innerHTML = currentCount + 1
-      } else {
-        heart.setAttribute("fill", "#f8f9fa")
-        count.innerHTML = currentCount - 1
-      }
-    }
-
-    let keypresses = [null, null, null, null, null]
-    window.addEventListener("keydown", (e) => {
-      keypresses.push(e.key)
-      keypresses.shift()
-      if (arraysEqual(keypresses, ["d", "a", "v", "i", "d"])) {
-        let likecounts = document.querySelectorAll(".like-count")
-        let count = 7
-        let superboost = 100
-        for (let j = 0; j < superboost; j++) {
-          setTimeout(() => {
-            for (let i = 0; i < likecounts.length; i++) {
-              likecounts[i].innerHTML = parseInt(likecounts[i].innerHTML) + 1
-            }
-          }, j * 10)
-        }
-      }
-    })
-
-    /*
-    :)
-    https://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript
-    */
-    const arraysEqual = (a, b) => {
-      if (a === b) return true;
-      if (a == null || b == null) return false;
-      if (a.length !== b.length) return false;
-      for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) return false;
-      }
-      return true;
-    }
-
     new Vue({
       el: '#app',
       data () {
@@ -273,7 +237,7 @@
           .get('/api/v1/rest/output/articles')
           .then(response => (this.articles = response.data))
           .then(this.isLoaded = true)
-        }
+         }
     })
   </script>
 

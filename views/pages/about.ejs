@@ -11,16 +11,45 @@
   <div class="about-top-intro">
     <%- include('../partials/navbar.ejs'); %>
     <div class="about-title-card">
-      <div style="margin-bottom: 100px;">
+      <div style="margin-bottom: 70px;">
         <h2 id="about-intro-title">
           About<br>
           Project<br>
           Eco<br>
         </h2>
 
-        <p id="about-intro-p">
-          The Environment is a crucial part of our lives, it affects everything from our immediate surroundings to our daily routines. However, like everything else we need to make sure that we are taking good care of it in return. Until now most people have been conserving the environment individually. Project ECO seeks to unite the community into one combined effort to reduce effects of pollution.
-        </p>
+        <p>
+           <div id="about-intro-p-long">
+            Project ECO gives the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology. During the development of this project, our team has found strong links between air quality and mental health. We aim to predict such changes in our environment and give users the ability and knowledge to reduce the effects of pollutants, ensuring a cleaner and healthier future for all of us.
+            <br><br>
+          </div>
+
+          <!-- vinny intro
+          <div id="about-intro-p-short">
+            Project Eco aims to give the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology.
+          </div>
+          <div id="about-intro-p-long">
+            <br/>
+            <h1 class="display-6 text-center">Vision</h1>
+            Empowering the <strong style="color: #91006a;">community</strong> to create a more sustainable future and take action against its effects on <strong style="color: #b88a00;">mental well-being</strong>, together.
+            
+            <br/><br/>
+            <h1 class="display-6 text-center">Mission</h1>
+            Project ECO seeks to quantify the relationship between the <strong style="color: #419600;">environment</strong> and <strong style="color: #b88a00">our mental well-being</strong>, using our <strong style="color: #5ac2ff;">AI technology</strong>. <br/><br/>
+
+            During the development of this project, our team has found strong links between air quality and mental health and productivity. We aim to predict such changes in our environment and give users the ability and knowledge to reduce the effects of pollutants, ensuring a cleaner, healthier and happier future for all of us.
+            <br><br>
+          </div>
+          <div id="about-intro-p-short">
+            <h1 class="display-6 text-center">Vision</h1>
+            Empowering the <strong style="color: #91006a;">community</strong> to create a more sustainable future and take action against its effects on <strong style="color: #b88a00;">mental well-being</strong>, together.
+            
+            <br/><br/>
+            <h1 class="display-6 text-center">Mission</h1>
+            Project ECO seeks to quantify the relationship between the <strong style="color: #419600;">environment</strong> and <strong style="color: #b88a00">our mental well-being</strong>, using our <strong style="color: #5ac2ff;">AI technology</strong>. <br/><br/>
+          </div>
+          Scroll further to see a diagram of our four-stage model.
+        </p>-->
 
         <!--
         <div class="form-check form-switch">
@@ -158,30 +187,34 @@
 
 
         <!-- <corner pieces> -->
+        <div class="num-bg-1"></div>
+        <div class="num-bg-2"></div>
+        <div class="num-bg-3"></div>
+        <div class="num-bg-4"></div>
         <h2 
           class="about-step-number-1" 
-          style="opacity: 1; cursor: pointer;" 
+          style="opacity: 1; background: white; color: black;" 
           onclick="toTop()"
         >
           1
         </h2>
-        <h2 
+        <h2
           class="about-step-number-2" 
-          style="opacity: 0.3; cursor: pointer;"
+          style="opacity: 0.3;"
           onclick="toA()"
         >
           2
         </h2>
         <h2 
           class="about-step-number-3" 
-          style="opacity: 0.3; cursor: pointer;"
+          style="opacity: 0.3;"
           onclick="toW()"
         >
           3
         </h2>
         <h2 
           class="about-step-number-4" 
-          style="opacity: 0.3; cursor: pointer;"
+          style="opacity: 0.3;"
           onclick="toC()"
         >
           4
@@ -193,6 +226,11 @@
     </div>
 
   </main>
+
+  <!-- Sorry vinny this has to go by order the charter of royal king david
+  <div class="text-center" style="background-color: white;">
+    <img src="static/assets/about/infographic.png" class="rounded info-img" alt="ECO Workflow Infographic">
+  </div> -->
 
   <!--footer previously here-->
   <%- include('../partials/footer.ejs'); %>
@@ -276,36 +314,60 @@
 
   const toggleD = () => {
     dtile.style.cssText = `
-      grid-column: 1 / 5;
-      grid-row: 1 / 5;
+      left: 10px;
+      top: 10px;
+      width: calc(80% - 15px);
+      height: calc(80% - 15px);
       padding: 30px;
     `
     atile.style.cssText = `
-      grid-column: 5 / 6;
-      grid-row: 1 / 5;
+      right: 10px;
+      top: 10px;
+      width: calc(20% - 15px);
+      height: calc(80% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     wtile.style.cssText = `
-      grid-column: 5 / 6;
-      grid-row: 5 / 6;
+      right: 10px;
+      bottom: 10px;
+      width: calc(20% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     ctile.style.cssText = `
-      grid-column: 1 / 5;
-      grid-row: 5 / 6;
+      left: 10px;
+      bottom: 10px;
+      width: calc(80% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
 
-    stepnum1.style.opacity = 1
-    stepnum2.style.opacity = 0.3
-    stepnum3.style.opacity = 0.3
-    stepnum4.style.opacity = 0.3
+    stepnum1.style.cssText = `
+      opacity: 1;
+      background: white;
+      color: black;
+    `
+    stepnum2.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum3.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum4.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
 
     content1.style.display = "block"
     content2.style.display = "none"
@@ -314,36 +376,60 @@
   }
   const toggleA = () => {
     dtile.style.cssText = `
-      grid-column: 1 / 2;
-      grid-row: 1 / 5;
+      left: 10px;
+      top: 10px;
+      width: calc(20% - 15px);
+      height: calc(80% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     atile.style.cssText = `
-      grid-column: 2 / 6;
-      grid-row: 1 / 5;
+      right: 10px;
+      top: 10px;
+      width: calc(80% - 15px);
+      height: calc(80% - 15px);
       padding: 30px;
     `
     wtile.style.cssText = `
-      grid-column: 2 / 6;
-      grid-row: 5 / 6;
+      right: 10px;
+      bottom: 10px;
+      width: calc(80% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     ctile.style.cssText = `
-      grid-column: 1 / 2;
-      grid-row: 5 / 6;
+      left: 10px;
+      bottom: 10px;
+      width: calc(20% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
 
-    stepnum1.style.opacity = 0.3
-    stepnum2.style.opacity = 1
-    stepnum3.style.opacity = 0.3
-    stepnum4.style.opacity = 0.3
+    stepnum1.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum2.style.cssText = `
+      opacity: 1;
+      background: white;
+      color: black;
+    `
+    stepnum3.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum4.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
 
     content1.style.display = "none"
     content2.style.display = "block"
@@ -352,36 +438,60 @@
   }
   const toggleW = () => {
     dtile.style.cssText = `
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
+      left: 10px;
+      top: 10px;
+      width: calc(20% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     atile.style.cssText = `
-      grid-column: 2 / 6;
-      grid-row: 1 / 2;
+      right: 10px;
+      top: 10px;
+      width: calc(80% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     wtile.style.cssText = `
-      grid-column: 2 / 6;
-      grid-row: 2 / 6;
+      right: 10px;
+      bottom: 10px;
+      width: calc(80% - 15px);
+      height: calc(80% - 15px);
       padding: 30px;
     `
     ctile.style.cssText = `
-      grid-column: 1 / 2;
-      grid-row: 2 / 6;
+      left: 10px;
+      bottom: 10px;
+      width: calc(20% - 15px);
+      height: calc(80% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
 
-    stepnum1.style.opacity = 0.3
-    stepnum2.style.opacity = 0.3
-    stepnum3.style.opacity = 1
-    stepnum4.style.opacity = 0.3
+    stepnum1.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum2.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum3.style.cssText = `
+      opacity: 1;
+      background: white;
+      color: black;
+    `
+    stepnum4.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
 
     content1.style.display = "none"
     content2.style.display = "none"
@@ -390,36 +500,60 @@
   }
   const toggleC = () => {
     dtile.style.cssText = `
-      grid-column: 1 / 5;
-      grid-row: 1 / 2;
+      left: 10px;
+      top: 10px;
+      width: calc(80% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     atile.style.cssText = `
-      grid-column: 5 / 6;
-      grid-row: 1 / 2;
+      right: 10px;
+      top: 10px;
+      width: calc(20% - 15px);
+      height: calc(20% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     wtile.style.cssText = `
-      grid-column: 5 / 6;
-      grid-row: 2 / 6;
+      right: 10px;
+      bottom: 10px;
+      width: calc(20% - 15px);
+      height: calc(80% - 15px);
       display: flex;
       align-items: center;
       justify-content: center;
     `
     ctile.style.cssText = `
-      grid-column: 1 / 5;
-      grid-row: 2 / 6;
+      left: 10px;
+      bottom: 10px;
+      width: calc(80% - 15px);
+      height: calc(80% - 15px);
       padding: 30px;
     `
 
-    stepnum1.style.opacity = 0.3
-    stepnum2.style.opacity = 0.3
-    stepnum3.style.opacity = 0.3
-    stepnum4.style.opacity = 1
+    stepnum1.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum2.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum3.style.cssText = `
+      opacity: 0.3;
+      background: black;
+      color: white;
+    `
+    stepnum4.style.cssText = `
+      opacity: 1;
+      background: white;
+      color: black;
+    `
 
     content1.style.display = "none"
     content2.style.display = "none"
@@ -458,10 +592,27 @@
           opacity: 0;
           pointer-events: none;
         `
-        stepnum1.style.opacity = 1
-        stepnum2.style.opacity = 0.3
-        stepnum3.style.opacity = 0.3
-        stepnum4.style.opacity = 0.3
+
+        stepnum1.style.cssText = `
+          opacity: 1;
+          background: white;
+          color: black;
+        `
+        stepnum2.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum3.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum4.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
         arrow1.style.display = "block"
         arrow2.style.display = "none"
         arrow3.style.display = "none"
@@ -483,10 +634,28 @@
           opacity: 0;
           pointer-events: none;
         `
-        stepnum1.style.opacity = 0.3
-        stepnum2.style.opacity = 1
-        stepnum3.style.opacity = 0.3
-        stepnum4.style.opacity = 0.3
+
+        stepnum1.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum2.style.cssText = `
+          opacity: 1;
+          background: white;
+          color: black;
+        `
+        stepnum3.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum4.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+
         arrow1.style.display = "none"
         arrow2.style.display = "block"
         arrow3.style.display = "none"
@@ -508,10 +677,28 @@
           opacity: 0;
           pointer-events: none;
         `
-        stepnum1.style.opacity = 0.3
-        stepnum2.style.opacity = 0.3
-        stepnum3.style.opacity = 1
-        stepnum4.style.opacity = 0.3
+
+        stepnum1.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum2.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum3.style.cssText = `
+          opacity: 1;
+          background: white;
+          color: black;
+        `
+        stepnum4.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+
         arrow1.style.display = "none"
         arrow2.style.display = "none"
         arrow3.style.display = "block"
@@ -533,10 +720,28 @@
           opacity: 1;
           z-index: 99;
         `
-        stepnum1.style.opacity = 0.3
-        stepnum2.style.opacity = 0.3
-        stepnum3.style.opacity = 0.3
-        stepnum4.style.opacity = 1
+
+        stepnum1.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum2.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum3.style.cssText = `
+          opacity: 0.3;
+          background: black;
+          color: white;
+        `
+        stepnum4.style.cssText = `
+          opacity: 1;
+          background: white;
+          color: black;
+        `
+
         arrow1.style.display = "none"
         arrow2.style.display = "none"
         arrow3.style.display = "none"
@@ -548,7 +753,7 @@
 
     window.addEventListener("scroll", (event) => {
       let scroll = this.scrollY
-
+      
       if (scroll <= height * 2) {
         toggleD()
       } else if ((scroll > height * 2) && (scroll <= height * 3)) {

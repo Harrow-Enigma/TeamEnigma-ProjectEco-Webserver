@@ -18,35 +18,27 @@
         <form action="/survey/success" method="post">
 
         <!-- Carousel Content -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="false" data-interval="500">
-           
-          <div class="carousel-inner">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="false" data-interval="500">
 
+            <div class="carousel-inner">
               <div class="carousel-item active">
-                
                 <div class="form-el">
                   <div>
                     <h1 class="survey-title">We'll make this quick.</h1>
                     <div>
-                      <p id="instructions-text">There are 6 short questions, which will take approximately 2 minutes in total.</p>
+                      <p id="instructions-text">There are 11 short questions, which will take approximately 3 minutes in total.</p>
                       <p id="instructions-text">Click the "Next" button below to get started!</p>
-
-
                     </div>
                   </div>
                 </div>
-
               </div>
-
               <div class="carousel-item">
-
-                <div class="form-el">
+                <div class="form-el-2">
                   <div>
-                    <h2>How do you feel today?</h2>
-
+                    <h2 class="survey-card-title">How do you feel today?</h2>
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
-                        <label style="line-height: 18px; margin-bottom: 30px;">
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
                           Rate out of 5 (higher = happier)<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
@@ -56,31 +48,25 @@
                           <input class="form-check-input" type="radio" name="q1" value="2" required>2
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input"type="radio" name="q1" value="3" required>3
+                          <input class="form-check-input" type="radio" name="q1" value="3" required>3
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input"type="radio" name="q1" value="4" required>4
+                          <input class="form-check-input" type="radio" name="q1" value="4" required>4
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input" type="radio" name="q1" value="5" required>5
+                          <input class="form-check-input" type="radio" name="q1" value="5" required>5
                         </label>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
-              </div>
-
-               <div class="carousel-item">
-
-                <div class="form-el">
+                <section style="height: 2vh;"></section>
+                <div class="form-el-2" style="margin-bottom: 50px;">
                   <div>
-                    <h2>How well could you concentrate on your work?</h2>
-
+                    <h2 class="survey-card-title">How well could you concentrate on your work?</h2>
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
-                        <label style="line-height: 18px; margin-bottom: 30px;">
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
                           Rate out of 5 (higher = better)<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
@@ -90,33 +76,26 @@
                           <input class="form-check-input" type="radio" name="q2" value="2" required>2
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input"type="radio" name="q2" value="3" required>3
+                          <input class="form-check-input" type="radio" name="q2" value="3" required>3
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input"type="radio" name="q2" value="4" required>4
+                          <input class="form-check-input" type="radio" name="q2" value="4" required>4
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input" type="radio" name="q2" value="5" required>5
+                          <input class="form-check-input" type="radio" name="q2" value="5" required>5
                         </label>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
               </div>
-
-        
-
               <div class="carousel-item">
-
-                <div class="form-el">
+                <div class="form-el-2">
                   <div>
-                    <h2>How stressful has your work been?</h2>
-
+                    <h2 class="survey-card-title">How stressful has your work been?</h2>
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
-                        <label style="line-height: 18px; margin-bottom: 30px;">
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
                           Rate out of 5 (higher = more stressful)<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
@@ -126,86 +105,82 @@
                           <input class="form-check-input" type="radio" name="q3" value="2" required>2
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input"type="radio" name="q3" value="3" required>3
+                          <input class="form-check-input" type="radio" name="q3" value="3" required>3
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input"type="radio" name="q3" value="4" required>4
+                          <input class="form-check-input" type="radio" name="q3" value="4" required>4
                         </label>
                         <label class="radio-label-vertical">
-                          <input  class="form-check-input" type="radio" name="q3" value="5" required>5
+                          <input class="form-check-input" type="radio" name="q3" value="5" required>5
                         </label>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
-              </div>
-
-
-
-              <div class="carousel-item">
-
-                <div class="form-el">
+                <section style="height: 2vh;"></section>
+                <div class="form-el-2" style="margin-bottom: 50px;">
                   <div>
-                    <h2>Have you encountered any dizziness, headaches, or shortness of breath lately?</h2>
+                    <h2 class="survey-card-title">
+                      <!--
+                      unapproved but obvious change
 
+                      Have you felt dizziness, headaches, or shortness of breath lately?
+                      -->
+                      Have you had any dizziness or headaches recently?
+                    </h2>
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="no" required>No
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
+                          Choose Yes / No<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
                           <input class="form-check-input" type="radio" name="q4" value="yes" required>Yes
                         </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q4" value="no" required>No
+                        </label>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
               </div>
-
               <div class="carousel-item">
-
-                <div class="form-el">
+                <div class="form-el-2">
                   <div>
-                    <h2>Have you had any allergic responses today?</h2>
-
+                    <h2 class="survey-card-title">Have you had any allergic responses today?</h2>
                     <div class="radio-label-vertical-wrapper">
                       <div class="form-group">
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="no" required>No
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
+                          Choose Yes / No<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
                           <input class="form-check-input" type="radio" name="q5" value="yes" required>Yes
                         </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q5" value="no" required>No
+                        </label>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
-              </div>
-              
-
-              <div class="carousel-item">
-
-                <div class="form-el">
+                <section style="height: 2vh;"></section>
+                <div class="form-el-2" style="margin-bottom: 50px;">
                   <div>
-                  
-                    <h2>Where are you taking this survey?</h2>
-                    <p style="line-height: 18px;">This will allow us to get weather data in your area.</p>
-
+                    <h2 class="survey-card-title">Where are you taking this survey?</h2>
+                    <div>
+                      <label style="line-height: 15px;">
+                        This will allow us to get weather data in your area.
+                      </label>
+                    </div>
                     <script type="text/javascript">
-
-                      $(function(){
-                          $("input[name^='q'][name!='q6.1'][name!='q6.2']").click(function(){
-                              console.log("test");
-                              $(".carousel").carousel("next");
-                          });
+                      /*
+                      can't do this anymore :/
+                      $(function() {
+                        $("input[name^='q'][name!='q6.1'][name!='q6.2'][name!='q7.1'][name!='q7.2'][name!='q7.3'][name!='q7.4'][name!='q7.5']").click(function() {
+                          $(".carousel").carousel("next");
+                        });
                       });
-
+                      */
                       function getLocationConstant() {
                         if (navigator.geolocation) {
                           navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
@@ -213,65 +188,142 @@
                           alert("Your browser or device doesn't support Geolocation");
                         }
                       }
-
                       // If we have a successful location update
                       function onGeoSuccess(event) {
                         document.getElementById("q6.1").value = (Math.round(event.coords.latitude * 10000) / 10000).toString();
                         document.getElementById("q6.2").value = (Math.round(event.coords.longitude * 10000) / 10000).toString();
                       }
-
                       // If something has gone wrong with the geolocation request
                       function onGeoError(event) {
                         alert("Error code " + event.code + ". " + event.message);
                       }
                     </script>
-
-                    <button type="button" class="btn btn-info" onclick="getLocationConstant()">Use Device GPS</button>
-
-                    <section style="height: 20px;"></section>
-
-                    <input
-                      placeholder="Your Latitude..."
-                      type="text" 
-                      class="form-control"
-                      name="q6.1"
-                      id="q6.1"
-                      novalidate
-                      style="margin-top: 20px;"
-                    >
-                    </input>
-                  
-                    <input
-                      placeholder="Your Longitude..."
-                      type="text" 
-                      class="form-control"
-                      name="q6.2"
-                      id="q6.2"
-                      novalidate
-                      style="margin-top: 20px;"
-                    >
-                    </input>
-
-                    <br>
-
-                    <section style="height: 10px;"></section>
-
-                    <!-- widget search here -->
-                    <!-- fix later:
-                    <input id='input-station' placeholder="City or location">
-                    <br>
-
-                    <div id='result-search' style='min-height: 300px'></div>
-                    -->
-
+                    <span class="survey-longlat-inputs">
+                      <input placeholder="Your Latitude..." type="text" class="form-control" name="q6.1" id="q6.1" novalidate style="margin-top: 10px;"></input>
+                      <input placeholder="Your Longitude..." type="text" class="form-control" name="q6.2" id="q6.2" novalidate style="margin-top: 10px;"></input>
+                      <button type="button" class="btn btn-info" onclick="getLocationConstant()" style="margin-top: 10px;">
+                        Use GPS
+                      </button>
+                    </span>
                   </div>
                 </div>
-
               </div>
-              
-
               <div class="carousel-item">
-
+                <div class="form-el-2">
+                  <div>
+                    <h2 class="survey-card-title">How much physical activity have you done today?</h2>
+                    <div class="radio-label-vertical-wrapper">
+                      <div class="form-group">
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
+                          In hours, e.g. walking, running, sports...<sup class="text-danger">*</sup>
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.1" value="1" required>1
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.1" value="2" required>2
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.1" value="3" required>3
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.1" value="4" required>4
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.1" value="5" required>5
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <section style="height: 2vh;"></section>
+                <div class="form-el-2" style="margin-bottom: 50px;">
+                  <div>
+                    <h2 class="survey-card-title">How many hours did you sleep?</h2>
+                    <label class="survey-card-margin-gap" style="line-height: 18px;">
+                      Enter no. of hours<sup class="text-danger">*</sup>
+                    </label>
+                    <div>
+                      <input type="number" class="form-control" name="q7.2" id="q7.2" min="1" max="24" style="max-width: 100px; margin: 0 auto;"></input>
+                      <span>hours</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="form-el-2">
+                  <div>
+                    <h2 class="survey-card-title">How hungry are you right now?</h2>
+                    <div>
+                      <label class="survey-card-margin-gap" style="line-height: 18px;">
+                        Rate out of 5 (higher = more hungry)<sup class="text-danger">*</sup>
+                      </label>
+                    </div>
+                    <div class="radio-label-vertical-wrapper">
+                      <div class="form-group">
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.3" value="1" required>1
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.3" value="2" required>2
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.3" value="3" required>3
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.3" value="4" required>4
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.3" value="5" required>5
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <section style="height: 2vh;"></section>
+                <div class="form-el-2" style="margin-bottom: 50px;">
+                  <div>
+                    <h2 class="survey-card-title">How heavy was your workload today?</h2>
+                    <div class="radio-label-vertical-wrapper">
+                      <div class="form-group">
+                        <label class="survey-card-margin-gap" style="line-height: 18px;">
+                          Rate out of 5 (higher = more work)<sup class="text-danger">*</sup>
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.4" value="1" required>1
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.4" value="2" required>2
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.4" value="3" required>3
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.4" value="4" required>4
+                        </label>
+                        <label class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q7.4" value="5" required>5
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="form-el">
+                  <div>
+                    <h2>How many hours have you spent outdoors?</h2>
+                    <label style="line-height: 18px; margin-bottom: 30px;">
+                      Enter no. of hours<sup class="text-danger">*</sup>
+                    </label>
+                    <div>
+                      <input type="number" class="form-control" name="q7.5" id="q7.5" min="0" max="24" style="max-width: 100px; margin: 0 auto;"></input>
+                      <span>hours</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
                 <div class="form-el">
                   <div>
                     <h1>Thanks for your input!</h1>
@@ -282,50 +334,53 @@
                     <div class="alert alert-danger invalidMsg" style="border-radius: 10px; margin-top: 20px; display: none">Please complete all the questions.</div>
                   </div>
                 </div>
-
               </div>
-
-            
-          </div>
-          
-          <div>
-            <!--Note: this needs to be inside this div in order to work-->
-            <div class="carousel-indicators" id="survey-indicators" style="padding-left: 10px; padding-right: 10px;">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+            </div>
+            <div>
+              <!--Note: this needs to be inside this div in order to work-->
+              <div class="carousel-indicators" id="survey-indicators" style="padding-left: 10px; padding-right: 10px;">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+              </div>
+              <div style="padding-top: 10px;">
+                <!-- Carousel Controllers -->
+                <a class="btn btn-primary" style="float:left; margin-left:50px" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <i class="fa fa-arrow-left"></i> Prev.
+                </a>
+                <a class="btn btn-primary" style="float:right; margin-right:50px" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  Next <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
             </div>
 
-            <div style="padding-top:10px">
-              <!-- Carousel Controllers -->
-              <a class="btn btn-primary" style="float:left; margin-left:50px" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <i class="fa fa-arrow-left"></i> Prev.
-              </a>
-
-              <a class="btn btn-primary" style="float:right; margin-right:50px" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                Next <i class="fa fa-arrow-right"></i>
-              </a>
-            </div>
           </div>
 
-        </div>
+          <section style="height: 50px;"></section>
 
-        <section style="height: 50px;"></section>
-
-      </form>
+        </form>
       
       </div>
     </main>
 
 
-    <script>
-        
-
+    <script>    
+      document.addEventListener("keydown", (e) => {
+        e.preventDefault()
+        switch(e.code) {
+          case "ArrowRight":
+            $('.carousel').carousel("next")
+            break
+          case "ArrowLeft":
+            $('.carousel').carousel("prev")
+            break
+        }
+      })
     </script>
 
     <!-- Include Footer -->

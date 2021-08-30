@@ -72,7 +72,8 @@
         "Latitude":{type: String},
         "Longitude":{type: String},
         "data" :{type:Object}},
-    "fake": {type: String}
+    "fake": {type: String},
+    "q7": {type:Object}
   });
 
   // Declare Alert Data Structure
@@ -190,7 +191,14 @@
         "Longitude":longitude,
         "data" : weatherstationdata
     },
-    "fake" : json["fake"]
+    "fake" : json["fake"],
+    "q7": {
+      "q7.1":json["q7.1"],
+      "q7.2":json["q7.2"],
+      "q7.3":json["q7.3"],
+      "q7.4":json["q7.4"],
+      "q7.5":json["q7.5"]
+    }
     });
     
     doc1.save(function(err, doc) {

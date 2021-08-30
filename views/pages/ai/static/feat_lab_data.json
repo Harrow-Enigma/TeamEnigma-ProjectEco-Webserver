@@ -1,0 +1,240 @@
+{
+  "features": {
+    "mean": [
+      71.66138458251953,
+      7.581188201904297,
+      15.924750328063965,
+      1015.1454467773438,
+      17.326732635498047,
+      35.950496673583984,
+      21.954870223999023,
+      2.057013750076294
+    ],
+    "stddv": [
+      21.25848960876465,
+      10.2958984375,
+      13.045413970947266,
+      107.50933074951172,
+      20.19464874267578,
+      31.062175750732422,
+      6.06428861618042,
+      2.1809608936309814
+    ],
+    "ofst": [
+      -1.0189522504806519,
+      2.1386005878448486,
+      1.1517648696899414,
+      -4.327488899230957,
+      3.2272543907165527,
+      1.2732367515563965,
+      -0.5697073936462402,
+      1.5786558389663696
+    ],
+    "range": [
+      4.724002838134766,
+      5.769862651824951,
+      4.764962673187256,
+      10.249811172485352,
+      8.190481185913086,
+      4.8812174797058105,
+      6.121292591094971,
+      5.063648700714111
+    ],
+    "classes": {
+      "0": {
+        "name": "Relative Humidity",
+        "fallback": 0,
+        "key": "h",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 100.0,
+        "step": 1.0101010101010102,
+        "default": 86.80000305175781
+      },
+      "1": {
+        "name": "Nitrogen Dioxide",
+        "fallback": 0,
+        "key": "no2",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 59.20000076293945,
+        "step": 0.5979798056862571,
+        "default": 6.0
+      },
+      "2": {
+        "name": "Ozone",
+        "fallback": 0,
+        "key": "o3",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 61.900001525878906,
+        "step": 0.6252525406654434,
+        "default": 24.0
+      },
+      "3": {
+        "name": "Atmostpheric Pressure",
+        "fallback": 0,
+        "key": "p",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 1099.800048828125,
+        "step": 11.109091402304292,
+        "default": 1099.5999755859375
+      },
+      "4": {
+        "name": "PM10",
+        "fallback": 0,
+        "key": "pm10",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 165.0,
+        "step": 1.6666666666666667,
+        "default": 15.0
+      },
+      "5": {
+        "name": "PM2.5",
+        "fallback": 0,
+        "key": "pm25",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 151.0,
+        "step": 1.5252525252525253,
+        "default": 38.0
+      },
+      "6": {
+        "name": "Temperature",
+        "fallback": 0,
+        "key": "t",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 37.0,
+        "step": 0.37373737373737376,
+        "default": 28.299999237060547
+      },
+      "7": {
+        "name": "Wind",
+        "fallback": 0,
+        "key": "w",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 11.0,
+        "step": 0.1111111111111111,
+        "default": 1.0
+      }
+    }
+  },
+  "labels": {
+    "mean": [
+      3.2574257850646973,
+      3.0099010467529297,
+      2.792079210281372,
+      0.12871287763118744,
+      0.059405941516160965
+    ],
+    "stddv": [
+      1.1744264364242554,
+      1.1213061809539795,
+      1.074610710144043,
+      0.33488211035728455,
+      0.23638291656970978
+    ],
+    "ofst": [
+      -0.2191927433013916,
+      -0.008829891681671143,
+      0.19348472356796265,
+      1.1087098121643066,
+      1.863899827003479
+    ],
+    "range": [
+      3.425917863845825,
+      3.587268352508545,
+      3.7422780990600586,
+      3.0061254501342773,
+      4.250424385070801
+    ],
+    "classes": {
+      "0": {
+        "name": "Q1 (General feeling)",
+        "fallback": -1,
+        "key": "q1",
+        "unit": null,
+        "labelType": "IntClass",
+        "size": 5,
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      },
+      "1": {
+        "name": "Q2 (Concentration)",
+        "fallback": -1,
+        "key": "q2",
+        "unit": null,
+        "labelType": "IntClass",
+        "size": 5,
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      },
+      "2": {
+        "name": "Q3 (Work Stress)",
+        "fallback": -1,
+        "key": "q3",
+        "unit": null,
+        "labelType": "IntClass",
+        "size": 5,
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      },
+      "3": {
+        "name": "Q4 (Dizziness, headaches, shortness of breath)",
+        "fallback": -1,
+        "key": "q4",
+        "unit": null,
+        "labelType": "IntClassMap",
+        "fwd_map": {
+          "no": 0,
+          "yes": 1
+        },
+        "rev_map": {
+          "0": "no",
+          "1": "yes"
+        },
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      },
+      "4": {
+        "name": "Q5 (Allergic responses)",
+        "fallback": -1,
+        "key": "q5",
+        "unit": null,
+        "labelType": "IntClassMap",
+        "fwd_map": {
+          "no": 0,
+          "yes": 1
+        },
+        "rev_map": {
+          "0": "no",
+          "1": "yes"
+        },
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      }
+    }
+  }
+}

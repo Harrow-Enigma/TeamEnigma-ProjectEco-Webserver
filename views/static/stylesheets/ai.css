@@ -1,0 +1,234 @@
+#page-mask {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.tutorial-carousel {
+  position: relative;
+  background: white;
+  text-align: center;
+  padding: 20px;
+  z-index: 20;
+  max-width: 500px;
+  margin: 10px auto;
+  border-radius: 0.25rem;
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .tutorial-carousel {
+    border-radius: 0;
+    margin: 30px auto;
+  }
+}
+
+.outputs_card {
+  /* flex: 0 0 40vw; */
+  opacity: 0.3
+}
+
+.features_card {
+  height: 25vh;
+  overflow-y: scroll;
+}
+
+:root {
+    --slider-color: #39cc9b;
+}
+
+#hey{
+  position: fixed;
+
+  width: 100%;
+
+  animation-name: hey-popup;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  z-index: 100;
+}
+
+#explanatory{
+  position: fixed;
+
+  animation-name: alert-popup;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+
+  z-index: 99;
+}
+
+#introduction{
+    padding: 5%;
+    padding-bottom: 1%;
+}
+
+#description{
+    padding-top: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.env_slider::-webkit-slider-thumb {
+    background: var(--slider-color);
+}
+
+.env_slider::-moz-range-thumb {
+    background: var(--slider-color);
+}
+
+.env_slider::-ms-thumb {
+    background: var(--slider-color);
+}
+
+.out_container {
+    height: 30px;
+}
+
+.out_bar {
+    background-color: #d6961f;
+}
+
+.out_text {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+@keyframes alert-popup {
+    0%   {bottom: -2rem; opacity: 0;}
+    25%  {opacity: 0;}
+    100% {bottom: 2rem; opacity: 1;}
+}
+
+@keyframes hey-popup {
+    0%   {top: -4rem; opacity: 0;}
+    25%  {opacity: 0;}
+    100% {top: 0rem; opacity: 1;}
+}
+
+@keyframes vis-popup {
+    0%   {top: 4rem; opacity: 0;}
+    25%  {opacity: 0;}
+    100% {top: 0rem; opacity: 1;}
+}
+
+#visualization{
+  position: relative;
+
+  animation-name: vis-popup;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-fill-mode: both;
+
+  z-index: 20;
+}
+
+.vis_card {
+  margin: 10px;
+  transition: 1s;
+}
+
+@media only screen and (min-width: 768px) {
+    #hey{
+        display: none;
+    }
+
+    .features_card{
+      height: auto;
+      overflow-y: hidden;
+    }
+
+    #visualization{
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+
+      padding-left: 5rem;
+      padding-right: 5rem;
+      flex-direction: row;
+
+      animation-name: vis-popup;
+      animation-duration: 2s;
+      animation-delay: 0s;
+      animation-fill-mode: both;
+    }
+    
+    .vis_card {
+      margin: 0;
+      transition: 0.3;
+    }
+
+    #explanatory{
+        right: 2rem;
+        bottom: 2rem;
+    }
+
+    #description{
+        padding-top: 5%;
+    }
+
+    .out_container{
+        height: 50px;
+    }
+
+    .out_text {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .sexy_hover_container{
+      display: grid;
+    }
+
+    .sexy_hover_base{
+      grid-area: 1 / 1 / 2 / 2;
+      opacity: 0;
+    }
+
+    .green_base{
+      background-color: #39cc9b;
+    }
+
+    .gold_base{
+      background-color: #bf8300;
+    }
+
+    .sexy_hover{
+      grid-area: 1 / 1 / 2 / 2;
+      transition: 0.3s;
+    }
+
+    .sexy_hover:hover{
+        transform: translate(-7px, -7px);
+    }
+}
+
+@media (orientation: landscape) and (max-width: 768px){
+  .vis_card{
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  #visualization{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1px;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex-direction: row;
+
+    animation-name: vis-popup;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-fill-mode: both;
+  }
+}

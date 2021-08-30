@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <%- include('../../partials/head.ejs'); %>
+    <link rel="stylesheet" href="../../static/stylesheets/universal.css">
+    <link rel="stylesheet" href="../../static/stylesheets/ai.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  </head>
+
+  <body>
+  
+    <header>
+      <%- include('../../partials/navbar.ejs'); %>
+    </header>
+
+    <main id="ai-main">
+      <!-- tutorial -->
+      <div id="page-mask"></div>
+
+      <div id="hey">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="hey_alert">
+          <strong>Computer Browsing Recommended</strong><br/>We've detected that you're on mobile. While we strive for a mobile-first design, this page still looks better on a computer!
+          <button onclick="cacheHey()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <div id="introduction">
+        <h1 class="title">Realtime AI Data Demonstration</h1>
+        <p>Drag to interact with AI in realtime</p>
+      </div>
+
+      <div class="lead tutorial-carousel">
+
+        <div id="tutorial-carousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div style="color:rgb(52, 150, 207)">
+                <strong style="color: rgb(68, 146, 113);">
+                  Drag 
+                </strong> 
+                to change the environmental pollutant levels...
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div style="color:rgb(52, 150, 207)">
+                ...and watch the AI
+                <strong style="color: rgb(68, 146, 113);">
+                  predict 
+                </strong>
+                various mental health metrics.
+              </div>
+            </div>
+          </div>
+
+          <a class="btn btn-primary" data-bs-target="#tutorial-carousel" data-bs-slide="next" style="margin: 10px;" id="tutorial-btn">
+            Next <i class="fa fa-arrow-right" id="tutorial-icon"></i>
+          </a>
+          
+        </div>
+      </div>
+
+      <div id="visualization">
+        <div class="sexy_hover_container">
+          <div class="card vis_card sexy_hover_base green_base"></div>
+          <div class="card vis_card features_card sexy_hover" style="z-index: 10;">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #518628;">Environmental Inputs</h5>
+              <div id="feature_control" style="color: #66ab32;" slider_class="env_slider"></div>
+            </div>        
+          </div>
+        </div>
+        
+        <div class="sexy_hover_container">
+          <div class="card vis_card sexy_hover_base gold_base"></div>
+          <div class="card vis_card outputs_card sexy_hover" style="z-index: 15;">
+            <div class="card-body">
+              <h5 class="card-title" style="color: rgb(40, 118, 163);">AI Model Outputs</h5>
+              <div id="label_vis" style="color: rgb(47, 140, 194);" container_class="out_container" bar_class="out_bar" text_class="out_text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="description">
+        <h1 class="display-4">What is happening?</h1>
+        <p>
+          Our AI model is predicting survey responses based on your environmental inputs, all inside your browser.<br/>
+          Air quality values are in AQI units. 
+          <a href="https://www.airnow.gov/aqi/aqi-calculator/">Here</a> is a good website that converts the AQI index to many other measurement units, like μg/m³.
+        </p>
+      </div>
+
+      <div id="explanatory" style="display: none;">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert" id="units_alert">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+          </svg>
+
+          <div class="card text-center" style="width: 18rem; margin: auto; margin-left: 2rem;">
+            <div class="card-body">
+              <h5 class="card-title">AQI Units</h5>
+              <p class="card-text">
+                We use AQI units for all of our air quality data.<br/>
+                Not sure what they are? 👇
+              </p>
+              <a href="https://www.airnow.gov/aqi/aqi-calculator/" class="btn btn-primary">See how AQI units convert</a>
+            </div>
+          </div>
+
+          <button onclick="cacheClose()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </main>
+    
+    <script src="/ai_static/ui.js"></script>
+    <script src="/ai_static/ai_main.js" type="module"></script>
+    <script src="/ai_static/control.js"></script>
+
+    <script>
+      tutorialbtn = document.querySelector("#tutorial-btn")
+      inputscard = document.querySelector(".features_card")
+      outputscard = document.querySelector(".outputs_card")
+      masker = document.querySelector("#page-mask")
+      icon = document.querySelector("#tutorial-icon")
+      carousel = document.querySelector(".tutorial-carousel")
+      explanatory = document.querySelector("#explanatory")
+
+      count = 0
+
+      tutorialbtn.onclick = () => {
+        count++
+
+        switch (count) {
+          case 1:
+            inputscard.style.opacity = 0.3
+            outputscard.style.opacity = 1.0
+            icon.remove()
+            tutorialbtn.innerHTML = "Got it!"
+            break
+          case 2:
+            inputscard.style.opacity = 1.0
+            outputscard.style.opacity = 1.0
+            masker.remove()
+            carousel.remove()
+            explanatory.style.display = "block"
+            setTimeout(function() {
+              $(".sexy_hover_base").map(function() {
+                  this.style.opacity = 1.0;
+              });
+            }, 0);
+            
+            break
+        }
+      }
+    </script>
+
+    <%- include('../../partials/footer.ejs'); %>
+
+  </body>
+</html>

@@ -69,6 +69,11 @@ router.get("/rest/output/articles", async (req,res, next) => {
   res.send(data)
 });
 
+router.get("/rest/output/article", async (req,res, next) => {
+  const data = await mongodbModel.getarticledata(req.headers.title)
+  res.send(data[0])
+});
+
 router.get("/rest/output/alerts", async (req,res, next) => {
   const data = await mongodbModel.getalertsdata()
   res.send(data)

@@ -3,9 +3,9 @@
     "views/pages/about.ejs": [
       {
         "id": "7cf38187-5e39-4980-af0f-09c3986b4652",
-        "line": 562,
-        "version": 7711,
-        "index": 16869
+        "line": 768,
+        "version": 9791,
+        "index": 23968
       }
     ],
     "views/pages/alerts.ejs": [
@@ -19,9 +19,9 @@
     "views/pages/survey.ejs": [
       {
         "id": "46d82556-45bd-43b6-b0f8-d152b040bddb",
-        "line": 182,
-        "version": 9219,
-        "index": 7601
+        "line": 21,
+        "version": 11677,
+        "index": 518
       }
     ],
     "views/static/js/universal/typingtext.js": [
@@ -30,6 +30,44 @@
         "line": 138,
         "version": 373,
         "index": 3675
+      }
+    ],
+    "views/static/stylesheets/about.css": [
+      {
+        "id": "b4e7e79e-8639-4991-aa32-33dff0f912c4",
+        "line": 34,
+        "version": 5659,
+        "index": 519
+      }
+    ],
+    "views/static/stylesheets/ai.css": [
+      {
+        "id": "ee38b479-9b4c-4e2a-be41-b44b4ddf5abf",
+        "line": 45,
+        "version": 1509,
+        "index": 604
+      },
+      {
+        "id": "a077c5ec-7152-4815-9841-4cb4ba8741b2",
+        "line": 45,
+        "version": 1509,
+        "index": 604
+      }
+    ],
+    "views/static/stylesheets/articles.css": [
+      {
+        "id": "b4fc1ff8-0d9e-4502-b758-9db85ee1908b",
+        "line": 30,
+        "version": 2928,
+        "index": 703
+      }
+    ],
+    "views/static/stylesheets/survey.css": [
+      {
+        "id": "b472dd31-e04b-4d27-ac6f-faf828e62574",
+        "line": 116,
+        "version": 3236,
+        "index": 2229
       }
     ]
   }

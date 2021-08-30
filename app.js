@@ -97,6 +97,9 @@
 
         app.use('/static', express.static(path.join(__dirname, 'views/static')))
         console.log(chalk.blue('SERVER > ROUTER INITIALISED '+'['+'static'+']'))    
+
+        app.use('/ai_static', express.static('./views/pages/ai/static'))
+        console.log(chalk.blue('SERVER > ROUTER INITIALISED '+'['+'ai_static'+']'))
     
     console.log(chalk.blue('SERVER > ROUTERS INITIALISED'))    
 
