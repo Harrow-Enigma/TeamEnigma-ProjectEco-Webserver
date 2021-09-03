@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="/static/stylesheets/article.css">
 
     <link rel="stylesheet" href="https://unpkg.com/vue-simple-markdown/dist/vue-simple-markdown.css"></link>
-<script src="https://unpkg.com/vue-simple-markdown"></script>
+    
+    <script src="https://unpkg.com/vue-simple-markdown"></script>
   </head>
 
   <body>
@@ -15,86 +16,62 @@
       <%- include('../partials/navbar.ejs'); %>
     </header>
 
-    <main id="app">
+    <main id="app" class="pt-5">
+
       <div class="container mt-5">
-        <!--
-        <div style="color:gray" class="d-flex justify-content-center">
-          <div class="p-2">By <%= articleauthor %></div>
-          <div class="p-2" >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
-              <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-            </svg>
-          </div>
-          <div class="p-2"><span id="time">test</span> min read</div>
-          <div class="p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
-              <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-            </svg>
-          </div>
-          <div class="p-2" id="date">Published</div>
-        </div>
-        -->
-
-        <!--
-        <div class="d-flex justify-content-center">
-          <h1 font-size="90px" class="fw-bold"><%= articlename %></h1>
-        </div>
-        <div class="d-flex justify-content-center">
-          <img class="img-fluid mt-3 mb-3" style="object-fit: cover;" src="<%= articleimageurl %>"></img>
-        </div>
-        <div style="color:gray" class="d-flex justify-content-center mb-5">
-          <div>figcaption</div>
-        </div>
-        <div id="article" class="px-5 mb-5">
-          <%= articlecontent %>
-        </div>
-        <hr>
-        -->
-
-        <h1 class="title" style="text-align: left; margin-bottom: 20px;">
-          <%= articlename %>
-        </h1>
-        <hr>
-        <h5>
-          <ul>
-            <li>
-              A synopsis of this article. Currently a placeholder, but a <code>synopsis</code> property will soon be added.
-            </li>
-            <li>
-              The format of the synopsis can either be a paragraph, or a list - like it is currently.
-            </li>
-          </ul>
-        </h5>
-
-        <div style="text-align: left;">
-          <div class="author-pic">Image</div>
-          <div class="article-info-wrap">
-            <div class="article-information">
-              <div><%= articleauthor %></div>
-              <div class="text-muted">
-                Published
-                {{
-                  /(\d+:\d+)/.exec(articledate)[0] + ", " +
-                  /(\w+\s\d+\s\d+)/.exec(articledate)[0]
-                }}
+border
+        <div class="card rounded-0 px-5article">
+        
+          <div class="card-body px-5">
+            <div style="text-align: left;" class="pt-3">
+              <div class="author-pic">Image</div>
+              <div class="article-info-wrap">
+                <div class="article-information">
+                  <div><%= articleauthor %></div>
+                  <div class="text-muted">
+                    Published
+                    {{
+                      /(\d+:\d+)/.exec(articledate)[0] + ", " +
+                      /(\w+\s\d+\s\d+)/.exec(articledate)[0]
+                    }}
+                  </div>
+                </div>
               </div>
             </div>
+            <h1 class="display-5 py-3" style="text-align: left; margin-bottom: 20px;">
+              <b><%= articlename %></b>
+            </h1>
+            <hr>
+            <h5>
+              <ul>
+                <li>
+                  A synopsis of this article. Currently a placeholder, but a <code>synopsis</code> property will soon be added.
+                </li>
+                <li>
+                  The format of the synopsis can either be a paragraph, or a list - like it is currently.
+                </li>
+              </ul>
+            </h5>
+
+            
           </div>
-        </div>
 
-        <div class="d-flex justify-content-center" style="margin-top: 30px;">
-          <figure>
-            <img class="img-fluid mt-3 mb-3" style="object-fit: cover;" src="<%= articleimageurl %>"></img>
-            <figcaption>A Figcaption</figcaption>
-          </figure>
-        </div>
+          <div class="d-flex justify-content-center" style="margin-top: 30px;">
+            <figure>
+              <img class="img-fluid mt-3 mb-3" style="object-fit: cover;" src="<%= articleimageurl %>"></img>
+              <figcaption>A Figcaption</figcaption>
+            </figure>
+          </div>
 
-        <div class="article-content-body">
-          <%= articlecontent %>
+          <div class="article-content-body">
+            <%= articlecontent %>
+          </div>
+
         </div>
 
       </div>
-      <div class="container">
+      
+      <div class="container pt-4">
         <div>
           <div class="d-flex justify-content-between mt-2">
             <h4>Recent Articles</h4>
@@ -114,7 +91,7 @@
 
               <div class="ind-article-backlight"></div>
 
-              <div style="height: 100%;" id="article-block" class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
+              <div style="height: 100%;" id="article-block" class="row g-0 border rounded-0 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
                 <div class="col p-4 d-flex flex-column position-static">
                   <div class="mb-1 text-muted">
                     {{ /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[2] + ' ' + /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[1] }}

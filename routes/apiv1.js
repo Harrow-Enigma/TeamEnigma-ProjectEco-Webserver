@@ -97,7 +97,7 @@ https://dev-test.projecteco.ml/secret/secret/secret/secret/secret/secret/secret/
 */
 
 router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/dylan", async (req,res, next) => {
-  res.send({"github": "normal / boring", "message": "🤫 Shhhh David is ANGRY!", "biggest_comtribution": "The worldwide web."})
+  res.send({"github": "normal / boring", "message": "🤫 Shhhh Dylan raving about Drehmal!", "biggest_comtribution": "The worldwide web."})
 });
 
 router.get("/secret/secret/secret/secret/secret/secret/secret/secret/secret/secret/george", async (req,res, next) => {

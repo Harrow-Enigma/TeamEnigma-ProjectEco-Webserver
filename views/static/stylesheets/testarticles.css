@@ -7,7 +7,7 @@ body {
 }
 
 .articles-top-intro {
-  background-image: url('/static/assets/articles/1261218.jpg');
+  background-image: url('/static/assets/articles/1261218.png');
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -20,8 +20,17 @@ body {
   text-decoration: none;
 }
 #new-article-card-title:hover {
-  color: blue;
-  text-decoration: underline;
+  color: #0d6efd;
+}
+
+.article-backlight {
+  position: absolute;
+  background: white;
+  grid-area: 1 / 1 / 2 / 2;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.25rem;
+  z-index: -1;
 }
 
 #article-block {

@@ -3,21 +3,111 @@ body {
 }
 
 .about-top-intro {
-  background-image: url('/static/assets/about/wallpaper.png');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100vh !important;
   width: 100%;
-  z-index: 999;
+  z-index: 10;
+}
+.about-content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.about-top-wrap {
+  width: 80%;
+  max-width: 500px;
+  z-index: 10;
+}
+
+.about-intro-long, .about-tall-title {
+  display: block;
+}
+.about-intro-short, .about-short-title {
+  display: none;
+}
+.about-section-buffer {
+  height: 20px;
+}
+.about-intro-long, .about-intro-short {
+  font-size: 18px;
+}
+@media (max-height: 600px) {
+  .about-intro-long, .about-tall-title {
+    display: none;
+  }
+  .about-intro-short, .about-short-title {
+    display: block;
+  }
+  .about-intro-long, .about-intro-short {
+    font-size: 16px;
+  }
+  .about-section-buffer {
+    height: 20px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .about-top-intro::before {
+    content: "";
+    background: #F3F3F3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+  }
+  .about-intro-long, .about-intro-short {
+    font-size: 15px;
+  }
+}
+
+
+
+@media (orientation: landscape) {
+  .about-top-intro {
+    background-image: url('/static/assets/about/wallpaper.png');
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .about-top-intro {
+    background-image: url('/static/assets/about/smolwallpaper.png');
+  }
+}
+
+@media (orientation: portrait) {
+  .about-top-intro {
+    background-image: url('/static/assets/about/portraitwallpaper.png');
+  }
+  .lead {
+    font-size: 15px;
+  }
+}
+
+/*
 #about-intro-p-short{
   display: none;
 }
 
+@media (orientation: landscape) {
+    .about-top-intro {
+      background-image: url('/static/assets/about/wallpaper.png');
+  }
+}
+
+@media (orientation: portrait) {
+    .about-top-intro {
+      background-image: url('/static/assets/about/portraitwallpaper.png');
+  }
+}
+
 @media (max-height: 650px) {
   #about-intro-p-long {
-    display: none;
+    display: block;
   }
   #about-intro-p-short{
     display: block;
@@ -28,6 +118,8 @@ body {
     }
   }
 }
+
+*/
 
 .arrow {
   position: absolute;

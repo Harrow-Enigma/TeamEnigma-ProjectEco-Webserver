@@ -8,66 +8,100 @@
 
 <body id="about-body">
 
+  <!-- this is in document styling since i slept only 4hrs sorry --> 
+  <!--
+  <style> 
+    .about-top-intro {
+      background-size: contain no-repeat;
+      background-position: center;
+      height: auto;
+      width: 100%;
+      z-index: 999;
+      
+    }
+
+    .vertical-center {
+      min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+      min-height: 100vh; /* These two lines are counted as one :-)       */
+      display: flex;
+      align-items: center;
+    }
+
+    @media (orientation: landscape) {
+        @media only screen and (max-width: 1400px) {
+          .about-top-intro {
+            background-image: url('/static/assets/about/smolwallpaper.png');
+          }
+        }
+        .about-top-intro {
+          background-image: url('/static/assets/about/wallpaper.png');
+        }
+    }
+
+      @media (orientation: portrait) {
+          .about-top-intro {
+            background-image: url('/static/assets/about/portraitwallpaper.png');
+        }
+        .lead {
+        font-size:15px
+        }
+      }
+
+  </style>
+  -->
+
   <div class="about-top-intro">
     <%- include('../partials/navbar.ejs'); %>
-    <div class="about-title-card">
-      <div style="margin-bottom: 70px;">
-        <h2 id="about-intro-title">
+    <div class="about-content-container">
+
+      <div class="about-top-wrap">
+        <h1 class="title about-tall-title" style="font-weight: bolder;">
           About<br>
           Project<br>
           Eco<br>
-        </h2>
-
-        <p>
-           <div id="about-intro-p-long">
-            Project ECO gives the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology. During the development of this project, our team has found strong links between air quality and mental health. We aim to predict such changes in our environment and give users the ability and knowledge to reduce the effects of pollutants, ensuring a cleaner and healthier future for all of us.
-            <br><br>
-          </div>
-
-          <!-- vinny intro
-          <div id="about-intro-p-short">
-            Project Eco aims to give the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology.
-          </div>
-          <div id="about-intro-p-long">
-            <br/>
-            <h1 class="display-6 text-center">Vision</h1>
-            Empowering the <strong style="color: #91006a;">community</strong> to create a more sustainable future and take action against its effects on <strong style="color: #b88a00;">mental well-being</strong>, together.
-            
-            <br/><br/>
-            <h1 class="display-6 text-center">Mission</h1>
-            Project ECO seeks to quantify the relationship between the <strong style="color: #419600;">environment</strong> and <strong style="color: #b88a00">our mental well-being</strong>, using our <strong style="color: #5ac2ff;">AI technology</strong>. <br/><br/>
-
-            During the development of this project, our team has found strong links between air quality and mental health and productivity. We aim to predict such changes in our environment and give users the ability and knowledge to reduce the effects of pollutants, ensuring a cleaner, healthier and happier future for all of us.
-            <br><br>
-          </div>
-          <div id="about-intro-p-short">
-            <h1 class="display-6 text-center">Vision</h1>
-            Empowering the <strong style="color: #91006a;">community</strong> to create a more sustainable future and take action against its effects on <strong style="color: #b88a00;">mental well-being</strong>, together.
-            
-            <br/><br/>
-            <h1 class="display-6 text-center">Mission</h1>
-            Project ECO seeks to quantify the relationship between the <strong style="color: #419600;">environment</strong> and <strong style="color: #b88a00">our mental well-being</strong>, using our <strong style="color: #5ac2ff;">AI technology</strong>. <br/><br/>
-          </div>
-          Scroll further to see a diagram of our four-stage model.
-        </p>-->
-
-        <!--
-        <div class="form-check form-switch">
-          <input 
-            class="form-check-input" 
-            type="checkbox" 
-            id="cockney" 
-            onclick="cockney()"
-          >
-          <label 
-            class="form-check-label text-muted" 
-            for="cockney"
-          >Change accent</label>
-        </div> -->
-
+        </h1>
+        <h1 class="title about-short-title" style="font-weight: bolder;">
+          About Project Eco
+        </h1>
+        <section class="about-section-buffer"></section>
+        <p class="about-intro-long">
+          Project ECO gives the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology.
+          <br>
+          During the development of this project, our team has found strong links between air quality and mental health.
+          <br> 
+          We aim to predict such changes in our environment and give users the ability and knowledge to reduce the effects of pollutants, ensuring a cleaner and healthier future for all of us.
+        </p>
+        <p class="about-intro-short">
+          Project ECO gives the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology.
+          <br>
+          We aim to predict changes in our environment and give users the ability to reduce the effects of pollutants, ensuring a cleaner and healthier future.
+        </p>
       </div>
+
+      <!--
+      <div class="container px-5">
+        <img src="/static/assets/universal/favicon.png" class="img-fluid mb-4" alt="logo" width="60rem" height="60rem">
+      </div>
+      -->
+    
+      <!--
+      <div>
+        <div>
+            <h1 style="font-size:80px" class="display-4 fw-bold">About <br>Project <br> Eco</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Project ECO gives the community the power to sustain the environment and take action against its effects on mental well-being through our AI technology. During the development of this project, our team has found strong links between air quality and mental health. We aim to predict such changes in our environment and give users the ability and knowledge to reduce the effects of pollutants, ensuring a cleaner and healthier future for all of us.</p>
+            </div>
+        </div>
+      </div>
+      -->
+
     </div>
   </div>
+
+
+
+
+
 
   <main style="height: 500vh;">
 
@@ -219,18 +253,12 @@
         >
           4
         </h2>
-        <!-- </corner pieces> -->
 
       </div>
 
     </div>
 
   </main>
-
-  <!-- Sorry vinny this has to go by order the charter of royal king david
-  <div class="text-center" style="background-color: white;">
-    <img src="static/assets/about/infographic.png" class="rounded info-img" alt="ECO Workflow Infographic">
-  </div> -->
 
   <!--footer previously here-->
   <%- include('../partials/footer.ejs'); %>

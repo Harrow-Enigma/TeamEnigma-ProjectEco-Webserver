@@ -6,11 +6,7 @@
     <link rel="stylesheet" href="/static/stylesheets/testarticles.css">
   </head>
 
-  
-
-  <v-if="isloaded" body id="articles-body">
-
-    
+  <v-if="isLoaded" body id="articles-body">
 
     <div id="app" >
 
@@ -33,7 +29,8 @@
 
     <div v-for="article in articles">
       <div v-if="article.featured">
-        <div style="padding-bottom:10px">
+        <div style="position: relative; padding-bottom:10px">
+          <div class="article-backlight"></div>
           <div class="p-4 p-md-5 mb-5 text-white rounded" v-bind:style="'background-image:linear-gradient(180deg, rgba(0,0,0,0.7707457983193278) 0%, rgba(0,0,0,0.6783088235294117) 100%),url(\''+article.imageurl+'\');'" id="article-block" style="position: relative;">
             <div class="col-md-6 px-0">
               <h1 class="display-4" style="font-weight: bolder">
@@ -42,7 +39,10 @@
               <p class="lead my-3" v-html="article.content.substring(0, 400)+'...'"></p>
               <p class="lead mb-0">
                 <a v-bind:href="'/articles/'+encodeURI(article.title)" class="text-white fw-bold">
-                  Read More...
+                  To Article
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                  </svg>
                 </a>
                 
               </p>
@@ -50,7 +50,6 @@
           </div>
         </div>
       </div>
-    </div>
     </div>
   </main>
 
@@ -94,16 +93,19 @@
                 </p>
                 <p style="margin-top: 25px; margin-bottom: 0;">
 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="24" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin-left: -10px;">
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                   </svg>
-                  <span style="margin-left: -14px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
+                  <span style="margin-left: -10px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
 
-                  <span style="float: right;">
-                    <a v-bind:href="'/articles/'+encodeURI(article.title)">
-                      Read More...
-                    </a>
+                  <span style="float: right; cursor: pointer;" class="heart-like noselect" onclick="handleLike(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="heart-like-icon" fill="red">
+                      <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
+                    </svg>
+                    <span class="like-count" style="margin-left: 0px; vertical-align: middle;">
+                      {{Math.ceil(Math.random()*100)}}
+                    </span>
                   </span>
                 </p>
               </div>
@@ -119,6 +121,15 @@
       
           
     </div>
+
+
+      </div>
+
+      
+          
+    </div>
+
+    <div class="container pb-5">
 
     <div class="row g-5 pt-5">
       <div class="col-md-8" style="color:white">
@@ -163,7 +174,7 @@
 
       <div class="col-md-4">
         <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-light rounded">
+          <div class="p-4 mb-3 bg-dark text-white rounded">
             <h4 class="fst-italic">About</h4>
             <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
           </div>
@@ -187,11 +198,22 @@
             </ol>
           </div> -->
 
-          <div class="p-4 mb-3 bg-light rounded">
+          <div class="p-4 mb-3 bg-dark text-white rounded">
             <div class="mb-3">
               <h4 class="fst-italic">Mailing List</h4>
-              <label for="mailinglist" class="form-label">Sign up to our mailing list</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              <h6 class="form-label pb-2">Sign up to our mailing list</h6>
+              <form class="row g-2">
+                <div class="col-auto">
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Sign Up</button>
+                </div>
+              </form>
+
+              
+              
+              
             </div>
           </div>
 
@@ -208,6 +230,7 @@
 
         </div>
       </div>
+    </div>
     </div>
 
   </div>
@@ -239,6 +262,55 @@
           .then(this.isLoaded = true)
          }
     })
+  </script>
+
+  <script>
+    const handleLike = (el) => {
+      let heart = el.children[0]
+      let count = el.children[1]
+      let currentColor = heart.getAttribute("fill")
+      let currentCount = parseInt(count.innerHTML)
+      if (currentColor === "#f8f9fa") {
+        heart.setAttribute("fill", "red")
+        count.innerHTML = currentCount + 1
+      } else {
+        heart.setAttribute("fill", "#f8f9fa")
+        count.innerHTML = currentCount - 1
+      }
+    }
+
+    let keypresses = [null, null, null, null, null]
+    window.addEventListener("keydown", (e) => {
+      keypresses.push(e.key)
+      keypresses.shift()
+      if (arraysEqual(keypresses, ["d", "a", "v", "i", "d"])) {
+        let likecounts = document.querySelectorAll(".like-count")
+        let count = 7
+        let superboost = 100
+        for (let j = 0; j < superboost; j++) {
+          setTimeout(() => {
+            for (let i = 0; i < likecounts.length; i++) {
+              likecounts[i].innerHTML = parseInt(likecounts[i].innerHTML) + 1
+            }
+          }, j * 10)
+        }
+      }
+    })
+
+    /*
+    :)
+    https://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript
+    */
+    const arraysEqual = (a, b) => {
+      if (a === b) return true;
+      if (a == null || b == null) return false;
+      if (a.length !== b.length) return false;
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i] !== b[i]) return false;
+      }
+      return true;
+    }
+
   </script>
 
 </html>
