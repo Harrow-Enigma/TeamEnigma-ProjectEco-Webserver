@@ -4,12 +4,15 @@ var router = express.Router();
 const mongodbModel = require("../models/mongodb.js");
 mongodbModel.get
 
+/*
 router.get("/legacy", (req,res, next) => {
   res.render('pages/articles.ejs' ,{"pagename":"Legacy Articles"});
 });
+*/
+
 
 router.get("/", (req,res, next) => {
-  res.render('pages/articlestest.ejs' ,{"pagename":"Articles"});
+  res.render('pages/articles.ejs' ,{"pagename":"Articles"});
 });
 
 router.get("/:postid", async (req,res, next) => {

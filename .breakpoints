@@ -11,9 +11,9 @@
     "views/pages/alerts.ejs": [
       {
         "id": "de810dbf-1ca5-4549-9e4e-d3c8f4fe9394",
-        "line": 77,
-        "version": 544,
-        "index": 2027
+        "line": 109,
+        "version": 1929,
+        "index": 5172
       }
     ],
     "views/pages/survey.ejs": [
@@ -57,9 +57,9 @@
     "views/static/stylesheets/articles.css": [
       {
         "id": "b4fc1ff8-0d9e-4502-b758-9db85ee1908b",
-        "line": 30,
-        "version": 2931,
-        "index": 710
+        "line": 90,
+        "version": 4365,
+        "index": 1813
       }
     ],
     "views/static/stylesheets/survey.css": [

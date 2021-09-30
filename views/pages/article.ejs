@@ -18,12 +18,20 @@
 
     <main id="app" class="pt-5">
 
+      <!--everything is 大丈夫-->
+
       <div class="container mt-5">
-border
-        <div class="card rounded-0 px-5article">
+
+        <!--
+        ごめん　bootstrapが下手です
+        サヨウナラ～～
+        card rounded-0 px-5article
+        -->
+        <div class="article-content-border">
         
-          <div class="card-body px-5">
-            <div style="text-align: left;" class="pt-3">
+          <div class="card-body" style="padding: 1rem 0">
+
+            <div style="text-align: left; margin-bottom: 20px;">
               <div class="author-pic">Image</div>
               <div class="article-info-wrap">
                 <div class="article-information">
@@ -38,7 +46,8 @@ border
                 </div>
               </div>
             </div>
-            <h1 class="display-5 py-3" style="text-align: left; margin-bottom: 20px;">
+
+            <h1 class="title" style="text-align: left; margin-bottom: 10px;">
               <b><%= articlename %></b>
             </h1>
             <hr>
@@ -53,10 +62,10 @@ border
               </ul>
             </h5>
 
-            
           </div>
 
-          <div class="d-flex justify-content-center" style="margin-top: 30px;">
+          <div class="d-flex justify-content-center">
+        
             <figure>
               <img class="img-fluid mt-3 mb-3" style="object-fit: cover;" src="<%= articleimageurl %>"></img>
               <figcaption>A Figcaption</figcaption>
@@ -91,7 +100,7 @@ border
 
               <div class="ind-article-backlight"></div>
 
-              <div style="height: 100%;" id="article-block" class="row g-0 border rounded-0 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
+              <div style="height: 100%; border-radius: 0.25rem;" id="article-block" class="row g-0 border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
                 <div class="col p-4 d-flex flex-column position-static">
                   <div class="mb-1 text-muted">
                     {{ /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[2] + ' ' + /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[1] }}

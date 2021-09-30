@@ -6,208 +6,217 @@
     <link rel="stylesheet" href="/static/stylesheets/articles.css">
   </head>
 
-  <v-if="isloaded" body id="articles-body">
+  <body v-if="isloaded" id="articles-body">
 
     <header>
       <%- include('../partials/navbar.ejs'); %>
     </header>
 
-    <main class="container" style="padding-top:45px" id="app">
-
-    <h1 class="title">
-      Articles
-      <!--
-      Change to the intro text from before, thanks.
-      <p>
-        Here you can find some good reads you deleted this text and I don't have a copy of it.
-      </p>
-      -->
-    </h1>
-    <hr>
-
-    <div v-for="article in articles">
-      <div v-if="article.featured">
-        <div style="position: relative;">
-          <div class="article-backlight"></div>
-          <div class="p-4 p-md-5 mb-5 text-white rounded" v-bind:style="'background-image:linear-gradient(180deg, rgba(0,0,0,0.7707457983193278) 0%, rgba(0,0,0,0.6783088235294117) 100%),url(\''+article.imageurl+'\');'" id="article-block" style="position: relative;">
-            <div class="col-md-6 px-0">
-              <h1 class="display-4" style="font-weight: bolder">
-                {{article.title}}
-              </h1>
-              <p class="lead my-3" v-html="article.content.substring(0, 400)+'...'"></p>
-              <p class="lead mb-0">
-                <a v-bind:href="'/articles/'+encodeURI(article.title)" class="text-white fw-bold">
-                  To Article
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                  </svg>
-                </a>
-                
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <hr style="color:transparent">
-
-    <!--row mb-2 row-cols-1 row-cols-md-2 g-4-->
-    <div class="article-container-grid">
-      <div v-for="article in articles" v-if="!article.featured">
-
-        <div style="position: relative;">
-
-          <div class="article-backlight"></div>
-
-          <!--row g-0 flex-md-row mb-4 position-relative h-100 -->
-          <div class="bg-dark text-white article-frontlight shadow-sm overflow-hidden h-md-300" id="article-block" style="border-radius: 0.25rem;">
-
-            <div>
-
-              <div class="col-auto d-none d-lg-block w-100">
-                <svg width=100% height=100% v-bind:style="'background-size:cover;background-image:linear-gradient(180deg, rgba(0,0,0,0.1707457983193278) 0%, rgba(0,0,0,0.183088235294117) 100%),url(\''+article.imageurl+'\');'" class="bd-placeholder-img" style="border-radius: 0.25rem;"></svg>
-              </div>
-
-              <div class="col p-4 d-flex flex-column position-static">
-                <p class="text-muted" style="text-align: left;">
-                  {{article.author}}
-                  <span style="float: right;">
-                    {{
-                      /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[2] + ' ' + /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[1] 
-                    }}
-                  </span>
-                </p>
-                <div style="height: 100px;">
-                  <a class="h3" id="new-article-card-title" v-bind:href="'/articles/'+encodeURI(article.title)">
-                    {{article.title}}
-                  </a>
-                </div>
-                <br>
-                <p class="card-text mb-auto" v-html="article.content.substring(0, 100)+'...'">
-                </p>
-                <p style="margin-top: 25px; margin-bottom: 0;">
-
-                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="24" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin-left: -10px;">
-                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                  </svg>
-                  <span style="margin-left: -10px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
-
-                  <span style="float: right; cursor: pointer;" class="heart-like noselect" onclick="handleLike(this)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="heart-like-icon" fill="#f8f9fa">
-                      <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
-                    </svg>
-                    <span class="like-count" style="margin-left: 0px; vertical-align: middle;">
-                      {{Math.ceil(Math.random()*100)}}
-                    </span>
-                  </span>
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
+    <main class="container" style="margin-top: 3%;" id="app">
 
 
-      </div>
-
-      
-          
-    </div>
-
-    <div class="container">
-    <div class="row g-5 pt-5">
-      <div class="col-md-8">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">
-          <!-- 
-          i don't really get this, but feel free to uncomment.
-          
-          we can chuck a logo here l8r 
-          
-          -->
-
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-card-heading" viewBox="0 0 16 16">
-            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-            <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
-          </svg> 
-          PLACEHOLDER
-        </h3>
-
-        <article class="blog-post">
-          <h2 class="blog-post-title">Article</h2>
-          <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
-
-          <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
-          <hr>
-          <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-        </article>
-
-        <article class="blog-post">
-          <h2 class="blog-post-title">New feature</h2>
-          <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
-
-          <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-          <ul>
-            <li>First list item</li>
-            <li>Second list item with a longer description</li>
-            <li>Third list item to close it out</li>
-          </ul>
-          <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
-        </article>
-
-      </div>
-
-      <div class="col-md-4">
-        <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-dark rounded">
-            <h4 class="fst-italic">About</h4>
-            <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
-          </div>
-
+      <h1 class="title articles-title-box">
+        Articles
+        <!--
+        <span id="boost-btn" class="noselect" onclick="likesurge()">
+          <p class="plus100">+100 likes</p>
+          Stonks
+          <span style="margin-left: 5px;"></span>
           <!--
-          <div class="p-4">
-            <h4 class="fst-italic">Archives</h4>
-            <ol class="list-unstyled mb-0">
-              <li><a href="#">March 2021</a></li>
-              <li><a href="#">February 2021</a></li>
-              <li><a href="#">January 2021</a></li>
-              <li><a href="#">December 2020</a></li>
-              <li><a href="#">November 2020</a></li>
-              <li><a href="#">October 2020</a></li>
-              <li><a href="#">September 2020</a></li>
-              <li><a href="#">August 2020</a></li>
-              <li><a href="#">July 2020</a></li>
-              <li><a href="#">June 2020</a></li>
-              <li><a href="#">May 2020</a></li>
-              <li><a href="#">April 2020</a></li>
-            </ol>
-          </div> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M23.944 2.038c-.369-.026-.729-.038-1.083-.038-7.671 0-12.038 5.848-13.627 10.554l4.216 4.215c4.842-1.734 10.55-5.939 10.55-13.528 0-.392-.024-.793-.056-1.203zm-10.058 12.645l-2.571-2.571c1.089-2.55 4.185-7.978 10.88-8.312-.224 5.149-3.604 8.856-8.309 10.883zm4.88 1.371c-.488.333-.973.633-1.452.901-.167.794-.591 1.643-1.205 2.366-.001-.514-.145-1.032-.396-1.55-.441.2-.86.373-1.261.524.589 1.524-.011 2.649-.816 3.705 1.156-.087 2.369-.653 3.324-1.609 1.032-1.031 1.755-2.518 1.806-4.337zm-10.542-5.77c-.517-.249-1.032-.39-1.545-.392.716-.607 1.556-1.029 2.343-1.2.28-.493.595-.979.926-1.457-1.819.049-3.307.774-4.34 1.805-.955.955-1.52 2.169-1.608 3.324 1.056-.806 2.183-1.406 3.706-.815.155-.42.326-.842.518-1.265zm6.901.591c-.35-.348-.35-.913 0-1.261.348-.348.912-.348 1.261 0 .349.349.349.914 0 1.262-.349.349-.913.349-1.261-.001zm4.414-4.414c-.696-.696-1.826-.696-2.522 0-.697.696-.697 1.827 0 2.523.696.697 1.826.697 2.523 0 .695-.696.695-1.827-.001-2.523zm-1.703 1.703c-.243-.244-.243-.64 0-.883.242-.244.64-.244.885 0 .242.243.241.639 0 .883-.245.243-.642.243-.885 0zm-6.492 9.024c-1.734 1.844-3.656 2.787-5.72 2.787-3.2 0-5.624-2.354-5.624-5.311 0-1.485.611-3.122 2.043-4.689-3.201 5.137 1.126 10.128 6.694 4.607l.765.765c-.91 1.061-1.661 1.977-2.971 2.638 1.344.057 2.87-.745 4.017-1.593l.796.796z"/></svg>
+          -->
+          <!--
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M7 24h-6v-6h6v6zm8-9h-6v9h6v-9zm8-4h-6v13h6v-13zm0-11l-6 1.221 1.716 1.708-6.85 6.733-3.001-3.002-7.841 7.797 1.41 1.418 6.427-6.39 2.991 2.993 8.28-8.137 1.667 1.66 1.201-6.001z"/></svg>
+        </span> -->
+      </h1>
 
-          <div class="p-4 mb-3 bg-dark rounded">
-            <div class="mb-3">
-              <h4 class="fst-italic">Mailing List</h4>
-              <label for="mailinglist" class="form-label">Sign up to our mailing list</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      <div v-for="article in articles">
+        <div v-if="article.featured">
+          <div style="position: relative;">
+            <div class="article-backlight"></div>
+            <div class="p-4 p-md-5 text-white rounded" v-bind:style="'background-image:linear-gradient(180deg, rgba(0,0,0,0.7707457983193278) 0%, rgba(0,0,0,0.6783088235294117) 100%),url(\''+article.imageurl+'\');'" id="article-block" style="position: relative; margin: 3rem 0">
+              <div class="col-md-6 px-0">
+                <h1 class="display-4" style="font-weight: bolder">
+                  {{article.title}}
+                </h1>
+                <p class="lead my-3 articles-featured-content" v-html="article.content"></p>
+                <p class="lead mb-0">
+                  <a v-bind:href="'/articles/'+encodeURI(article.title)" class="text-white fw-bold">
+                    To Article
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="p-4">
-            <h4 class="fst-italic">Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
-            </ol>
+      <!--row mb-2 row-cols-1 row-cols-md-2 g-4-->
+      <div class="article-container-grid">
+        <div v-for="article in articles" v-if="!article.featured">
+
+          <div style="position: relative;">
+
+            <div class="article-backlight"></div>
+
+            <!--row g-0 flex-md-row mb-4 position-relative h-100 -->
+            <div class="bg-dark text-white article-frontlight shadow-sm overflow-hidden h-md-300" id="article-block" style="border-radius: 0.25rem;">
+
+              <div>
+
+                <div class="col-auto d-none d-lg-block w-100">
+                  <svg width=100% height=100% v-bind:style="'background-size:cover;background-image:linear-gradient(180deg, rgba(0,0,0,0.1707457983193278) 0%, rgba(0,0,0,0.183088235294117) 100%),url(\''+article.imageurl+'\');'" class="bd-placeholder-img" style="border-radius: 0.25rem;"></svg>
+                </div>
+
+                <div class="col p-4 d-flex flex-column position-static">
+                  <p class="text-muted" style="text-align: left;">
+                    {{article.author}}
+                    <span style="float: right;">
+                      {{
+                        /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[2] + ' ' + /^[a-zA-Z]+\s([a-zA-Z]+)\s(\d+)/.exec(new Date(/^[\d]{4}-([\d]{2})-([\d]{2})/.exec(article["DATE"])[0]))[1] 
+                      }}
+                    </span>
+                  </p>
+                  <div style="height: 100px;">
+                    <a class="h3" id="new-article-card-title" v-bind:href="'/articles/'+encodeURI(article.title)">
+                      {{article.title}}
+                    </a>
+                  </div>
+                  <br>
+                  <p class="card-text mb-auto" v-html="article.content.substring(0, 100)+'...'">
+                  </p>
+
+                  <section style="height: 25px;"></section>
+                  <hr>
+
+                  <p style="margin-bottom: 0;">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="24" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin-left: -10px;">
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                      <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                    </svg>
+                    <span style="margin-left: -10px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
+
+                    <span style="float: right; cursor: pointer;" class="heart-like noselect" onclick="handleLike(this)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f8f9fa" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg>
+                      <span class="like-count" style="margin-left: 0px; vertical-align: middle;">
+                        {{Math.ceil(Math.random()*100)}}
+                      </span>
+                    </span>
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
           </div>
 
         </div>
       </div>
-    </div>
-    </div>
 
-  </div>
+      <section style="height: 3vh;"></section>
+
+      <div class="articles-misc-container">
+        <div class="row g-5 pt-5">
+          <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+              <!-- 
+              i don't really get this, but feel free to uncomment.
+              
+              we can chuck a logo here l8r 
+              
+              -->
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-card-heading" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+              </svg> 
+              PLACEHOLDER
+            </h3>
+
+            <article class="blog-post">
+              <h2 class="blog-post-title">Article</h2>
+              <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
+
+              <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
+              <hr>
+              <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+            </article>
+
+            <article class="blog-post">
+              <h2 class="blog-post-title">New feature</h2>
+              <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
+
+              <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+              <ul>
+                <li>First list item</li>
+                <li>Second list item with a longer description</li>
+                <li>Third list item to close it out</li>
+              </ul>
+              <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+            </article>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+              <div class="p-4 mb-3 bg-dark rounded">
+                <h4 class="fst-italic">About</h4>
+                <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+              </div>
+
+              <!--
+              <div class="p-4">
+                <h4 class="fst-italic">Archives</h4>
+                <ol class="list-unstyled mb-0">
+                  <li><a href="#">March 2021</a></li>
+                  <li><a href="#">February 2021</a></li>
+                  <li><a href="#">January 2021</a></li>
+                  <li><a href="#">December 2020</a></li>
+                  <li><a href="#">November 2020</a></li>
+                  <li><a href="#">October 2020</a></li>
+                  <li><a href="#">September 2020</a></li>
+                  <li><a href="#">August 2020</a></li>
+                  <li><a href="#">July 2020</a></li>
+                  <li><a href="#">June 2020</a></li>
+                  <li><a href="#">May 2020</a></li>
+                  <li><a href="#">April 2020</a></li>
+                </ol>
+              </div> -->
+
+              <div class="p-4 mb-3 bg-dark rounded">
+                <div class="mb-3">
+                  <h4 class="fst-italic">Mailing List</h4>
+                  <label for="mailinglist" class="form-label">Sign up to our mailing list</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+              </div>
+
+              <div class="p-4">
+                <h4 class="fst-italic">Elsewhere</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">GitHub</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Facebook</a></li>
+                </ol>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section style="height: 3vh;"></section>
+
+    </div>
   </main>
 
   
@@ -216,17 +225,42 @@
   </body>
 
   <script>
+    let startunfilled = document.querySelector(".bi-heart-fill")
+    startunfilled.style.display = "none"
+
     const handleLike = (el) => {
-      let heart = el.children[0]
-      let count = el.children[1]
-      let currentColor = heart.getAttribute("fill")
+      let heartempty = el.children[0]
+      let heartfilled = el.children[1]
+      let count = el.children[2]
       let currentCount = parseInt(count.innerHTML)
-      if (currentColor === "#f8f9fa") {
-        heart.setAttribute("fill", "red")
+      if (heartfilled.style.display === "none") {
+        heartempty.style.display = "none"
+        heartfilled.style.display = "inline"
         count.innerHTML = currentCount + 1
       } else {
-        heart.setAttribute("fill", "#f8f9fa")
+        heartempty.style.display = "inline"
+        heartfilled.style.display = "none"
         count.innerHTML = currentCount - 1
+      }
+    }
+
+    const likesurge = () => {
+      let plus100 = document.querySelector(".plus100")
+      let likecounts = document.querySelectorAll(".like-count")
+      let count = 7
+      let superboost = 100
+      for (let j = 0; j < superboost; j++) {
+        setTimeout(() => {
+          for (let i = 0; i < likecounts.length; i++) {
+            likecounts[i].innerHTML = parseInt(likecounts[i].innerHTML) + 1
+          }
+        }, j * 10)
+      }
+      plus100.style.display = "block"
+      plus100.classList.add("addAnimation")
+      plus100.onanimationend = () => {
+        plus100.style.display = "none"
+        plus100.classList.remove('addAnimation')
       }
     }
 
@@ -235,18 +269,10 @@
       keypresses.push(e.key)
       keypresses.shift()
       if (arraysEqual(keypresses, ["d", "a", "v", "i", "d"])) {
-        let likecounts = document.querySelectorAll(".like-count")
-        let count = 7
-        let superboost = 100
-        for (let j = 0; j < superboost; j++) {
-          setTimeout(() => {
-            for (let i = 0; i < likecounts.length; i++) {
-              likecounts[i].innerHTML = parseInt(likecounts[i].innerHTML) + 1
-            }
-          }, j * 10)
-        }
+        likesurge()
       }
     })
+
 
     /*
     :)

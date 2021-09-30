@@ -33,7 +33,7 @@
 }
 
 .features_card {
-  height: 25vh;
+  height: auto;
   overflow-y: scroll;
 }
 

