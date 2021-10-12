@@ -1,8 +1,11 @@
+const FEAT_LAB_PATH = "./ai_static/pro_feat_lab_data.json";
+const MODEL_PATH = "./ai_static/pro_tfjs_model/model.json";
+
+const FEAT_PARENT_ID = 'pro_feature_control';
+const LAB_PARENT_ID = 'pro_label_vis';
+
 var featlab = null;
 var vis_loaded = false;
-
-const FEAT_PARENT_ID = 'feature_control';
-const LAB_PARENT_ID = 'label_vis';
 
 var feature_sliders = {};
 var label_vis = {};
@@ -21,7 +24,7 @@ function equal_arrays(arr1, arr2) {
 }
 
 function loadVisuals() {
-    jQuery.getJSON('./ai_static/feat_lab_data.json', (data) => {
+    jQuery.getJSON(FEAT_LAB_PATH, (data) => {
         featlab = data;
     
         features_mean = tf.tensor(featlab["features"]["mean"]);
@@ -69,7 +72,7 @@ function getVals(){
 }
 
 async function loadModel() {
-    model = await tf.loadLayersModel('./ai_static/tfjs_model/model.json');
+    model = await tf.loadLayersModel(MODEL_PATH);
     setInterval(check, 50);
 }
 

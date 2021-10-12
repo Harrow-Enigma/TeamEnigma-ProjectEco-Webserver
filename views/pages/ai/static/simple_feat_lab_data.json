@@ -1,0 +1,119 @@
+{
+  "features": {
+    "mean": [
+      7.581188201904297,
+      15.924750328063965,
+      35.950496673583984
+    ],
+    "stddv": [
+      10.2958984375,
+      13.045413970947266,
+      31.062175750732422
+    ],
+    "ofst": [
+      2.1386005878448486,
+      1.1517648696899414,
+      1.2732367515563965
+    ],
+    "range": [
+      5.769862651824951,
+      4.764962673187256,
+      4.8812174797058105
+    ],
+    "classes": {
+      "0": {
+        "name": "Nitrogen Dioxide",
+        "fallback": 0,
+        "key": "no2",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 59.20000076293945,
+        "step": 0.5979798056862571,
+        "default": 1.899999976158142
+      },
+      "1": {
+        "name": "Ozone",
+        "fallback": 0,
+        "key": "o3",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 61.900001525878906,
+        "step": 0.6252525406654434,
+        "default": 46.79999923706055
+      },
+      "2": {
+        "name": "PM2.5",
+        "fallback": 0,
+        "key": "pm25",
+        "unit": "AQI",
+        "labelType": "FloatLabel",
+        "min": 0.0,
+        "max": 151.0,
+        "step": 1.5252525252525253,
+        "default": 33.0
+      }
+    }
+  },
+  "labels": {
+    "mean": [
+      3.2574257850646973,
+      3.0099010467529297,
+      2.792079210281372
+    ],
+    "stddv": [
+      1.1744264364242554,
+      1.1213061809539795,
+      1.074610710144043
+    ],
+    "ofst": [
+      -0.2191927433013916,
+      -0.008829891681671143,
+      0.19348472356796265
+    ],
+    "range": [
+      3.425917863845825,
+      3.587268352508545,
+      3.7422780990600586
+    ],
+    "classes": {
+      "0": {
+        "name": "Q1 (General feeling)",
+        "fallback": -1,
+        "key": "q1",
+        "unit": null,
+        "labelType": "IntClass",
+        "size": 5,
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      },
+      "1": {
+        "name": "Q2 (Concentration)",
+        "fallback": -1,
+        "key": "q2",
+        "unit": null,
+        "labelType": "IntClass",
+        "size": 5,
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      },
+      "2": {
+        "name": "Q3 (Work Stress)",
+        "fallback": -1,
+        "key": "q3",
+        "unit": null,
+        "labelType": "IntClass",
+        "size": 5,
+        "min": null,
+        "max": null,
+        "step": null,
+        "default": null
+      }
+    }
+  }
+}

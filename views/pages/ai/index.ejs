@@ -60,27 +60,67 @@
         </div>
       </div>
 
-      <div id="visualization">
-        <div class="sexy_hover_container">
-          <div class="card vis_card sexy_hover_base green_base"></div>
-          <div class="card vis_card features_card sexy_hover" style="z-index: 10;">
-            <div class="card-body">
-              <h5 class="card-title" style="color: #518628;">Environmental Inputs</h5>
-              <div id="feature_control" style="color: #66ab32;" slider_class="env_slider"></div>
-            </div>        
+
+      <div id="visualizations_container">
+        <ul class="nav nav-tabs" role="tablist" id="ai-mode-selection-tabs">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="simple-tab" data-bs-toggle="tab" data-bs-target="#simple_visualization" type="button" role="tab" aria-controls="simple" aria-selected="true">Simple Mode</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pro-tab" data-bs-toggle="tab" data-bs-target="#pro_visualization" type="button" role="tab" aria-controls="pro" aria-selected="false">Pro Mode</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div id="simple_visualization" class="tab-pane fade show active" role="tabpanel" aria-labelledby="simple-tab">
+            <div class="visualization">
+              <div class="sexy_hover_container">
+                <div class="card vis_card sexy_hover_base green_base"></div>
+                <div class="card vis_card features_card sexy_hover" style="z-index: 10;" id="simple_features_card">
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: #518628;">Environmental Inputs</h5>
+                    <div id="simple_feature_control" style="color: #66ab32;" slider_class="env_slider"></div>
+                  </div>        
+                </div>
+              </div>
+              
+              <div class="sexy_hover_container">
+                <div class="card vis_card sexy_hover_base gold_base"></div>
+                <div class="card vis_card outputs_card sexy_hover" style="z-index: 15;" id="simple_outputs_card">
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: rgb(40, 118, 163);">AI Model Outputs</h5>
+                    <div id="simple_label_vis" style="color: rgb(47, 140, 194);" container_class="out_container" bar_class="out_bar" text_class="out_text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        
-        <div class="sexy_hover_container">
-          <div class="card vis_card sexy_hover_base gold_base"></div>
-          <div class="card vis_card outputs_card sexy_hover" style="z-index: 15;">
-            <div class="card-body">
-              <h5 class="card-title" style="color: rgb(40, 118, 163);">AI Model Outputs</h5>
-              <div id="label_vis" style="color: rgb(47, 140, 194);" container_class="out_container" bar_class="out_bar" text_class="out_text"></div>
+    
+          <div id="pro_visualization" class="tab-pane fade" role="tabpanel" aria-labelledby="pro-tab">
+            <div class="visualization">
+              <div class="sexy_hover_container">
+                <div class="card vis_card sexy_hover_base green_base"></div>
+                <div class="card vis_card features_card sexy_hover" style="z-index: 10;">
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: #518628;">Environmental Inputs</h5>
+                    <div id="pro_feature_control" style="color: #66ab32;" slider_class="env_slider"></div>
+                  </div>        
+                </div>
+              </div>
+              
+              <div class="sexy_hover_container">
+                <div class="card vis_card sexy_hover_base gold_base"></div>
+                <div class="card vis_card outputs_card sexy_hover" style="z-index: 15;">
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: rgb(40, 118, 163);">AI Model Outputs</h5>
+                    <div id="pro_label_vis" style="color: rgb(47, 140, 194);" container_class="out_container" bar_class="out_bar" text_class="out_text"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+        
 
       <div id="description">
         <h1 class="display-4">What is happening?</h1>
@@ -114,17 +154,20 @@
     </main>
     
     <script src="/ai_static/ui.js"></script>
-    <script src="/ai_static/ai_main.js" type="module"></script>
+    <script src="/ai_static/pro_ai.js" type="module"></script>
+    <script src="/ai_static/simple_ai.js" type="module"></script>
     <script src="/ai_static/control.js"></script>
 
     <script>
       tutorialbtn = document.querySelector("#tutorial-btn")
-      inputscard = document.querySelector(".features_card")
-      outputscard = document.querySelector(".outputs_card")
+      inputscard = document.querySelector("#simple_features_card")
+      outputscard = document.querySelector("#simple_outputs_card")
       masker = document.querySelector("#page-mask")
       icon = document.querySelector("#tutorial-icon")
       carousel = document.querySelector(".tutorial-carousel")
       explanatory = document.querySelector("#explanatory")
+
+      outputscard.style.opacity = 0.3;
 
       count = 0
 

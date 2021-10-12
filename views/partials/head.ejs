@@ -46,7 +46,12 @@
 <!-- METAS -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  
+   <%if (pagename !== "Articles") { %> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <% } %> <%if (pagename === "Articles") { %> <meta name="viewport" content="width=856"> <% } %>
+
+  
 
 <!-- Favicon -->
   <link rel="shortcut icon" type="image/jpg" href="/static/assets/universal/favicon.ico"/>

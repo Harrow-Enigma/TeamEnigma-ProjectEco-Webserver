@@ -27,9 +27,18 @@
   }
 }
 
+#ai-mode-selection-tabs {
+  margin-bottom: 20px;
+}
+
+#visualizations_container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .outputs_card {
   /* flex: 0 0 40vw; */
-  opacity: 0.3
+  opacity: 1
 }
 
 .features_card {
@@ -118,7 +127,7 @@
     100% {top: 0rem; opacity: 1;}
 }
 
-#visualization{
+.visualization{
   position: relative;
 
   animation-name: vis-popup;
@@ -139,12 +148,21 @@
         display: none;
     }
 
+    #visualizations_container {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+
+    #ai-mode-selection-tabs {
+      margin-bottom: 20px;
+    }
+
     .features_card{
       height: auto;
       overflow-y: hidden;
     }
 
-    #visualization{
+    .visualization{
       position: relative;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -216,7 +234,7 @@
     overflow-y: scroll;
   }
 
-  #visualization{
+  .visualization{
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -43,22 +43,22 @@
     "views/static/stylesheets/ai.css": [
       {
         "id": "ee38b479-9b4c-4e2a-be41-b44b4ddf5abf",
-        "line": 45,
-        "version": 1509,
-        "index": 604
+        "line": 253,
+        "version": 1512,
+        "index": 3933
       },
       {
         "id": "a077c5ec-7152-4815-9841-4cb4ba8741b2",
-        "line": 45,
-        "version": 1509,
-        "index": 604
+        "line": 253,
+        "version": 1512,
+        "index": 3933
       }
     ],
     "views/static/stylesheets/articles.css": [
       {
         "id": "b4fc1ff8-0d9e-4502-b758-9db85ee1908b",
         "line": 90,
-        "version": 4365,
+        "version": 4370,
         "index": 1813
       }
     ],
