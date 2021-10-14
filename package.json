@@ -1,8 +1,7 @@
 {
-  "name": "ecoproject-webserver",
+  "name": "TeamEnigma-ProjectEco-Webserver",
   "version": "1.0.0",
-  "description": "EcoProject is the first project of Team Enigma, the AI team of Harrow School.",
-  "main": "app.js",
+  "description": "ProjectEco is the first project of Team Enigma, the AI team of Harrow School.",
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
@@ -29,15 +28,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DylanK46/TeamEngima-EcoProject-Webserver.git"
+    "url": "git+https://github.com/DylanK46/TeamEnigma-ProjectEco-Webserver.git"
   },
   "keywords": [],
   "author": "Dylan Kainth",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DylanK46/TeamEngima-EcoProject-Webserver/issues"
+    "url": "https://github.com/DylanK46/TeamEnigma-ProjectEco-Webserver/issues"
   },
-  "homepage": "https://github.com/DylanK46/TeamEngima-EcoProject-Webserver#readme",
+  "homepage": "https://github.com/DylanK46/TeamEnigma-ProjectEco-Webserver#readme",
   "directories": {
     "doc": "docs"
   }
