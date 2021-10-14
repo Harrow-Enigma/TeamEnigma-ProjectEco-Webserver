@@ -103,11 +103,7 @@
     
     console.log(chalk.blue('SERVER > ROUTERS INITIALISED'))    
 
-    // START EXPRESS HTTP SERVER
-    server.listen(port, () => {
-      console.log(chalk.green('SERVER > STARTED @ port '+port))    
-    }); 
-
+    
     /*
     // ACCEPT 404 redirect
         app.use(function (req, res, next) {
