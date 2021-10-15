@@ -1,4 +1,4 @@
-name: trigger jenkins job
+name: Dylan's Server []
 on: [push]   
 jobs:
   deployment:
