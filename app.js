@@ -9,6 +9,10 @@
       var port = process.env['port']
     }
 
+// TRY DOTENV
+// Load environment variables from .env file, where API keys and passwords are configured.
+require('dotenv').config()
+
 // IMPORTS - firstly, we'll want to import these  libraries.
     const express = require('express'); // Web Application Framework
     const http = require('http') // HTTP library for using the Web Application Framework

@@ -71,13 +71,17 @@
 
 
 <script>
+  var x = document.getElementById("alert");
+
   var myArr = parseCookie(document.cookie)
   
   if (myArr.alerts === 'closed') {
-    var x = document.getElementById("alert");
     console.log("closed")
     x.style.display = "none";
   };
+
+  x.style.display = "none";
+
 </script>
 
 
