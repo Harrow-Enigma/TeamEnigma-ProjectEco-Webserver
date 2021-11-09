@@ -10,7 +10,7 @@ router.get("/", (req,res, next) => {
 router.post("/success", async (req,res) => {
   try {
     const a = await mongodbModel.countformdata()
-    console.log(a)
+    console.log(req.body)
     mongodbModel.postformdata(req.body);
     res.render('pages/submitted.ejs' ,{"pagename":"Submitted", "data":JSON.stringify(req.body),"formcount":a});
   } catch (err) {

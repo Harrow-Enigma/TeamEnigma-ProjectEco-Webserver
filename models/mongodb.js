@@ -73,7 +73,13 @@
         "Longitude":{type: String},
         "data" :{type:Object}},
     "fake": {type: String},
-    "q7": {type:Object}
+    "q7": {
+      "q7.1":{type: String},
+      "q7.2":{type: String},
+      "q7.3":{type: String},
+      "q7.4":{type: String},
+      "q7.5":{type: String}
+    }
   });
 
   // Declare Alert Data Structure
@@ -180,32 +186,32 @@
     var weatherstationdata = await waqiModel.getlocalpollutiondata(latitude,longitude);
 
     var doc1 = new formdatamodel({
-    "DATE": datestamp ,
-    "q1":  json["q1"],
-    "q2":  json["q2"],
-    "q3":  json["q3"],
-    "q4":  json["q4"],
-    "q5":  json["q5"],
-    "localpollutiondata": {
-        "Latitude":latitude,
-        "Longitude":longitude,
-        "data" : weatherstationdata
-    },
-    "fake" : json["fake"],
-    "q7": {
-      "q7.1":json["q7.1"],
-      "q7.2":json["q7.2"],
-      "q7.3":json["q7.3"],
-      "q7.4":json["q7.4"],
-      "q7.5":json["q7.5"]
-    }
-    });
+      "DATE": datestamp ,
+      "q1":  json["q1"],
+      "q2":  json["q2"],
+      "q3":  json["q3"],
+      "q4":  json["q4"],
+      "q5":  json["q5"],
+      "localpollutiondata": {
+          "Latitude":latitude,
+          "Longitude":longitude,
+          "data" : weatherstationdata
+      },
+      "fake" : json["fake"],
+      "q7": {
+        "q7.1":json["q7.1"],
+        "q7.2":json["q7.2"],
+        "q7.3":json["q7.3"],
+        "q7.4":json["q7.4"],
+        "q7.5":json["q7.5"]
+      }
+    });    
     
     doc1.save(function(err, doc) {
       if (err) return console.error(err);
       console.log(chalk.yellow('DATABASE > DOCUMENT INSERTED [postformdata]'))    
 
-    });
+    }); 
 
     return("Success")
   };
