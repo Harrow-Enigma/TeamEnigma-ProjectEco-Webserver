@@ -19,9 +19,9 @@
     "views/pages/survey.ejs": [
       {
         "id": "46d82556-45bd-43b6-b0f8-d152b040bddb",
-        "line": 21,
-        "version": 1,
-        "index": 518
+        "line": 22,
+        "version": 44,
+        "index": 519
       }
     ],
     "views/static/js/universal/typingtext.js": [
