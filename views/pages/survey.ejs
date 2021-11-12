@@ -122,11 +122,6 @@
                 <div class="form-el-2" style="margin-bottom: 50px;">
                   <div>
                     <h2 class="survey-card-title">
-                      <!--
-                      unapproved but obvious change
-
-                      Have you felt dizziness, headaches, or shortness of breath lately?
-                      -->
                       Have you had any dizziness or headaches recently?
                     </h2>
                     <div class="radio-label-vertical-wrapper">
@@ -182,9 +177,16 @@
                         });
                       });
                       */
+                      
+
+
                       function getLocationConstant() {
                         if (navigator.geolocation) {
+                        
+                          
+
                           navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+
                         } else {
                           alert("Your browser or device doesn't support Geolocation");
                         }
@@ -202,8 +204,8 @@
                     <span class="survey-longlat-inputs">
                       <input placeholder="Your Latitude..." type="text" class="form-control" name="q6.1" id="q6.1" novalidate style="margin-top: 10px;"></input>
                       <input placeholder="Your Longitude..." type="text" class="form-control" name="q6.2" id="q6.2" novalidate style="margin-top: 10px;"></input>
-                      <button type="button" class="btn btn-info" onclick="getLocationConstant()" style="margin-top: 10px;">
-                        Use GPS
+                      <button onload="initspinner()" type="button" class="btn btn-info" onclick="getLocationConstant()" style="margin-top: 10px;">
+                        Use GPS <br>
                       </button>
                     </span>
                   </div>
@@ -211,41 +213,23 @@
               </div>
               <div class="carousel-item">
                 <div class="form-el-2">
-                  <div>
-                    <h2 class="survey-card-title">How much physical activity have you done today?</h2>
-                    <div class="radio-label-vertical-wrapper">
-                      <div class="form-group">
-                        <label class="survey-card-margin-gap" style="line-height: 18px;">
-                          In hours, e.g. walking, running, sports...<sup class="text-danger">*</sup>
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.1" value="0" required>0
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.1" value="1" required>1
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.1" value="2" required>2
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.1" value="3" required>3
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.1" value="4" required>4
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.1" value="5" required>5
-                        </label>
+                    <div>
+                      <h2 class="survey-card-title">How much physical activity have you done today?</h2>
+                      <label class="survey-card-margin-gap" style="line-height: 18px;">
+                        In hours, e.g. walking, running, sports...<sup class="text-danger">*</sup>
+                      </label>
+                      <div>
+                        <input type="text" class="form-control" name="q7.1" id="q7.1" min="1" max="24" style="max-width: 100px; margin: 0 auto;"></input>
+                        <span>hours</span>
                       </div>
                     </div>
                   </div>
-                </div>
                 <section style="height: 2vh;"></section>
                 <div class="form-el-2" style="margin-bottom: 50px;">
                   <div>
                     <h2 class="survey-card-title">How many hours did you sleep?</h2>
                     <label class="survey-card-margin-gap" style="line-height: 18px;">
-                      Enter no. of hours<sup class="text-danger">*</sup>
+                      In hours<sup class="text-danger">*</sup>
                     </label>
                     <div>
                       <input type="text" class="form-control" name="q7.2" id="q7.2" min="1" max="24" style="max-width: 100px; margin: 0 auto;"></input>
@@ -365,10 +349,7 @@
 
           </div>
 
-          
-
           <section style="height: 50px;"></section>
-          
           
 
         </form>
@@ -376,7 +357,7 @@
       </div>
     </main>
 
-
+    <!---
     <script>    
       document.addEventListener("keydown", (e) => {
         e.preventDefault()
@@ -389,7 +370,7 @@
             break
         }
       })
-    </script>
+    </script> -->
 
     <!-- Include Footer -->
     <%- include('../partials/footer.ejs'); %>

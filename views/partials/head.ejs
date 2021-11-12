@@ -79,6 +79,7 @@ if(navigator.appName.indexOf("Internet Explorer")!=-1 || navigator.userAgent.mat
 
 <!-- GOOGLE ANALYTICS -->
 
+<!--
 <script>
 const parseCookie = str =>
   str
@@ -88,7 +89,7 @@ const parseCookie = str =>
       acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
       return acc;
     }, {});
-</script>
+</script> -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -114,6 +115,7 @@ window.dataLayer = window.dataLayer || [];
 
 </script> 
 
+<!--
 <script type="text/javascript">
     $(window).on('load', function() {
         if ((parseCookie(document.cookie).cookies) === 'enabled') {
@@ -121,9 +123,10 @@ window.dataLayer = window.dataLayer || [];
         } else if (((parseCookie(document.cookie).cookies) === 'disabled')) {
           $('#cookiesmodal').modal('hide');
         } else { $('#cookiesmodal').modal('show'); }
-    });
-</script>
+    }); 
+</script> -->
 
+<!--
 <div class="modal fade" id="cookiesmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -140,8 +143,10 @@ window.dataLayer = window.dataLayer || [];
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
+<!--
 <script>
 console.log(parseCookie(document.cookie).cookies) // 3rd party cookies enabled
 </script>
+ -->
