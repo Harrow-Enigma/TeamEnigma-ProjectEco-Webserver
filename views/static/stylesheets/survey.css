@@ -2,6 +2,7 @@ body {
   background-color: #F3F3F3;
 }
 
+
 .carousel-buttons {
   position: absolute;
   left: 50%;
@@ -9,6 +10,8 @@ body {
   width: 245px;
   border-radius: 15px;
 }
+
+
 .carousel-buttons > a {
   width: 120px;
 }
