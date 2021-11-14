@@ -60,6 +60,11 @@
       }}
   );
 
+  var EmailDataSchema = new mongoose.Schema({
+      "DATE":{type: Date},
+      "EMAIL":{type:String}
+  });
+
   // Declare form Data Structure
   var FormDataSchema = new mongoose.Schema({
     "DATE":{type: Date},
@@ -116,6 +121,8 @@
 
   var alertdatamodel = mongoose.model("alertmodel", AlertDataSchema, "alertdata");
 
+  var emaildatamodel = mongoose.model("emailmodel", EmailDataSchema, "emaildata");
+
 
 // ----------------------------------------- //
 
@@ -129,6 +136,22 @@
     "DATE": datestamp , 
     "LOCATION1":  json["LOCATION1"],
     "LOCATION2": json["LOCATION2"]
+    });
+    
+    doc1.save(function(err, doc) {
+      if (err) return console.error(err);
+      console.log(chalk.yellow('DATABASE > DOCUMENT INSERTED [postsensordata]'))
+    });
+
+    return("Success")
+  };
+
+  exports.postemaildata = (json) => {
+    var date = new Date();
+    var datestamp = date.toISOString();
+    var doc1 = new emaildatamodel({
+    "DATE": datestamp, 
+    "EMAIL":  json["email"]
     });
     
     doc1.save(function(err, doc) {
@@ -209,7 +232,7 @@
     
     doc1.save(function(err, doc) {
       if (err) return console.error(err);
-      console.log(chalk.yellow('DATABASE > DOCUMENT INSERTED [postformdata]'))    
+      console.log(chalk.yellow('DATABASE > DOCUMENT INSERTED [formdatamodel]'))    
 
     }); 
 

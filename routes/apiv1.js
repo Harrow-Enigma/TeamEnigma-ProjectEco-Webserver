@@ -10,6 +10,15 @@ router.post("/rest/input/ai/", (req,res,next) => {
 
 });
 
+router.post("/email", async (req,res) => {
+  try {
+    mongodbModel.postemaildata(req.body);
+    res.sendStatus(200)
+  } catch (err) {
+    res.status(500).json({message: err.message})
+  }
+});
+
 router.post("/rest/input/sensors/", (req,res,next) => {
   if (typeof req.body.token == 'undefined') {
     res.sendStatus(401)
