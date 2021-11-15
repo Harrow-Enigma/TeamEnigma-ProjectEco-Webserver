@@ -11,6 +11,9 @@ body {
   border-radius: 15px;
 }
 
+.carousel-indicators [data-bs-target] {
+    width:100px
+  }
 
 .carousel-buttons > a {
   width: 120px;

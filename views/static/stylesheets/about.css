@@ -75,7 +75,7 @@ body {
 }
 @media only screen and (max-width: 1400px) {
   .about-top-intro {
-    background-image: url('/static/assets/about/smolwallpaper.png');
+    background-image: url('/static/assets/about/smolwallpaper.webp');
   }
 }
 

@@ -19,9 +19,9 @@
     "views/pages/survey.ejs": [
       {
         "id": "46d82556-45bd-43b6-b0f8-d152b040bddb",
-        "line": 271,
-        "version": 384,
-        "index": 13383
+        "line": 294,
+        "version": 1325,
+        "index": 13330
       }
     ],
     "views/static/js/universal/typingtext.js": [
@@ -65,9 +65,9 @@
     "views/static/stylesheets/survey.css": [
       {
         "id": "b472dd31-e04b-4d27-ac6f-faf828e62574",
-        "line": 117,
-        "version": 7,
-        "index": 2218
+        "line": 120,
+        "version": 69,
+        "index": 2221
       }
     ]
   }
