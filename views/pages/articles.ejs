@@ -17,17 +17,6 @@
 
       <h1 class="title articles-title-box">
         Articles
-        <!--
-        <span id="boost-btn" class="noselect" onclick="likesurge()">
-          <p class="plus100">+100 likes</p>
-          Stonks
-          <span style="margin-left: 5px;"></span>
-          <!--
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M23.944 2.038c-.369-.026-.729-.038-1.083-.038-7.671 0-12.038 5.848-13.627 10.554l4.216 4.215c4.842-1.734 10.55-5.939 10.55-13.528 0-.392-.024-.793-.056-1.203zm-10.058 12.645l-2.571-2.571c1.089-2.55 4.185-7.978 10.88-8.312-.224 5.149-3.604 8.856-8.309 10.883zm4.88 1.371c-.488.333-.973.633-1.452.901-.167.794-.591 1.643-1.205 2.366-.001-.514-.145-1.032-.396-1.55-.441.2-.86.373-1.261.524.589 1.524-.011 2.649-.816 3.705 1.156-.087 2.369-.653 3.324-1.609 1.032-1.031 1.755-2.518 1.806-4.337zm-10.542-5.77c-.517-.249-1.032-.39-1.545-.392.716-.607 1.556-1.029 2.343-1.2.28-.493.595-.979.926-1.457-1.819.049-3.307.774-4.34 1.805-.955.955-1.52 2.169-1.608 3.324 1.056-.806 2.183-1.406 3.706-.815.155-.42.326-.842.518-1.265zm6.901.591c-.35-.348-.35-.913 0-1.261.348-.348.912-.348 1.261 0 .349.349.349.914 0 1.262-.349.349-.913.349-1.261-.001zm4.414-4.414c-.696-.696-1.826-.696-2.522 0-.697.696-.697 1.827 0 2.523.696.697 1.826.697 2.523 0 .695-.696.695-1.827-.001-2.523zm-1.703 1.703c-.243-.244-.243-.64 0-.883.242-.244.64-.244.885 0 .242.243.241.639 0 .883-.245.243-.642.243-.885 0zm-6.492 9.024c-1.734 1.844-3.656 2.787-5.72 2.787-3.2 0-5.624-2.354-5.624-5.311 0-1.485.611-3.122 2.043-4.689-3.201 5.137 1.126 10.128 6.694 4.607l.765.765c-.91 1.061-1.661 1.977-2.971 2.638 1.344.057 2.87-.745 4.017-1.593l.796.796z"/></svg>
-          -->
-          <!--
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M7 24h-6v-6h6v6zm8-9h-6v9h6v-9zm8-4h-6v13h6v-13zm0-11l-6 1.221 1.716 1.708-6.85 6.733-3.001-3.002-7.841 7.797 1.41 1.418 6.427-6.39 2.991 2.993 8.28-8.137 1.667 1.66 1.201-6.001z"/></svg>
-        </span> -->
       </h1>
 
       <div v-for="article in articles">
@@ -54,7 +43,6 @@
         </div>
       </div>
 
-      <!--row mb-2 row-cols-1 row-cols-md-2 g-4-->
       <div class="article-container-grid">
         <div v-for="article in articles" v-if="!article.featured">
 
@@ -62,7 +50,6 @@
 
             <div class="article-backlight"></div>
 
-            <!--row g-0 flex-md-row mb-4 position-relative h-100 -->
             <div class="bg-dark text-white article-frontlight shadow-sm overflow-hidden h-md-300" id="article-block" style="border-radius: 0.25rem;">
 
               <div>
@@ -91,29 +78,6 @@
 
                   <section style="height: 25px;"></section>
 
-                  <!--
-                  <hr>
-
-                  <p style="margin-bottom: 0;">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="24" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="margin-left: -10px;">
-                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                      <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                    </svg>
-                    <span style="margin-left: -10px; vertical-align: middle;">{{Math.ceil(Math.random()*10)}}</span>
-
-                    <span style="float: right; cursor: pointer;" class="heart-like noselect" onclick="handleLike(this)">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f8f9fa" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                      </svg>
-                      <span class="like-count" style="margin-left: 0px; vertical-align: middle;">
-                        {{Math.ceil(Math.random()*100)}}
-                      </span>
-                    </span>
-                  </p> -->
                 </div>
 
               </div>
@@ -125,8 +89,26 @@
       </div>
 
       <section style="height: 3vh;"></section>
+      
+      <div style="border-radius: 0.25rem;" class="bg-dark text-secondary px-5 px-md-auto py-5 text-center">
+        <div class="container">
+          <form v-on:submit.prevent="submitForm" class="p-4 p-md-5 rounded-3 bg-white" data-bitwarden-watching="1" v-if="!emailadded">
+            <h1 style="color:black">Subscribe to our mailing list </h1>
+            <div class="text-secondary form-floating">
+              <input type="email" v-model="formdata.EMAIL" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-dark" type="submit">Sign up</button>
+        </form>
 
-  
+        <form v-on:submit.prevent="submitForm" class="p-4 p-md-5 rounded-3 bg-white" data-bitwarden-watching="1" v-if="emailadded">
+            <h1 style="color:black"><svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+</svg> </h1>
+            
+        </form>
+        </div>
+    </div>
       
 
       <section style="height: 3vh;"></section>
@@ -141,74 +123,14 @@
 
 
   <script>
-  /*
-    let startunfilled = document.querySelector(".bi-heart-fill")
-    startunfilled.style.display = "none"
-
-    const handleLike = (el) => {
-      let heartempty = el.children[0]
-      let heartfilled = el.children[1]
-      let count = el.children[2]
-      let currentCount = parseInt(count.innerHTML)
-      if (heartfilled.style.display === "none") {
-        heartempty.style.display = "none"
-        heartfilled.style.display = "inline"
-        count.innerHTML = currentCount + 1
-      } else {
-        heartempty.style.display = "inline"
-        heartfilled.style.display = "none"
-        count.innerHTML = currentCount - 1
-      }
-    }
-
-    const likesurge = () => {
-      let plus100 = document.querySelector(".plus100")
-      let likecounts = document.querySelectorAll(".like-count")
-      let count = 7
-      let superboost = 100
-      for (let j = 0; j < superboost; j++) {
-        setTimeout(() => {
-          for (let i = 0; i < likecounts.length; i++) {
-            likecounts[i].innerHTML = parseInt(likecounts[i].innerHTML) + 1
-          }
-        }, j * 10)
-      }
-      plus100.style.display = "block"
-      plus100.classList.add("addAnimation")
-      plus100.onanimationend = () => {
-        plus100.style.display = "none"
-        plus100.classList.remove('addAnimation')
-      }
-    }
-
-    let keypresses = [null, null, null, null, null]
-    window.addEventListener("keydown", (e) => {
-      keypresses.push(e.key)
-      keypresses.shift()
-      if (arraysEqual(keypresses, ["d", "a", "v", "i", "d"])) {
-        likesurge()
-      }
-    })
-
-
-
-    
-    const arraysEqual = (a, b) => {
-      if (a === b) return true;
-      if (a == null || b == null) return false;
-      if (a.length !== b.length) return false;
-      for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) return false;
-      }
-      return true;
-    }
-    */
     new Vue({
       el: '#app',
       data () {
         return {
           articles: null,
-          isLoaded: false
+          isLoaded: false,
+          formdata : {EMAIL:null},
+          emailadded:false
         }
       },
       mounted () {
@@ -216,7 +138,20 @@
           .get('/api/v1/rest/output/articles')
           .then(response => (this.articles = response.data))
           .then(this.isLoaded = true)
+      },
+      methods:{
+        submitForm(){
+            axios.post('/api/v1/email', this.formdata)
+                 .then((res) => {
+                    this.emailadded = true
+                 })
+                 .catch((error) => {
+                     // error.response.status Check status code
+                 }).finally(() => {
+                     
+                 });
         }
+      } 
     })
   </script>
 

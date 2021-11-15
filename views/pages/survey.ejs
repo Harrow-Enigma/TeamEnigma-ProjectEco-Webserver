@@ -19,7 +19,7 @@
 
 
         <!-- Carousel Content -->
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="false" data-interval="500">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="false" data-interval="100">
 
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -27,7 +27,7 @@
                   <div>
                     <h1 class="survey-title">We'll make this quick.</h1>
                     <div>
-                      <p id="instructions-text">There are 11 short questions, which will take approximately 3 minutes in total.</p>
+                      <p id="instructions-text">There are 5 short questions, which will take approximately 1 minute in total</p>
                       <p id="instructions-text">Click the "Next" button below to get started!</p>
                     </div>
                   </div>
@@ -42,21 +42,11 @@
                         <label class="survey-card-margin-gap" style="line-height: 18px;">
                           Rate out of 5 (higher = happier)<sup class="text-danger">*</sup>
                         </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q1" value="1" required>1
+
+                        <label v-for="n in 5" class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q1" :value="n" v-model="questions.q1" required>{{n}}
                         </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q1" value="2" required>2
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q1" value="3" required>3
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q1" value="4" required>4
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q1" value="5" required>5
-                        </label>
+
                       </div>
                     </div>
                   </div>
@@ -70,20 +60,8 @@
                         <label class="survey-card-margin-gap" style="line-height: 18px;">
                           Rate out of 5 (higher = better)<sup class="text-danger">*</sup>
                         </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q2" value="1" required>1
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q2" value="2" required>2
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q2" value="3" required>3
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q2" value="4" required>4
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q2" value="5" required>5
+                        <label v-for="n in 5" class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q2" :value="n" v-model="questions.q2" required>{{n}}
                         </label>
                       </div>
                     </div>
@@ -99,20 +77,8 @@
                         <label class="survey-card-margin-gap" style="line-height: 18px;">
                           Rate out of 5 (higher = more stressful)<sup class="text-danger">*</sup>
                         </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q3" value="1" required>1
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q3" value="2" required>2
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q3" value="3" required>3
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q3" value="4" required>4
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q3" value="5" required>5
+                        <label v-for="n in 5" class="radio-label-vertical">
+                          <input class="form-check-input" type="radio" name="q3" :value="n" v-model="questions.q3" required>{{n}}
                         </label>
                       </div>
                     </div>
@@ -130,10 +96,10 @@
                           Choose Yes / No<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="yes" required>Yes
+                          <input class="form-check-input" type="radio" name="q4" value="yes" required v-model="questions.q4">Yes
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q4" value="no" required>No
+                          <input class="form-check-input" type="radio" name="q4" value="no" required v-model="questions.q4">No
                         </label>
                       </div>
                     </div>
@@ -150,10 +116,10 @@
                           Choose Yes / No<sup class="text-danger">*</sup>
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="yes" required>Yes
+                          <input class="form-check-input" type="radio" name="q5" value="yes" required v-model="questions.q5">Yes
                         </label>
                         <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q5" value="no" required>No
+                          <input class="form-check-input" type="radio" name="q5" value="no" required v-model="questions.q5">No
                         </label>
                       </div>
                     </div>
@@ -168,146 +134,43 @@
                         This will allow us to get weather data in your area.
                       </label>
                     </div>
-                    <script type="text/javascript">
-                      /*
-                      can't do this anymore :/
-                      $(function() {
-                        $("input[name^='q'][name!='q6.1'][name!='q6.2'][name!='q7.1'][name!='q7.2'][name!='q7.3'][name!='q7.4'][name!='q7.5']").click(function() {
-                          $(".carousel").carousel("next");
-                        });
-                      });
-                      */
+                    <span  v-if="errorStr!=null" class="survey-longlat-inputs"><b>Error : {{errorStr}}</b></span>
+                    <span  v-if="errorStr==null" class="survey-longlat-inputs">
                       
+                      <input  type="hidden" placeholder="Your Latitude..." type="text" class="form-control" name="q6.1" id="q6.1" novalidate style="margin-top: 10px;" v-model="questions.q6.latitude"></input>
+                      <input  type="hidden" placeholder="Your Longitude..." type="text" class="form-control" name="q6.2" id="q6.2" novalidate style="margin-top: 10px;" v-model="questions.q6.longitude"></input> 
 
-
-                      function getLocationConstant() {
-                        if (navigator.geolocation) {
+                      <button type="button" class="btn btn-info" @click="locateMe" style="margin-top: 10px;" :disabled="gpsstatus ==2">
+                        <span v-if="gpsstatus==0">Use GPS</span>
+                        <span v-if="gpsstatus==1">
+                          <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </span>
+                        <span v-if="gpsstatus==2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                          </svg>
+                        </span>
                         
-                          
+                      </button>
+                      <button @click="useHarrowaslocation" onload="" type="button" class="btn btn-primary" style="margin-top: 10px;" :disabled="gpsstatus ==2">
+                        <span v-if="gpsstatus==0">I'm at Harrow</span>
+                        <span v-if="gpsstatus==1">
+                          <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </span>
 
-                          navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+                        <span v-if="gpsstatus==2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                          </svg>
+                        </span>
+                        
 
-                        } else {
-                          alert("Your browser or device doesn't support Geolocation");
-                        }
-                      }
-                      // If we have a successful location update
-                      function onGeoSuccess(event) {
-                        document.getElementById("q6.1").value = (Math.round(event.coords.latitude * 10000) / 10000).toString();
-                        document.getElementById("q6.2").value = (Math.round(event.coords.longitude * 10000) / 10000).toString();
-                      }
-                      // If something has gone wrong with the geolocation request
-                      function onGeoError(event) {
-                        alert("Error code " + event.code + ". " + event.message);
-                      }
-                    </script>
-                    <span class="survey-longlat-inputs">
-                      <input placeholder="Your Latitude..." type="text" class="form-control" name="q6.1" id="q6.1" novalidate style="margin-top: 10px;"></input>
-                      <input placeholder="Your Longitude..." type="text" class="form-control" name="q6.2" id="q6.2" novalidate style="margin-top: 10px;"></input>
-                      <button onload="initspinner()" type="button" class="btn btn-info" onclick="getLocationConstant()" style="margin-top: 10px;">
-                        Use GPS <br>
                       </button>
                     </span>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="form-el-2">
-                    <div>
-                      <h2 class="survey-card-title">How much physical activity have you done today?</h2>
-                      <label class="survey-card-margin-gap" style="line-height: 18px;">
-                        In hours, e.g. walking, running, sports...<sup class="text-danger">*</sup>
-                      </label>
-                      <div>
-                        <input type="text" class="form-control" name="q7.1" id="q7.1" min="1" max="24" style="max-width: 100px; margin: 0 auto;"></input>
-                        <span>hours</span>
-                      </div>
-                    </div>
-                  </div>
-                <section style="height: 2vh;"></section>
-                <div class="form-el-2" style="margin-bottom: 50px;">
-                  <div>
-                    <h2 class="survey-card-title">How many hours did you sleep?</h2>
-                    <label class="survey-card-margin-gap" style="line-height: 18px;">
-                      In hours<sup class="text-danger">*</sup>
-                    </label>
-                    <div>
-                      <input type="text" class="form-control" name="q7.2" id="q7.2" min="1" max="24" style="max-width: 100px; margin: 0 auto;"></input>
-                      <span>hours</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="form-el-2">
-                  <div>
-                    <h2 class="survey-card-title">How hungry are you right now?</h2>
-                    <div>
-                      <label class="survey-card-margin-gap" style="line-height: 18px;">
-                        Rate out of 5 (higher = more hungry)<sup class="text-danger">*</sup>
-                      </label>
-                    </div>
-                    <div class="radio-label-vertical-wrapper">
-                      <div class="form-group">
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.3" value="1" required>1
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.3" value="2" required>2
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.3" value="3" required>3
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.3" value="4" required>4
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.3" value="5" required>5
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <section style="height: 2vh;"></section>
-                <div class="form-el-2" style="margin-bottom: 50px;">
-                  <div>
-                    <h2 class="survey-card-title">How heavy was your workload today?</h2>
-                    <div class="radio-label-vertical-wrapper">
-                      <div class="form-group">
-                        <label class="survey-card-margin-gap" style="line-height: 18px;">
-                          Rate out of 5 (higher = more work)<sup class="text-danger">*</sup>
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.4" value="1" required>1
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.4" value="2" required>2
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.4" value="3" required>3
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.4" value="4" required>4
-                        </label>
-                        <label class="radio-label-vertical">
-                          <input class="form-check-input" type="radio" name="q7.4" value="5" required>5
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="form-el">
-                  <div>
-                    <h2>How many hours have you spent outdoors?</h2>
-                    <label style="line-height: 18px; margin-bottom: 30px;">
-                      Enter no. of hours<sup class="text-danger">*</sup>
-                    </label>
-                    <div>
-                      <input type="text" class="form-control" name="q7.5" id="q7.5" min="0" max="24" style="max-width: 100px; margin: 0 auto;"></input>
-                      <span>hours</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -332,9 +195,6 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
               </div>
               <div style="padding-top: 10px;">
                 <!-- Carousel Controllers -->
@@ -357,20 +217,74 @@
       </div>
     </main>
 
-    <!---
-    <script>    
-      document.addEventListener("keydown", (e) => {
-        e.preventDefault()
-        switch(e.code) {
-          case "ArrowRight":
-            $('.carousel').carousel("next")
-            break
-          case "ArrowLeft":
-            $('.carousel').carousel("prev")
-            break
+    <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        gpsstatus:0,
+        location:null,
+        errorStr:null,
+        questions: {
+          q1:"",
+          q2:"",
+          q3:"",
+          q4:"",
+          q5:"",
+          q6:{
+            latitude:null,
+            longitude:null
+          }
         }
-      })
-    </script> -->
+      },
+      methods: {
+        useHarrowaslocation(){
+          this.gpsstatus=1;
+          
+          this.questions.q6.latitude = 51.573;
+          this.questions.q6.longitude = -0.337;
+
+          this.gpsstatus=2;
+
+        },
+
+        async getLocation() {
+          
+          return new Promise((resolve, reject) => {
+
+            if(!("geolocation" in navigator)) {
+              reject(new Error('Geolocation is not available.'));
+            }
+
+            navigator.geolocation.getCurrentPosition(pos => {
+              resolve(pos);
+            }, err => {
+              reject(err);
+            });
+
+          });
+        },
+        async locateMe() {
+
+          this.gettingLocation = true;
+          try {
+            this.gpsstatus=1;
+            this.location = await this.getLocation();
+
+            this.questions.q6.latitude = Math.floor(this.location.coords.latitude*1000+0.5)/1000;
+
+            this.questions.q6.longitude = Math.floor(this.location.coords.longitude*1000+0.5)/1000;
+
+            this.gpsstatus=2;
+          } catch(e) {
+            this.gpsstatus=1;
+            this.errorStr = e.message;
+          }
+          
+        }
+      }
+    })
+
+  </script>
 
     <!-- Include Footer -->
     <%- include('../partials/footer.ejs'); %>

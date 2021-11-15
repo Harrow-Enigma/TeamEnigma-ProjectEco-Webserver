@@ -19,9 +19,9 @@
     "views/pages/survey.ejs": [
       {
         "id": "46d82556-45bd-43b6-b0f8-d152b040bddb",
-        "line": 22,
-        "version": 28,
-        "index": 519
+        "line": 294,
+        "version": 1351,
+        "index": 13330
       }
     ],
     "views/static/js/universal/typingtext.js": [
@@ -36,8 +36,8 @@
       {
         "id": "b4e7e79e-8639-4991-aa32-33dff0f912c4",
         "line": 126,
-        "version": 1,
-        "index": 2166
+        "version": 4,
+        "index": 2167
       }
     ],
     "views/static/stylesheets/ai.css": [
@@ -58,16 +58,16 @@
       {
         "id": "b4fc1ff8-0d9e-4502-b758-9db85ee1908b",
         "line": 90,
-        "version": 1,
+        "version": 7,
         "index": 1796
       }
     ],
     "views/static/stylesheets/survey.css": [
       {
         "id": "b472dd31-e04b-4d27-ac6f-faf828e62574",
-        "line": 116,
-        "version": 1,
-        "index": 2217
+        "line": 123,
+        "version": 71,
+        "index": 2281
       }
     ]
   }

@@ -2,6 +2,7 @@ body {
   background-color: #F3F3F3;
 }
 
+
 .carousel-buttons {
   position: absolute;
   left: 50%;
@@ -9,6 +10,11 @@ body {
   width: 245px;
   border-radius: 15px;
 }
+
+.carousel-indicators [data-bs-target] {
+    width:100px
+  }
+
 .carousel-buttons > a {
   width: 120px;
 }
@@ -18,6 +24,7 @@ body {
   height: 200px;
   overflow: scroll;
 }
+
 
 #instructions-text {
   text-align: center;

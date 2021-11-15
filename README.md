@@ -6,6 +6,7 @@
 ## Introduction
 Project Eco is the first project of Team Enigma, the AI team of [Harrow School](https://www.harrowschool.org.uk). 
 
+<!--
 Project Eco consists of four main parts;
 
  - **A webserver (and by extension, a website)**
@@ -14,12 +15,13 @@ Project Eco consists of four main parts;
  - A set of forms
  
 
-*This repository is for code regarding the webserver*
+*This repository is for code regarding the webserver* -->
 
 ## Live Example
 This code is running live on Jenkins and is accessible at [projecteco.ml](https://projecteco.ml/)
 
 ## Details
+<!--
 ![enter image description here](https://raw.githubusercontent.com/DylanK46/TeamEngima-ProjectEco-Webserver/54e5729d56fce9383a1753efde4e51c23b027654/docs/diagram.svg)
 ## Webserver Technologies
 The webserver should aim to be a MEVN stack; Containing:
@@ -36,6 +38,8 @@ It should have a Bootstrap frontend with Angular, possibly with utilities such a
 
 It could eventually be placed into a Docker Container for easy deployment.
 UPDATE : Using CD with github actions / Jenkins might provide the best solution
+
+-->
 
 ## Explaination
 A more detailed explaination can be found [here](https://github.com/Harrow-Enigma/minutes/blob/main/20210327%20-%20Team%20Enigma%20Planning%20Meeting%20Summary.md#the-ecoproject).
