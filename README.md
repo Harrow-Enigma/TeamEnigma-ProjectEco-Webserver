@@ -18,7 +18,7 @@ Project Eco consists of four main parts;
 *This repository is for code regarding the webserver* -->
 
 ## Live Example
-This code is running live on Jenkins and is accessible at [projecteco.ml](https://projecteco.ml/)
+This code is running live on Microsoft Azure and is accessible at [projecteco.ml](https://projecteco.ml/)
 
 ## Details
 <!--
